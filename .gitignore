@@ -1,0 +1,27 @@
+artifact/
+txData/
+server/cache
+server/db
+server/config/database.ptr.cfg
+server/config/mongodb.ptr.cfg
+server/config/core.ptr.cfg
+server/server.ptr.cfg
+.vscode/
+.yarn/
+*.bat
+*.log
+node_modules
+*.bkp
+.replxx_history
+
+# linux only
+*.sh
+alpine/
+imgui.ini
+yarn.lock
+
+polyzone_created_zones.txt
+
+server/created_doors_data.txt
+
+coord-line/

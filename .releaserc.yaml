@@ -1,0 +1,86 @@
+branch: main
+ci: true
+preset: "conventionalcommits"
+tagFormat: "${version}"
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/release-notes-generator"
+  - "@semantic-release/changelog"
+  - "@semantic-release/git"
+  - "@semantic-release/github"
+  - "semantic-release-gitmoji"
+verifyConditions:
+  - "@semantic-release/changelog"
+  - '@semantic-release/git'
+  - "@semantic-release/github"
+analyzeCommits:
+  - path: "@semantic-release/commit-analyzer"
+    releaseRules:
+    - type: "feat"
+      release: "patch"
+    - type: "hotfix"
+      release: "patch"
+    - type: "patch"
+      release: "patch"
+    - type: "minor"
+      release: "patch"
+    - type: "breaking"
+      release: "minor"
+generateNotes:
+  - path: "@semantic-release/release-notes-generator"
+    writerOpts:
+      groupBy: "type"
+      commitGroupsSort:
+        - "feat"
+        - "perf"
+        - "fix"
+      commitsSort: "header"
+    linkCompare: false
+    linkReferences: false
+    types:
+      - type: 'build'
+        section: '🦊 CI/CD'
+        hidden: false
+      - type: 'chore'
+        section: 'Other'
+        hidden: true
+      - type: 'ci'
+        section: '🦊 CI/CD'
+        hidden: false
+      - type: 'docs'
+        section: '📔 Docs'
+        hidden: true
+      - type: 'example'
+        section: '📝 Examples'
+        hidden: false
+      - type: 'feat'
+        section: '🚀 Features'
+        hidden: false
+      - type: 'fix'
+        section: '🐛 Fixes'
+        hidden: false
+      - type: 'perf'
+        section: '⏩ Performance'
+      - type: 'refactor'
+        section: ':scissors: Refactor'
+        hidden: false
+      - type: 'revert'
+        section: '🙅‍♂️ Reverts'
+      - type: 'style'
+        section: '💈 Style'
+      - type: 'test'
+        section: '🧪 Tests'
+        hidden: true
+prepare:
+  - path: "@semantic-release/changelog"
+  - path: "@semantic-release/git"
+    message: 'RELEASE: ${nextRelease.version}'
+    assets: ['CHANGELOG.md']
+publish:
+  - path: "@semantic-release/github"
+
+success:
+  - "@semantic-release/github"
+
+fail:
+  - "@semantic-release/github"
