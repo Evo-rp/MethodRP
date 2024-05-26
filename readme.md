@@ -1,5 +1,5 @@
-![Logo](https://i.ibb.co/Tm01NWq/banner.png)
-# SandboxRP
+
+# MethodRP
 A FiveM Community Server
 
 ## Dependencies
@@ -23,7 +23,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd sandboxrp-server
+  cd MethodRP-server
 ```
 
 Download latest FiveM Windows Artifact
