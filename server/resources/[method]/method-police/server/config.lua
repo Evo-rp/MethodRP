@@ -4,7 +4,7 @@ Config = {
 		oxy = "OxyContin",
 	},
 	CuffItems = {
-		{ item = "pdhandcuffs", count = 1 },
+		-- { item = "pdhandcuffs", count = 1 },
 		{ item = "handcuffs", count = 1 },
 		{ item = "fluffyhandcuffs", count = 1 },
 	},
