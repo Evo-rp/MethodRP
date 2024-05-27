@@ -8,7 +8,7 @@ Config = {
 		"Exiting",
 	},
 	Settings = {
-		QueueDelay = 1,
+		QueueDelay = 0.25,
 		MaxTimeBoost = 30,
 		Grace = 5,
 		AllowedPerTick = 20,
