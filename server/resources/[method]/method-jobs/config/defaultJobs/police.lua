@@ -316,7 +316,7 @@ table.insert(_defaultJobData, {
 		},
 		{
 			Id = "bcso",
-			Name = "Blaine County Sheriff's Office",
+			Name = "Los Santos County Sheriff's Office",
 			Grades = {
 				{
 					Id = "sheriff",
@@ -621,7 +621,7 @@ table.insert(_defaultJobData, {
 		},
 		{
 			Id = "sast",
-			Name = "San Andreas State Troopers",
+			Name = "San Andreas State Police",
 			Grades = {
 				{
 					Id = "colonel",
