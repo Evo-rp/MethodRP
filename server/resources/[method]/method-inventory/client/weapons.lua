@@ -116,6 +116,7 @@ AddEventHandler("Core:Shared:Ready", function()
 				_equipped = nil
 				_equippedData = nil
 				_equippedHash = nil
+				LocalPlayer.state:set("CurrentWeapon", nil, true)
 				TriggerEvent("Weapons:Client:SwitchedWeapon", false)
 				SendNUIMessage({
 					type = "SET_EQUIPPED",
@@ -573,6 +574,7 @@ WEAPONS = {
 			}
 		})
 
+		LocalPlayer.state:set("CurrentWeapon", item.Name, true)
 		RunDegenThread()
 	end,
 	UnequipIfEquipped = function(self)
@@ -599,6 +601,8 @@ WEAPONS = {
 					item = _equipped,
 				}
 			})
+
+			LocalPlayer.state:set("CurrentWeapon", nil, true)
 		end
 	end,
 	Unequip = function(self, item, diff)
