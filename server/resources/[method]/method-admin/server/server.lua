@@ -196,29 +196,29 @@ function RegisterChatCommands()
 		help = "[Dev] Get Closest Property Data",
 	}, 0)
 
-	-- Chat:RegisterStaffCommand("record", function(source, args, rawCommand)
-	-- 	TriggerClientEvent("Admin:Client:Recording", source, 'record')
-	-- end, {
-	-- 	help = "[Staff] Record With R* Editor",
-	-- }, 0)
+	Chat:RegisterStaffCommand("record", function(source, args, rawCommand)
+		TriggerClientEvent("Admin:Client:Recording", source, 'record')
+	end, {
+		help = "[Staff] Record With R* Editor",
+	}, 0)
 
-	-- Chat:RegisterStaffCommand("recordstop", function(source, args, rawCommand)
-	-- 	TriggerClientEvent("Admin:Client:Recording", source, 'stop')
-	-- end, {
-	-- 	help = "[Staff] Record With R* Editor",
-	-- }, 0)
+	Chat:RegisterStaffCommand("recordstop", function(source, args, rawCommand)
+		TriggerClientEvent("Admin:Client:Recording", source, 'stop')
+	end, {
+		help = "[Staff] Record With R* Editor",
+	}, 0)
 
-	-- Chat:RegisterStaffCommand("recorddel", function(source, args, rawCommand)
-	-- 	TriggerClientEvent("Admin:Client:Recording", source, 'delete')
-	-- end, {
-	-- 	help = "[Staff] Record With R* Editor",
-	-- }, 0)
+	Chat:RegisterStaffCommand("recorddel", function(source, args, rawCommand)
+		TriggerClientEvent("Admin:Client:Recording", source, 'delete')
+	end, {
+		help = "[Staff] Record With R* Editor",
+	}, 0)
 
-	-- Chat:RegisterStaffCommand("recordedit", function(source, args, rawCommand)
-	-- 	TriggerClientEvent("Admin:Client:Recording", source, 'editor')
-	-- end, {
-	-- 	help = "[Staff] Record With R* Editor",
-	-- }, 0)
+	Chat:RegisterStaffCommand("recordedit", function(source, args, rawCommand)
+		TriggerClientEvent("Admin:Client:Recording", source, 'editor')
+	end, {
+		help = "[Staff] Record With R* Editor",
+	}, 0)
 
 	Chat:RegisterAdminCommand("setped", function(source, args, rawCommand)
 		TriggerClientEvent("Admin:Client:ChangePed", source, args[1])
