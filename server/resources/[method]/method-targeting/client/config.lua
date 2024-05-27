@@ -858,7 +858,7 @@ Config.PlayerMenu = {
 		data = {},
 		minDist = 1.5,
 		anyItems = {
-			{ item = "pdhandcuffs", count = 1 },
+			-- { item = "pdhandcuffs", count = 1 },
 			{ item = "handcuffs", count = 1 },
 			{ item = "fluffyhandcuffs", count = 1 },
 		},
@@ -873,7 +873,7 @@ Config.PlayerMenu = {
 		data = {},
 		minDist = 1.5,
 		anyItems = {
-			{ item = "pdhandcuffs", count = 1 },
+			-- { item = "pdhandcuffs", count = 1 },
 			{ item = "handcuffs", count = 1 },
 			{ item = "fluffyhandcuffs", count = 1 },
 		},
@@ -888,7 +888,7 @@ Config.PlayerMenu = {
 		data = {},
 		minDist = 1.5,
 		anyItems = {
-			{ item = "pdhandcuffs", count = 1 },
+			-- { item = "pdhandcuffs", count = 1 },
 			{ item = "handcuffs", count = 1 },
 			{ item = "fluffyhandcuffs", count = 1 },
 		},
@@ -904,7 +904,7 @@ Config.PlayerMenu = {
 		data = {},
 		minDist = 1.5,
 		anyItems = {
-			{ item = "pdhandcuffs", count = 1 },
+			-- { item = "pdhandcuffs", count = 1 },
 			{ item = "handcuffs", count = 1 },
 			{ item = "fluffyhandcuffs", count = 1 },
 		},

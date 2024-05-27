@@ -74,7 +74,7 @@ Config.ShopItemSets = {
 	[6] = {
 		"pdarmor",
 		"ifak",
-		"pdhandcuffs",
+		"handcuffs",
 		"spikes",
 		"WEAPON_FLASHLIGHT",
 		"WEAPON_TASER",
@@ -111,7 +111,7 @@ Config.ShopItemSets = {
 		"pdarmor",
 		"traumakit",
 		"ifak",
-		"pdhandcuffs",
+		"handcuffs",
 		"WEAPON_FLASHLIGHT",
 		"WEAPON_TASER",
 		"WEAPON_BEANBAG",
