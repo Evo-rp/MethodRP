@@ -730,9 +730,9 @@ function RunBankingStartup()
 	end
 	_startup = true
 
-	local stateAccount = MySQL.single.await("SELECT * FROM bank_accounts WHERE type = ? AND owner = ?", {
+	local stateAccount = MySQL.single.await("SELECT * FROM bank_accounts WHERE type = ? AND account = ?", {
 		"organization",
-		'government',
+		100000,
 	})
 
 	if not stateAccount then
