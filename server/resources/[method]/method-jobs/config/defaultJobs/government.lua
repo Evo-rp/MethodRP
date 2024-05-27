@@ -21,6 +21,62 @@ table.insert(_defaultJobData, {
 				{
 					Id = "judge",
 					Name = "Judge",
+					Level = 50,
+					Permissions = {
+						FLEET_VEHICLES_0 = true,
+						FLEET_VEHICLES_1 = true,
+						FLEET_VEHICLES_2 = true,
+						FLEET_VEHICLES_3 = true,
+						MDT_HIRE = true,
+						MDT_FIRE = true,
+						MDT_EDIT_EMPLOYEE = true,
+						MDT_INCIDENT_REPORT_VIEW = true,
+						MDT_INVESTIGATIVE_REPORT_VIEW = true,
+						MDT_CIVILIAN_REPORT_VIEW = true,
+						MDT_JUDGE_REPORTS = true,
+
+						JOB_STORAGE = true,
+
+						BANK_ACCOUNT_BILL = true,
+						BANK_ACCOUNT_DEPOSIT = true,
+						BANK_ACCOUNT_TRANSACTIONS = true,
+
+						STATE_ACCOUNT_DEPOSIT = true,
+					},
+				},
+				{
+					Id = "hjudge",
+					Name = "Head Judge",
+					Level = 75,
+					Permissions = {
+						FLEET_VEHICLES_0 = true,
+						FLEET_VEHICLES_1 = true,
+						FLEET_VEHICLES_2 = true,
+						FLEET_VEHICLES_3 = true,
+						MDT_HIRE = true,
+						MDT_FIRE = true,
+						MDT_EDIT_EMPLOYEE = true,
+						MDT_INCIDENT_REPORT_VIEW = true,
+						MDT_INVESTIGATIVE_REPORT_VIEW = true,
+						MDT_CIVILIAN_REPORT_VIEW = true,
+						MDT_JUDGE_REPORTS = true,
+
+						JOB_STORAGE = true,
+
+						BANK_ACCOUNT_BILL = true,
+						BANK_ACCOUNT_MANAGE = true,
+						BANK_ACCOUNT_DEPOSIT = true,
+						BANK_ACCOUNT_WITHDRAW = true,
+						BANK_ACCOUNT_TRANSACTIONS = true,
+						BANK_ACCOUNT_BALANCE = true,
+
+						STATE_ACCOUNT_DEPOSIT = true,
+						STATE_ACCOUNT_BALANCE = true,
+					},
+				},
+				{
+					Id = "judge",
+					Name = "Justice",
 					Level = 90,
 					Permissions = {
 						FLEET_VEHICLES_0 = true,
@@ -50,7 +106,7 @@ table.insert(_defaultJobData, {
 				},
 				{
 					Id = "sjudge",
-					Name = "Superior Court Judge",
+					Name = "Chief Justice",
 					Level = 99,
 					Permissions = {
 						FLEET_VEHICLES_0 = true,
@@ -94,15 +150,15 @@ table.insert(_defaultJobData, {
 			Id = "dattorney",
 			Name = "District Attorney's Office",
 			Grades = {
-				{
-					Id = "prosecutor",
-					Name = "Prosecutor",
-					Level = 10,
-					Permissions = {
-						MDT_DA_REPORTS = true,
-						MDT_INCIDENT_REPORT_VIEW = true,
-					},
-				},
+				-- {
+				-- 	Id = "prosecutor",
+				-- 	Name = "Prosecutor",
+				-- 	Level = 10,
+				-- 	Permissions = {
+				-- 		MDT_DA_REPORTS = true,
+				-- 		MDT_INCIDENT_REPORT_VIEW = true,
+				-- 	},
+				-- },
 				{
 					Id = "ada",
 					Name = "Asst. District Attorney",
