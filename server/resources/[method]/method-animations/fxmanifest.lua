@@ -5,7 +5,6 @@ client_script("@method-base/components/cl_error.lua")
 client_script("@method-pwnzor/client/check.lua")
 
 client_scripts({
-	"shared/**/*.lua",
 	"config/*.lua",
 	"client/utils.lua",
 	"client/main.lua",
@@ -22,7 +21,6 @@ client_scripts({
 })
 
 server_scripts({
-	"shared/**/*.lua",
 	"config/*.lua",
 	"server/*.lua",
 })

@@ -2,10 +2,8 @@ artifact/
 txData/
 server/cache
 server/db
-server/config/database.ptr.cfg
-server/config/mongodb.ptr.cfg
-server/config/core.ptr.cfg
-server/config/server.cfg
+server/config/database.cfg
+server/config/mongodb.cfg
 .vscode/
 .yarn/
 *.bat
