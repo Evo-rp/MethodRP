@@ -86,18 +86,6 @@ function StartThreads()
 		end
 	end)
 
-	Citizen.CreateThread(function()
-		while LocalPlayer.state.loggedIn do
-			local cw = GetSelectedPedWeapon(LocalPlayer.state.ped)
-			if cw then
-				if IsPedShooting(LocalPlayer.state.ped) and not _ignored[cw] then
-					LocalPlayer.state:set("GSR", GetCloudTimeAsInt(), true)
-				end
-			end
-			Citizen.Wait(2)
-		end
-	end)
-
 	local _blacklistedWeps = {
 		[`WEAPON_UNARMED`] = true,
 		[`WEAPON_FLASHLIGHT`] = true,
@@ -119,3 +107,17 @@ function StartThreads()
 		end
 	end)
 end
+
+local timeOut = false
+AddEventHandler('CEventGunShot', function(entities, eventEntity, args)
+	if timeOut then return end
+	if _ignored[LocalPlayer.state.CurrentWeapon] then return end
+	if eventEntity ~= LocalPlayer.state.ped then return end
+
+	timeOut = true
+	SetTimeout(1000, function()
+		timeOut = false
+	end)
+
+	LocalPlayer.state:set("GSR", GetCloudTimeAsInt(), true)
+end)
