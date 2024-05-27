@@ -101,7 +101,7 @@ function RegisterRandomItems()
 		-- TriggerClientEvent('Inventory:Client:RandomItems:BriefcaseCash', source)
 		-- Banking.Balance:Deposit(Banking.Accounts:GetPersonal(char:GetData("SID")).Account, Winnings, {
 		-- 	type = "deposit",
-		-- 	title = "Sandbox Lotto Event",
+		-- 	title = "Method Lotto Event",
 		-- 	description = string.format("Lotto Earnings - $%s", Winnings),
 		-- 	data = Winnings
 		-- })

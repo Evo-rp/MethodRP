@@ -1,4 +1,4 @@
-print("Sandbox-DJBooth")
+print("Method-DJBooth")
 
 Config = {
 	Debug = false, -- Set to true to show target locations

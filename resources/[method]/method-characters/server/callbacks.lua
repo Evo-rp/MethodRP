@@ -10,7 +10,7 @@ function RegisterCallbacks()
 			Citizen.Wait(1000)
 		end
 
-		local motd = GetConvar("motd", "Welcome to SandboxRP")
+		local motd = GetConvar("motd", "Welcome to MethodRP")
 		Database.Game:find({
 			collection = "changelogs",
 			options = {

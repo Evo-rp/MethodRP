@@ -79,7 +79,7 @@ export default (props) => {
 							</b>
 						)
 					}
-					Welcome To SandboxRP
+					Welcome To MethodRP
 				</span>
 				<span className={classes.splashTip}>
 					{`Loading Into Server `}

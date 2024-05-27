@@ -17,7 +17,7 @@ function Startup()
 	})
 	-- Delete Warrants That Expired Over a Month Ago
 	-- error reported 8/21/23 @ 11am restart
-	-- Cannot delete or update a parent row: a foreign key constraint fails (`fivem-sandboxrp_prod`.`mdt_reports_people`, CONSTRAINT `FK2_mdt_reports_people` FOREIGN KEY (`warrant`) REFERENCES `mdt_warrants` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+	-- Cannot delete or update a parent row: a foreign key constraint fails (`fivem-Methodrp_prod`.`mdt_reports_people`, CONSTRAINT `FK2_mdt_reports_people` FOREIGN KEY (`warrant`) REFERENCES `mdt_warrants` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
 	-- Commenting out for now
 	-- MySQL.query.await("DELETE FROM mdt_warrants WHERE expires < now() - interval 30 DAY")
 

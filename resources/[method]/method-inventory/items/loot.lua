@@ -2,7 +2,7 @@ _itemsSource["loot"] = {
 	{
 		name = "briefcase_cash",
 		label = "Briefcase",
-		description = "Sandbox Lotto Event",
+		description = "Method Lotto Event",
 		price = 25000,
 		isUsable = true,
 		isStackable = false,
