@@ -24,61 +24,6 @@ local _ignored = {
 function StartThreads()
 	Citizen.CreateThread(function()
 		while LocalPlayer.state.loggedIn do
-			local cw = GetSelectedPedWeapon(LocalPlayer.state.ped)
-			local isArmed = false
-			local isOrigin = false
-			if not _ignored[cw] then
-				if not isArmed then
-					if IsPedArmed(LocalPlayer.state.ped, 7) and not IsPedArmed(LocalPlayer.state.ped, 1) then
-						cw = GetSelectedPedWeapon(LocalPlayer.state.ped)
-						isArmed = true
-					end
-				end
-
-				if IsPedShooting(LocalPlayer.state.ped) and not _ignored[cw] then
-					if LocalPlayer.state.onDuty ~= "police" then
-						local veh = GetVehiclePedIsIn(LocalPlayer.state.ped)
-						if veh ~= 0 then
-							local r, g, b = GetVehicleCustomPrimaryColour(veh)
-
-							local vehModel = GetEntityModel(veh)
-							local vehName = GetLabelText(GetDisplayNameFromVehicleModel(vehModel))
-							if vehName == "NULL" then
-								vehName = GetDisplayNameFromVehicleModel(vehModel)
-							end
-
-							local vehEnt = Entity(veh)
-							if vehEnt and vehEnt.state and vehEnt.state.Make and vehEnt.state.Model then
-								vehName = vehEnt.state.Make .. " " .. vehEnt.state.Model
-							end
-
-							EmergencyAlerts:CreateIfReported(500.0, "shotsfiredvehicle", true, {
-								icon = "car",
-								details = vehName,
-								vehicleColor = {
-									r = r,
-									g = g,
-									b = b,
-								},
-							})
-						elseif IsPedCurrentWeaponSilenced(LocalPlayer.state.ped) then
-							EmergencyAlerts:CreateIfReported(10.0, "shotsfired", true)
-						else
-							EmergencyAlerts:CreateIfReported(900.0, "shotsfired", true)
-						end
-					end
-					Citizen.Wait(60000)
-				end
-			else
-				Citizen.Wait(1000)
-			end
-
-			Citizen.Wait(50)
-		end
-	end)
-
-	Citizen.CreateThread(function()
-		while LocalPlayer.state.loggedIn do
 			if LocalPlayer.state.GSR and IsPedSwimming(LocalPlayer.state.ped) then
 				LocalPlayer.state:set("GSR", nil, true)
 			end
@@ -87,7 +32,7 @@ function StartThreads()
 	end)
 end
 
-local timeOut, stressTimeout = false, false
+local timeOut, stressTimeout, alertTimeout = false, false, false
 AddEventHandler('CEventGunShot', function(entities, eventEntity, args)
 	if timeOut then return end
 	if _ignored[LocalPlayer.state.CurrentWeapon] then return end
@@ -100,8 +45,49 @@ AddEventHandler('CEventGunShot', function(entities, eventEntity, args)
 
 	if not stressTimeout then
 		stressTimeout = true
-		SetTimeout(40000, function()
 			Status.Modify:Add("PLAYER_STRESS", 1, false, true)
+		SetTimeout(40000, function()
+			stressTimeout = false
+		end)
+	end
+
+	local luck = math.random(0, 1)
+	if not alertTimeout and LocalPlayer.state.onDuty ~= "police" and luck == 0 then
+		alertTimeout = true
+
+		local veh = GetVehiclePedIsIn(LocalPlayer.state.ped, false)
+
+		if veh ~= 0 then
+			local r, g, b = GetVehicleCustomPrimaryColour(veh)
+
+			local vehModel = GetEntityModel(veh)
+			local vehName = GetLabelText(GetDisplayNameFromVehicleModel(vehModel))
+			if vehName == "NULL" then
+				vehName = GetDisplayNameFromVehicleModel(vehModel)
+			end
+
+			local vehEnt = Entity(veh)
+			if vehEnt and vehEnt.state and vehEnt.state.Make and vehEnt.state.Model then
+				vehName = vehEnt.state.Make .. " " .. vehEnt.state.Model
+			end
+
+			EmergencyAlerts:CreateIfReported(500.0, "shotsfiredvehicle", true, {
+				icon = "car",
+				details = vehName,
+				vehicleColor = {
+					r = r,
+					g = g,
+					b = b,
+				},
+			})
+		elseif IsPedCurrentWeaponSilenced(LocalPlayer.state.ped) then
+			EmergencyAlerts:CreateIfReported(10.0, "shotsfired", true)
+		else
+			EmergencyAlerts:CreateIfReported(900.0, "shotsfired", true)
+		end
+
+		SetTimeout(60000, function()
+			alertTimeout = false
 		end)
 	end
 
