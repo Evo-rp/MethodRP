@@ -80,9 +80,7 @@ end
 	out || text || Call ||
 --]]
 function PhonePlayAnim(status, freeze, force)
-	print("PhonePlayAnim", status, freeze, force)
 	if currentStatus == status and force ~= true then
-		print('1')
 		return
 	end
 
@@ -93,7 +91,6 @@ function PhonePlayAnim(status, freeze, force)
 		dict = "anim@cellphone@in_car@ps"
 	end
 	loadAnimDict(dict)
-	print('2')
 	local anim = ANIMS[dict][currentStatus][status]
 	if currentStatus ~= "out" then
 		StopAnimTask(myPedId, lastDict, lastAnim, 1.0)
@@ -103,15 +100,12 @@ function PhonePlayAnim(status, freeze, force)
 		flag = 18
 	end
 
-	print('3')
 	TaskPlayAnim(myPedId, dict, anim, 3.0, -1, -1, flag, 0, false, false, false)
 
 	if status ~= "out" and currentStatus == "out" then
-		Citizen.Wait(380)
+		Wait(380)
 		newPhoneProp()
 	end
-
-	print('4')
 
 	lastDict = dict
 	lastAnim = anim
@@ -119,7 +113,7 @@ function PhonePlayAnim(status, freeze, force)
 	currentStatus = status
 
 	if status == "out" then
-		Citizen.Wait(180)
+		Wait(180)
 		StopAnimTask(myPedId, lastDict, lastAnim, 1.0)
 	end
 end
