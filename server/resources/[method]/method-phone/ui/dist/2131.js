@@ -1,1 +1,1 @@
-(self.webpackChunksandbox_phone=self.webpackChunksandbox_phone||[]).push([[2131],{72131:()=>{}}]);
+(self.webpackChunkmethod_phone=self.webpackChunkmethod_phone||[]).push([[2131],{72131:()=>{}}]);

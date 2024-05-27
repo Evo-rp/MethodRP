@@ -5,7 +5,7 @@
 local myPedId = nil
 
 local phoneProp = 0
-local phoneModel = `ifruit_12`
+local phoneModel = `prop_phone_cs_frank`
 -- OR "prop_npc_phone"
 -- OR "prop_npc_phone_02"
 -- OR "prop_cs_phone_01"
@@ -54,17 +54,16 @@ function newPhoneProp()
 	deletePhone()
 	RequestModel(phoneModel)
 	while not HasModelLoaded(phoneModel) do
-		Citizen.Wait(1)
+		Wait(1)
 	end
-	phoneProp = CreateObject(phoneModel, 1.0, 1.0, 1.0, 1, 1, 0)
+	phoneProp = CreateObject(phoneModel, 1.0, 1.0, 1.0, true, true, false)
 	SetEntityCollision(phoneProp, false, false)
 
-	local bone = GetPedBoneIndex(myPedId, 28422)
-	AttachEntityToEntity(phoneProp, myPedId, bone, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 0, 0, 2, 1)
-
-	Citizen.CreateThread(function()
+	local bone = GetPedBoneIndex(LocalPlayer.state.ped, 28422)
+	AttachEntityToEntity(phoneProp, LocalPlayer.state.ped, bone, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, false, 2, true)
+	CreateThread(function()
 		while LocalPlayer.state.phoneOpen or _call ~= nil do
-			Citizen.Wait(3)
+			Wait(3)
 		end
 		deletePhone()
 	end)
@@ -81,7 +80,9 @@ end
 	out || text || Call ||
 --]]
 function PhonePlayAnim(status, freeze, force)
+	print("PhonePlayAnim", status, freeze, force)
 	if currentStatus == status and force ~= true then
+		print('1')
 		return
 	end
 
@@ -92,7 +93,7 @@ function PhonePlayAnim(status, freeze, force)
 		dict = "anim@cellphone@in_car@ps"
 	end
 	loadAnimDict(dict)
-
+	print('2')
 	local anim = ANIMS[dict][currentStatus][status]
 	if currentStatus ~= "out" then
 		StopAnimTask(myPedId, lastDict, lastAnim, 1.0)
@@ -102,12 +103,15 @@ function PhonePlayAnim(status, freeze, force)
 		flag = 18
 	end
 
+	print('3')
 	TaskPlayAnim(myPedId, dict, anim, 3.0, -1, -1, flag, 0, false, false, false)
 
 	if status ~= "out" and currentStatus == "out" then
 		Citizen.Wait(380)
 		newPhoneProp()
 	end
+
+	print('4')
 
 	lastDict = dict
 	lastAnim = anim

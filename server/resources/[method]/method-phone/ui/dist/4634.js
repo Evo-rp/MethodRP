@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunksandbox_phone=self.webpackChunksandbox_phone||[]).push([[4634],{34634:(e,s,b)=>{b.r(s),b.d(s,{default:()=>n});const n=b.p+"21dbe670b3f35249484771f7327c9278.webp"}}]);
+"use strict";(self.webpackChunkmethod_phone=self.webpackChunkmethod_phone||[]).push([[4634],{34634:(e,h,p)=>{p.r(h),p.d(h,{default:()=>s});const s=p.p+"21dbe670b3f35249484771f7327c9278.webp"}}]);
