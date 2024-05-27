@@ -5,7 +5,7 @@ server/db
 server/config/database.ptr.cfg
 server/config/mongodb.ptr.cfg
 server/config/core.ptr.cfg
-server/server.ptr.cfg
+server/config/server.cfg
 .vscode/
 .yarn/
 *.bat
