@@ -81,7 +81,7 @@ QUEUE.Queue = {
 
 		table.insert(Data.Queue, player)
 		Log(
-			string.format(
+			print(
 				Config.Strings.Add,
 				player.Name,
 				player.AccountID,
