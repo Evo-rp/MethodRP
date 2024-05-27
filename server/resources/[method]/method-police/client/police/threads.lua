@@ -18,21 +18,7 @@ local _ignored = {
 	[`WEAPON_PROXMINE`] = true,
 	[`WEAPON_PIPEBOMB`] = true,
 	[`WEAPON_SMOKEGRENADE`] = true,
-	[`WEAPON_FLARE`] = true,
-	[`WEAPON_FIREEXTINGUISHER`] = true,
-	[`WEAPON_PETROLCAN`] = true,
 	[`WEAPON_SNIPERRIFLE2`] = true, -- Hunting Rifle
-}
-
-local _excludes = {
-	{ coords = vector3(1713.17, 2586.68, 59.88), dist = 250 }, -- prison
-	{ coords = vector3(-106.63, 6467.72, 31.62), dist = 45 }, -- paleto bank
-	{ coords = vector3(251.21, 217.45, 106.28), dist = 20 }, -- city bank
-	{ coords = vector3(-622.25, -230.93, 38.05), dist = 10 }, -- jewlery store
-	{ coords = vector3(233.37, 373.31, 106.14), dist = 20 }, -- xgems
-	{ coords = vector3(699.91, 132.29, 80.74), dist = 55 }, -- power 1
-	{ coords = vector3(2739.55, 1532.99, 57.56), dist = 235 }, -- power 2
-	{ coords = vector3(12.53, -1097.99, 29.8), dist = 10 }, -- Adam's Apple / Pillbox Weapon shop
 }
 
 function StartThreads()
