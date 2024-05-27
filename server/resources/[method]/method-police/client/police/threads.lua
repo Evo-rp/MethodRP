@@ -85,30 +85,9 @@ function StartThreads()
 			Citizen.Wait(3000)
 		end
 	end)
-
-	local _blacklistedWeps = {
-		[`WEAPON_UNARMED`] = true,
-		[`WEAPON_FLASHLIGHT`] = true,
-	}
-	Citizen.CreateThread(function()
-		while LocalPlayer.state.loggedIn do
-			if not LocalPlayer.state.isDead then
-				if
-					not _blacklistedWeps[GetCurrentPedWeapon(LocalPlayer.state.ped, true)]
-					and IsPlayerFreeAiming(LocalPlayer.state.PlayerID)
-				then
-					Status.Modify:Add("PLAYER_STRESS", 1, false, true)
-					Citizen.Wait(40000)
-				end
-				Citizen.Wait(100)
-			else
-				Citizen.Wait(10000)
-			end
-		end
-	end)
 end
 
-local timeOut = false
+local timeOut, stressTimeout = false, false
 AddEventHandler('CEventGunShot', function(entities, eventEntity, args)
 	if timeOut then return end
 	if _ignored[LocalPlayer.state.CurrentWeapon] then return end
@@ -118,6 +97,13 @@ AddEventHandler('CEventGunShot', function(entities, eventEntity, args)
 	SetTimeout(1000, function()
 		timeOut = false
 	end)
+
+	if not stressTimeout then
+		stressTimeout = true
+		SetTimeout(40000, function()
+			Status.Modify:Add("PLAYER_STRESS", 1, false, true)
+		end)
+	end
 
 	LocalPlayer.state:set("GSR", GetCloudTimeAsInt(), true)
 end)
