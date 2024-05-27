@@ -13,11 +13,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for fivem-sandboxrp_prod
-CREATE DATABASE IF NOT EXISTS `fivem-sandboxrp_prod` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
-USE `fivem-sandboxrp_prod`;
+-- Dumping database structure for fivem-methodrp_prod
+CREATE DATABASE IF NOT EXISTS `fivem-methodrp_prod` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+USE `fivem-methodrp_prod`;
 
--- Dumping structure for table fivem-sandboxrp_prod.crafting_cooldowns
+-- Dumping structure for table fivem-methodrp_prod.crafting_cooldowns
 CREATE TABLE IF NOT EXISTS `crafting_cooldowns` (
   `bench` varchar(64) NOT NULL,
   `id` varchar(64) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `crafting_cooldowns` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_prod.inventory
+-- Dumping structure for table fivem-methodrp_prod.inventory
 CREATE TABLE IF NOT EXISTS `inventory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '0',
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `inventory` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_prod.inventory_shop_logs
+-- Dumping structure for table fivem-methodrp_prod.inventory_shop_logs
 CREATE TABLE IF NOT EXISTS `inventory_shop_logs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `inventory_shop_logs` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_prod.meth_tables
+-- Dumping structure for table fivem-methodrp_prod.meth_tables
 CREATE TABLE IF NOT EXISTS `meth_tables` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `tier` int(11) NOT NULL DEFAULT 1,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `meth_tables` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_prod.placed_meth_tables
+-- Dumping structure for table fivem-methodrp_prod.placed_meth_tables
 CREATE TABLE IF NOT EXISTS `placed_meth_tables` (
   `table_id` int(11) NOT NULL,
   `owner` bigint(20) DEFAULT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `placed_meth_tables` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_prod.placed_props
+-- Dumping structure for table fivem-methodrp_prod.placed_props
 CREATE TABLE IF NOT EXISTS `placed_props` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `model` varchar(255) NOT NULL DEFAULT '',
@@ -150,7 +150,7 @@ COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1;
 
--- Dumping structure for table fivem-sandboxrp_prod.character_parole
+-- Dumping structure for table fivem-methodrp_prod.character_parole
 CREATE TABLE IF NOT EXISTS `character_parole` (
   `SID` int(11) NOT NULL,
   `end` datetime NOT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `character_parole` (
   PRIMARY KEY (`SID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping structure for table fivem-sandboxrp_prod.mdt_charges
+-- Dumping structure for table fivem-methodrp_prod.mdt_charges
 CREATE TABLE IF NOT EXISTS `mdt_charges` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` tinyint(4) NOT NULL DEFAULT 1,
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `mdt_charges` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table fivem-sandboxrp_prod.mdt_charges: ~144 rows (approximately)
+-- Dumping data for table fivem-methodrp_prod.mdt_charges: ~144 rows (approximately)
 DELETE FROM `mdt_charges`;
 INSERT INTO `mdt_charges` (`id`, `type`, `title`, `description`, `fine`, `jail`, `points`) VALUES
 	(1, 3, 'Capital Murder', '1st Degree Murder with specific circumstances. The special circumstances are defined as such:- Killing a government employee;- Killing an active member of a jury;- Killing a witness to prevent testimony in court;- Killing more than one victim (serial);', 0, 999, 0),
@@ -321,7 +321,7 @@ INSERT INTO `mdt_charges` (`id`, `type`, `title`, `description`, `fine`, `jail`,
 	(143, 1, 'Driving Without Headlights During Darkness', 'Driving after dusk and before dawn or in other poor visiblity conditions without headlights.', 100, 0, 0),
 	(144, 2, 'Accessory to Assault & Battery', 'Assits in the threatens violence or injury upon an individual either orally or thru their actions and acts upon that threat.', 1000, 15, 0);
 
--- Dumping structure for table fivem-sandboxrp_prod.mdt_library
+-- Dumping structure for table fivem-methodrp_prod.mdt_library
 CREATE TABLE IF NOT EXISTS `mdt_library` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `label` varchar(255) NOT NULL,
@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `mdt_library` (
   KEY `workplace` (`workplace`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping structure for table fivem-sandboxrp_prod.mdt_notices
+-- Dumping structure for table fivem-methodrp_prod.mdt_notices
 CREATE TABLE IF NOT EXISTS `mdt_notices` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(1024) NOT NULL DEFAULT '',
@@ -345,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `mdt_notices` (
   KEY `job` (`restricted`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping structure for table fivem-sandboxrp_prod.mdt_reports
+-- Dumping structure for table fivem-methodrp_prod.mdt_reports
 CREATE TABLE IF NOT EXISTS `mdt_reports` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` smallint(6) NOT NULL DEFAULT 0,
@@ -366,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `mdt_reports` (
   KEY `allowAttorney` (`allowAttorney`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping structure for table fivem-sandboxrp_prod.mdt_reports_evidence
+-- Dumping structure for table fivem-methodrp_prod.mdt_reports_evidence
 CREATE TABLE IF NOT EXISTS `mdt_reports_evidence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `report` int(11) NOT NULL,
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `mdt_reports_evidence` (
   CONSTRAINT `FK1_mdt_reports_evidence` FOREIGN KEY (`report`) REFERENCES `mdt_reports` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping structure for table fivem-sandboxrp_prod.mdt_reports_people
+-- Dumping structure for table fivem-methodrp_prod.mdt_reports_people
 CREATE TABLE IF NOT EXISTS `mdt_reports_people` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `report` int(11) NOT NULL,
@@ -413,7 +413,7 @@ CREATE TABLE IF NOT EXISTS `mdt_reports_people` (
   CONSTRAINT `FK_mdt_reports_people` FOREIGN KEY (`report`) REFERENCES `mdt_reports` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping structure for table fivem-sandboxrp_prod.mdt_warrants
+-- Dumping structure for table fivem-methodrp_prod.mdt_warrants
 CREATE TABLE IF NOT EXISTS `mdt_warrants` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `state` varchar(50) NOT NULL DEFAULT 'active',

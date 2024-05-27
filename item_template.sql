@@ -14,7 +14,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping structure for table fivem-sandboxrp_ptr.item_template
+-- Dumping structure for table fivem-methodrp_ptr.item_template
 DROP TABLE IF EXISTS `item_template`;
 CREATE TABLE IF NOT EXISTS `item_template` (
   `name` char(64) CHARACTER SET big5 COLLATE big5_bin NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `item_template` (
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.item_template: ~698 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.item_template: ~698 rows (approximately)
 INSERT INTO `item_template` (`name`, `label`, `description`, `type`, `rarity`, `iconOverride`, `price`, `weapon`, `state`, `weight`, `imitate`, `isStackable`, `closeUi`, `metalic`, `durability`, `isUsable`, `isDestroyed`, `isRemoved`, `gun`, `requiresLicense`, `qualification`, `ammoType`, `bulletCount`, `container`, `staticMetadata`, `component`, `animConfig`, `statusChange`, `extra`, `schematic`) VALUES
 	('AMMO_PISTOL', 'Pistol Ammo', NULL, 9, 1, NULL, 50, NULL, NULL, 1, NULL, 10, 1, 1, 2592000, 1, 1, 1, 0, 0, NULL, 'AMMO_PISTOL', 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	('AMMO_PISTOL_PD', 'PD Pistol Ammo', NULL, 9, 1, 'AMMO_PISTOL', 5, NULL, NULL, 1, NULL, 10, 1, 1, 2592000, 1, 1, 1, 0, 0, NULL, 'AMMO_PISTOL', 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL),

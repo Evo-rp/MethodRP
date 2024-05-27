@@ -14,7 +14,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping structure for table fivem-sandboxrp_ptr.bench_schematics
+-- Dumping structure for table fivem-methodrp_ptr.bench_schematics
 DROP TABLE IF EXISTS `bench_schematics`;
 CREATE TABLE IF NOT EXISTS `bench_schematics` (
   `bench` char(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `bench_schematics` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_schematics
+-- Dumping structure for table fivem-methodrp_ptr.character_schematics
 DROP TABLE IF EXISTS `character_schematics`;
 CREATE TABLE IF NOT EXISTS `character_schematics` (
   `sid` int(11) DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `character_schematics` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.firearms
+-- Dumping structure for table fivem-methodrp_ptr.firearms
 DROP TABLE IF EXISTS `firearms`;
 CREATE TABLE IF NOT EXISTS `firearms` (
   `police_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `firearms` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.firearms_flags
+-- Dumping structure for table fivem-methodrp_ptr.firearms_flags
 DROP TABLE IF EXISTS `firearms_flags`;
 CREATE TABLE IF NOT EXISTS `firearms_flags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `firearms_flags` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.item_template
+-- Dumping structure for table fivem-methodrp_ptr.item_template
 DROP TABLE IF EXISTS `item_template`;
 CREATE TABLE IF NOT EXISTS `item_template` (
   `name` char(64) CHARACTER SET big5 COLLATE big5_bin NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `item_template` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.player_shops
+-- Dumping structure for table fivem-methodrp_ptr.player_shops
 DROP TABLE IF EXISTS `player_shops`;
 CREATE TABLE IF NOT EXISTS `player_shops` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `player_shops` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.player_shops_moderators
+-- Dumping structure for table fivem-methodrp_ptr.player_shops_moderators
 DROP TABLE IF EXISTS `player_shops_moderators`;
 CREATE TABLE IF NOT EXISTS `player_shops_moderators` (
   `shop` int(10) unsigned NOT NULL,
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `player_shops_moderators` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.sequence
+-- Dumping structure for table fivem-methodrp_ptr.sequence
 DROP TABLE IF EXISTS `sequence`;
 CREATE TABLE IF NOT EXISTS `sequence` (
   `id` char(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `sequence` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for table fivem-sandboxrp_ptr.shop_bank_accounts
+-- Dumping structure for table fivem-methodrp_ptr.shop_bank_accounts
 DROP TABLE IF EXISTS `shop_bank_accounts`;
 CREATE TABLE IF NOT EXISTS `shop_bank_accounts` (
   `shop` int(10) unsigned NOT NULL,

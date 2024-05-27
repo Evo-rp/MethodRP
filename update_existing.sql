@@ -14,7 +14,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping structure for table fivem-sandboxrp_ptr.app_profile_history
+-- Dumping structure for table fivem-methodrp_ptr.app_profile_history
 DROP TABLE IF EXISTS `app_profile_history`;
 CREATE TABLE IF NOT EXISTS `app_profile_history` (
   `sid` bigint(20) unsigned NOT NULL,
@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `app_profile_history` (
   KEY `sid` (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.app_profile_history: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.app_profile_history: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.blueline_race_history
+-- Dumping structure for table fivem-methodrp_ptr.blueline_race_history
 DROP TABLE IF EXISTS `blueline_race_history`;
 CREATE TABLE IF NOT EXISTS `blueline_race_history` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS `blueline_race_history` (
   CONSTRAINT `pd_race_history_track` FOREIGN KEY (`track`) REFERENCES `blueline_tracks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.blueline_race_history: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.blueline_race_history: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.blueline_tracks
+-- Dumping structure for table fivem-methodrp_ptr.blueline_tracks
 DROP TABLE IF EXISTS `blueline_tracks`;
 CREATE TABLE IF NOT EXISTS `blueline_tracks` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -59,9 +59,9 @@ CREATE TABLE IF NOT EXISTS `blueline_tracks` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.blueline_tracks: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.blueline_tracks: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.blueline_track_history
+-- Dumping structure for table fivem-methodrp_ptr.blueline_track_history
 DROP TABLE IF EXISTS `blueline_track_history`;
 CREATE TABLE IF NOT EXISTS `blueline_track_history` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -81,9 +81,9 @@ CREATE TABLE IF NOT EXISTS `blueline_track_history` (
   CONSTRAINT `pd_track_history_track` FOREIGN KEY (`track`) REFERENCES `blueline_tracks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.blueline_track_history: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.blueline_track_history: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_app_profiles
+-- Dumping structure for table fivem-methodrp_ptr.character_app_profiles
 DROP TABLE IF EXISTS `character_app_profiles`;
 CREATE TABLE IF NOT EXISTS `character_app_profiles` (
   `sid` bigint(20) unsigned NOT NULL,
@@ -95,9 +95,9 @@ CREATE TABLE IF NOT EXISTS `character_app_profiles` (
   UNIQUE KEY `app` (`app`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_app_profiles: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_app_profiles: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_calls
+-- Dumping structure for table fivem-methodrp_ptr.character_calls
 DROP TABLE IF EXISTS `character_calls`;
 CREATE TABLE IF NOT EXISTS `character_calls` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -115,9 +115,9 @@ CREATE TABLE IF NOT EXISTS `character_calls` (
   KEY `owner` (`owner`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_calls: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_calls: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_chatter_groups
+-- Dumping structure for table fivem-methodrp_ptr.character_chatter_groups
 DROP TABLE IF EXISTS `character_chatter_groups`;
 CREATE TABLE IF NOT EXISTS `character_chatter_groups` (
   `sid` bigint(20) unsigned NOT NULL,
@@ -128,9 +128,9 @@ CREATE TABLE IF NOT EXISTS `character_chatter_groups` (
   CONSTRAINT `chatter_char_group` FOREIGN KEY (`chatty_group`) REFERENCES `chatter_groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_chatter_groups: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_chatter_groups: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_contacts
+-- Dumping structure for table fivem-methodrp_ptr.character_contacts
 DROP TABLE IF EXISTS `character_contacts`;
 CREATE TABLE IF NOT EXISTS `character_contacts` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -144,9 +144,9 @@ CREATE TABLE IF NOT EXISTS `character_contacts` (
   KEY `sid` (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_contacts: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_contacts: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_documents
+-- Dumping structure for table fivem-methodrp_ptr.character_documents
 DROP TABLE IF EXISTS `character_documents`;
 CREATE TABLE IF NOT EXISTS `character_documents` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -158,9 +158,9 @@ CREATE TABLE IF NOT EXISTS `character_documents` (
   KEY `owner` (`sid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_documents: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_documents: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_documents_shared
+-- Dumping structure for table fivem-methodrp_ptr.character_documents_shared
 DROP TABLE IF EXISTS `character_documents_shared`;
 CREATE TABLE IF NOT EXISTS `character_documents_shared` (
   `doc_id` int(10) unsigned NOT NULL,
@@ -178,9 +178,9 @@ CREATE TABLE IF NOT EXISTS `character_documents_shared` (
   CONSTRAINT `doc_shared` FOREIGN KEY (`doc_id`) REFERENCES `character_documents` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_documents_shared: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_documents_shared: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_emails
+-- Dumping structure for table fivem-methodrp_ptr.character_emails
 DROP TABLE IF EXISTS `character_emails`;
 CREATE TABLE IF NOT EXISTS `character_emails` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -196,9 +196,9 @@ CREATE TABLE IF NOT EXISTS `character_emails` (
   KEY `sid` (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_emails: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_emails: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.character_messages
+-- Dumping structure for table fivem-methodrp_ptr.character_messages
 DROP TABLE IF EXISTS `character_messages`;
 CREATE TABLE IF NOT EXISTS `character_messages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -214,9 +214,9 @@ CREATE TABLE IF NOT EXISTS `character_messages` (
   KEY `ownu` (`owner`,`number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.character_messages: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.character_messages: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.chatter_groups
+-- Dumping structure for table fivem-methodrp_ptr.chatter_groups
 DROP TABLE IF EXISTS `chatter_groups`;
 CREATE TABLE IF NOT EXISTS `chatter_groups` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -227,9 +227,9 @@ CREATE TABLE IF NOT EXISTS `chatter_groups` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.chatter_groups: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.chatter_groups: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.chatter_messages
+-- Dumping structure for table fivem-methodrp_ptr.chatter_messages
 DROP TABLE IF EXISTS `chatter_messages`;
 CREATE TABLE IF NOT EXISTS `chatter_messages` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -243,9 +243,9 @@ CREATE TABLE IF NOT EXISTS `chatter_messages` (
   CONSTRAINT `chatter_msg_group` FOREIGN KEY (`group`) REFERENCES `chatter_groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.chatter_messages: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.chatter_messages: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.redline_racer_history
+-- Dumping structure for table fivem-methodrp_ptr.redline_racer_history
 DROP TABLE IF EXISTS `redline_racer_history`;
 CREATE TABLE IF NOT EXISTS `redline_racer_history` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -262,9 +262,9 @@ CREATE TABLE IF NOT EXISTS `redline_racer_history` (
   CONSTRAINT `racer_history_track` FOREIGN KEY (`track`) REFERENCES `redline_tracks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.redline_racer_history: ~5 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.redline_racer_history: ~5 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.redline_race_history
+-- Dumping structure for table fivem-methodrp_ptr.redline_race_history
 DROP TABLE IF EXISTS `redline_race_history`;
 CREATE TABLE IF NOT EXISTS `redline_race_history` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -281,9 +281,9 @@ CREATE TABLE IF NOT EXISTS `redline_race_history` (
   CONSTRAINT `race_history_track` FOREIGN KEY (`track`) REFERENCES `redline_tracks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.redline_race_history: ~8 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.redline_race_history: ~8 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.redline_tracks
+-- Dumping structure for table fivem-methodrp_ptr.redline_tracks
 DROP TABLE IF EXISTS `redline_tracks`;
 CREATE TABLE IF NOT EXISTS `redline_tracks` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -295,9 +295,9 @@ CREATE TABLE IF NOT EXISTS `redline_tracks` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.redline_tracks: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.redline_tracks: ~0 rows (approximately)
 
--- Dumping structure for table fivem-sandboxrp_ptr.redline_track_history
+-- Dumping structure for table fivem-methodrp_ptr.redline_track_history
 DROP TABLE IF EXISTS `redline_track_history`;
 CREATE TABLE IF NOT EXISTS `redline_track_history` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -317,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `redline_track_history` (
   CONSTRAINT `track_history_track` FOREIGN KEY (`track`) REFERENCES `redline_tracks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- Dumping data for table fivem-sandboxrp_ptr.redline_track_history: ~0 rows (approximately)
+-- Dumping data for table fivem-methodrp_ptr.redline_track_history: ~0 rows (approximately)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
