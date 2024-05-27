@@ -99,7 +99,7 @@ export default (props) => {
 					<span className={classes.splashHeader}>
 						Welcome To{' '}
 						<span className={classes.splashBranding}>
-							SandboxRP
+							MethodRP
 						</span>
 					</span>
 					<span className={classes.splashTip}>

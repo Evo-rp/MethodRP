@@ -8,7 +8,7 @@ import {
 	StyledEngineProvider,
 } from '@mui/material';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/pro-solid-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import Loader from '../Loader';
@@ -32,9 +32,9 @@ export default () => {
 		},
 		palette: {
 			primary: {
-				main: '#E5A502',
-				light: '#E8A933',
-				dark: '#FA5800',
+				main: '#920a0a',
+				light: '#e83333',
+				dark: '#fa0000',
 				contrastText: '#ffffff',
 			},
 			secondary: {
