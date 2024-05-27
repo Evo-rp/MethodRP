@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     branding: {
         position: 'absolute',
         opacity: 0.05,
-        top: -100,
+        top: 0,
         right: 0,
         left: 0,
         margin: 'auto',
