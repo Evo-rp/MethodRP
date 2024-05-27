@@ -11,12 +11,16 @@ function hasValue(tbl, value)
 end
 
 Config.StartItems = {
-	{ name = "govid", count = 1 },
-	{ name = "phone", count = 1 },
 	{ name = "water", count = 5 },
-	{ name = "sandwich_blt", count = 5 },
-	{ name = "bandage", count = 5 },
-	{ name = "coffee", count = 2 },
+	{ name = "expresso", count = 3 },
+	{ name = "chocolate_bar", count = 5 },
+	{ name = "sandwich", count = 3 },
+	{ name = "bandage", count = 3 },
+	{ name = "ifak", count = 1 },
+	{ name = "lockpick", count = 1 },
+	{ name = "phone", count = 1 },
+	{ name = "govid", count = 1 },
+	{ name = "cigarette_pack", count = 1 },
 }
 
 Config.ShopItemSets = {
