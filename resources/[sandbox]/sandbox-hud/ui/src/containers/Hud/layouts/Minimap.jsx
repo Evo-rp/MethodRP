@@ -1,11 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Fade } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 import { Location } from '../../../components';
 import {
-    Minimalistic,
     Default as VehicleDefault,
     Simple as VehicleSimple,
 } from '../../../components/Vehicle';
@@ -22,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
     },
     shifted: {
         position: 'absolute',
-        height: 'fit-content',
+        bottom: 45,
     },
     standard: {
         position: 'absolute',
-        height: 'fit-content',
+        bottom: 45,
     },
 }));
 
@@ -39,25 +38,10 @@ export default () => {
     const isShifted = useSelector((state) => state.location.shifted);
     const inVeh = useSelector((state) => state.vehicle.showing);
 
-    const statuses = useSelector((state) => state.status.statuses);
-    const buffDefs = useSelector((state) => state.status.buffDefs);
-    const buffs = useSelector((state) => state.status.buffs);
-    const [height, setHeight] = useState(0);
-    const shittyReact = useCallback(
-        (node) => {
-            if (node !== null) {
-                setHeight(node.getBoundingClientRect().height);
-            }
-        },
-        [statuses, config, position, buffDefs, buffs],
-    );
-
     const getVehicleLayout = () => {
         switch (config.vehicle) {
             case 'simple':
                 return <VehicleSimple />;
-            case 'minimal':
-                return <Minimalistic />;
             default:
                 return <VehicleDefault />;
         }
@@ -67,23 +51,18 @@ export default () => {
         <Fade in={showing}>
             <div className={classes.wrapper}>
                 <div
-                    ref={shittyReact}
                     className={
                         isShifted || inVeh ? classes.shifted : classes.standard
                     }
                     style={
                         isShifted || inVeh
                             ? {
-                                  left: `${(position.rightX + 0.0055) * 100}vw`,
-                                  top: `calc(${
-                                      position.bottomY * 100
-                                  }vh - ${height}px)`,
+                                  left: `calc(${
+                                      position.rightX * 100
+                                  }% * 1.075)`,
                               }
                             : {
-                                  left: `${(position.leftX + 0.0045) * 100}vw`,
-                                  top: `calc(${
-                                      position.bottomY * 100
-                                  }vh - ${height}px)`,
+                                  left: `calc(${position.leftX * 100}% * 1.4)`,
                               }
                     }
                 >

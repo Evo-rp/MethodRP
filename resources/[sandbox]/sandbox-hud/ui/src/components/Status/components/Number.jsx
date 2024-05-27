@@ -6,40 +6,26 @@ import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
     container: {
+        width: 80,
         paddingLeft: 5,
         lineHeight: '25px',
         display: 'flex',
-        '&.transparent': {
-            background: `${theme.palette.secondary.dark}80`,
-        },
-        '&.solid': {
-            background: theme.palette.secondary.dark,
-        },
+        background: `${theme.palette.secondary.dark}80`,
     },
     icon: {
         width: 24,
         display: 'block',
         fontSize: 18,
-        padding: (data) =>
-            Boolean(data.status?.options?.force) &&
-            data.status.options.force != data.config.statusType
-                ? 0
-                : 5,
-        paddingLeft: '0 !important',
+        padding: 5,
+        paddingLeft: 0,
         borderRight: `1px solid ${theme.palette.border.divider}`,
     },
     number: {
-        fontSize: 18,
-        lineHeight: (data) =>
-            Boolean(data.status?.options?.force) &&
-            data.status.options.force != data.config.statusType
-                ? '24px'
-                : '34px',
+        fontSize: 22.5,
+        lineHeight: '22.5px',
+        padding: 5,
         flex: 1,
         textAlign: 'center',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
         '&.low': {
             animation: '$flash linear 1s infinite',
         },
@@ -47,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default withTheme(({ status }) => {
-    const config = useSelector((state) => state.hud.config);
+    const classes = useStyles();
+
     const isDead = useSelector((state) => state.status.isDead);
-    const classes = useStyles({ status, config });
 
     if (
         (status.options.hideZero && status.value <= 0) ||
@@ -61,22 +47,8 @@ export default withTheme(({ status }) => {
     return (
         <Fade in={true}>
             <div
-                className={`${classes.container}${
-                    Boolean(status?.options?.force) &&
-                    status.options.force != config.statusType &&
-                    !config.transparentBg
-                        ? ' solid'
-                        : ' transparent'
-                }`}
-                style={{
-                    borderLeft: `4px solid ${status.color}`,
-                    width:
-                        Boolean(status?.options?.force) &&
-                        status.options.force != config.statusType &&
-                        config.largeBars
-                            ? 124.5
-                            : 81,
-                }}
+                className={classes.container}
+                style={{ borderLeft: `4px solid ${status.color}` }}
             >
                 <div className={classes.icon}>
                     <FontAwesomeIcon

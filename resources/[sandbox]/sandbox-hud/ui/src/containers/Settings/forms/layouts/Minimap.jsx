@@ -26,7 +26,7 @@ export default ({ state, setState, onChange, onChecked }) => {
         <Fragment>
             <Grid item xs={12}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                         <FormControlLabel
                             control={
                                 <Switch

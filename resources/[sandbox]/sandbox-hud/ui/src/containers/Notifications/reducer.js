@@ -1,81 +1,82 @@
 export const initialState = {
-    runningId: 0,
-    notifications: Array(),
-    // runningId: 6,
-    // notifications: Array(
-    //     {
-    //         _id: 1,
-    //         created: 1629674399000,
-    //         icon: 'rocket-launch',
-    //         message: 'This is a test description, neat',
-    //         duration: 5000,
-    //         type: 'success',
-    //         style: null,
-    //     },
-    //     {
-    //         _id: "fuckme-123",
-    //         created: 1629674399000,
-    //         icon: 'rocket-launch',
-    //         message: 'This is a test description, neat',
-    //         duration: 5000,
-    //         type: 'success',
-    //         style: null,
-    //     },
-    //     {
-    //         _id: 2,
-    //         created: 1629674399000,
-    //         icon: 'rocket-launch',
-    //         message: 'This is a test description, neat',
-    //         duration: 6000,
-    //         type: 'error',
-    //         style: null,
-    //     },
-    //     {
-    //         _id: 3,
-    //         created: 1629674399000,
-    //         icon: 'rocket-launch',
-    //         message: 'This is a test description, neat',
-    //         duration: 7000,
-    //         type: 'info',
-    //         style: null,
-    //     },
-    //     {
-    //         _id: 4,
-    //         created: 1629674399000,
-    //         icon: 'rocket-launch',
-    //         message: 'This is a test description, neat',
-    //         duration: 8000,
-    //         type: 'warning',
-    //         style: null,
-    //     },
-    //     {
-    //         _id: 5,
-    //         created: 1629674399000,
-    //         icon: 'rocket-launch',
-    //         message: 'This is a test description, neat',
-    //         duration: 9000,
-    //         type: 'custom',
-    //         style: {
-    //             alert: {
-    //                 background: 'pink',
-    //                 color: 'black',
-    //             },
-    //             progressBg: {
-    //                 background: 'green',
-    //             },
-    //             progress: {
-    //                 background: 'red',
-    //             },
-    //         },
-    //     },
-    //     {
-    //         _id: 6,
-    //         created: 1629674399000,
-    //         icon: 'rocket-launch',
-    //         message: 'This is a test description, neat',
-    //         duration: -1,
-    //     },
-    // ),
+    runningId: process.env.NODE_ENV == 'production' ? 0 : 6,
+    notifications:
+        process.env.NODE_ENV == 'production'
+            ? Array()
+            : Array(
+                  {
+                      _id: 1,
+                      created: 1629674399000,
+                      icon: 'rocket-launch',
+                      message: 'This is a test description, neat',
+                      duration: 5000,
+                      type: 'success',
+                      style: null,
+                  },
+                  {
+                      _id: 'fuckme-123',
+                      created: 1629674399000,
+                      icon: 'rocket-launch',
+                      message: 'This is a test description, neat',
+                      duration: 5000,
+                      type: 'success',
+                      style: null,
+                  },
+                  {
+                      _id: 2,
+                      created: 1629674399000,
+                      icon: 'rocket-launch',
+                      message: 'This is a test description, neat',
+                      duration: 6000,
+                      type: 'error',
+                      style: null,
+                  },
+                  {
+                      _id: 3,
+                      created: 1629674399000,
+                      icon: 'rocket-launch',
+                      message: 'This is a test description, neat',
+                      duration: 7000,
+                      type: 'info',
+                      style: null,
+                  },
+                  {
+                      _id: 4,
+                      created: 1629674399000,
+                      icon: 'rocket-launch',
+                      message: 'This is a test description, neat',
+                      duration: 8000,
+                      type: 'warning',
+                      style: null,
+                  },
+                  {
+                      _id: 5,
+                      created: 1629674399000,
+                      icon: 'rocket-launch',
+                      message: 'This is a test description, neat',
+                      duration: 9000,
+                      type: 'custom',
+                      style: {
+                          alert: {
+                              background: 'pink',
+                              color: 'black',
+                          },
+                          progressBg: {
+                              background: 'green',
+                          },
+                          progress: {
+                              background: 'red',
+                          },
+                      },
+                  },
+                  {
+                      _id: 6,
+                      created: 1629674399000,
+                      icon: 'rocket-launch',
+                      message: 'This is a test description, neat',
+                      duration: -1,
+                  },
+              ),
 };
 
 export default (state = initialState, action) => {

@@ -1,9 +1,9 @@
 import Nui from '../../util/Nui';
 
 export const initialState = {
-    showing: false,
-    label: null,
-    duration: 0,
+    showing: process.env.NODE_ENV != 'production',
+    label: process.env.NODE_ENV == 'production' ? null : 'Progress Bar',
+    duration: process.env.NODE_ENV == 'production' ? null : 3000,
     cancelled: false,
     failed: false,
     finished: false,

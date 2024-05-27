@@ -7,7 +7,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import NumberStatus from '../components/Number';
 import BarStatus from '../components/Bar';
-import CircleStatus from '../components/Circle';
 import VOIP from '../components/VOIP';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,9 +51,9 @@ const useStyles = makeStyles((theme) => ({
     },
     bars: {
         display: 'flex',
-        gap: 6,
+        gap: 4,
         flexFlow: 'wrap-reverse',
-        width: 255,
+        width: 248,
         marginBottom: 4,
     },
     bar: {
@@ -92,7 +91,6 @@ export default withTheme(() => {
     const config = useSelector((state) => state.hud.config);
     const isDead = useSelector((state) => state.status.isDead);
     const health = useSelector((state) => state.status.health);
-    const maxHealth = useSelector((state) => state.status.maxHealth);
     const armor = useSelector((state) => state.status.armor);
 
     const els = [
@@ -113,28 +111,17 @@ export default withTheme(() => {
                 hideZero: false,
                 visibleWhileDead: true,
                 order: 2,
-                customMax: isDead ? 100 : maxHealth,
-                forceIcon: isDead,
             },
         },
         ...statuses,
     ];
 
     const getStatusElem = (s) => {
-        if (Boolean(s?.options?.force)) {
-            switch (s?.options?.force) {
-                case 'numbers':
-                    return <NumberStatus status={s} />;
-                default:
-                    return <BarStatus status={s} />;
-            }
-        } else {
-            switch (config.statusType) {
-                case 'numbers':
-                    return <NumberStatus status={s} />;
-                default:
-                    return <BarStatus status={s} />;
-            }
+        switch (config.statusType) {
+            case 'numbers':
+                return <NumberStatus status={s} />;
+            default:
+                return <BarStatus status={s} />;
         }
     };
 

@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         left: 0,
         right: 0,
         position: 'relative',
-        width: 255,
+        width: 248,
     },
     dashIcons: {
         padding: 5,
@@ -127,16 +127,6 @@ export default () => {
 
     const nos = useSelector((state) => state.vehicle.nos);
 
-    const isShiftedUp = () => {
-        return (
-            config.layout == 'default' ||
-            config.layout == 'center' ||
-            (config.layout == 'minimap' && config.buffsAnchor2) ||
-            (config.layout == 'condensed' &&
-                config.condenseAlignment == 'center')
-        );
-    };
-
     const [speedStr, setSpeedStr] = useState(speed.toString());
 
     useEffect(() => {
@@ -210,10 +200,7 @@ export default () => {
 
     return (
         <Fade in={showing}>
-            <div
-                className={classes.wrapper}
-                style={{ bottom: isShiftedUp() ? 45 : 0 }}
-            >
+            <div className={classes.wrapper}>
                 <Grid container className={classes.cluster}>
                     <Grid item xs={12} className={classes.dashIcons}>
                         <span className={classes.dashIcon}>

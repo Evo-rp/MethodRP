@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
-const WindowListener = props => {
-    const handleEvent = event => {
-        const { dispatch } = props;
+export default ({ children }) => {
+    const dispatch = useDispatch();
+
+    const handleEvent = (event) => {
         const { type, data } = event.data;
         if (type != null) dispatch({ type, payload: { ...data } });
     };
@@ -18,12 +18,5 @@ const WindowListener = props => {
         };
     }, []);
 
-    return React.Children.only(props.children);
+    return React.Children.only(children);
 };
-
-WindowListener.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    children: PropTypes.element.isRequired,
-};
-
-export default connect(null, null)(WindowListener);

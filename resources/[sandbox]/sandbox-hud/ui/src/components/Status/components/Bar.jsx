@@ -41,7 +41,7 @@ export default withTheme(({ status }) => {
 
     if (
         (status.options.hideZero && status.value <= 0) ||
-        (status.value >= (Boolean(status?.options?.customMax) ? status?.options?.customMax / 0.9 : 90) && status?.options?.hideHigh) ||
+        (status.value >= 90 && status?.options?.hideHigh) ||
         (status.value == 0 && status?.options?.hideZero) ||
         (isDead && !status?.options?.visibleWhileDead)
     )
@@ -56,7 +56,7 @@ export default withTheme(({ status }) => {
                         ? ' low'
                         : ''
                 } ${config.transparentBg ? 'transparent' : 'solid'}`}
-                style={{ width: config.largeBars ? 124.5 : 81 }}
+                style={{ width: config.largeBars ? 122 : 80 }}
             >
                 <div className={classes.icon}>
                     <FontAwesomeIcon
@@ -69,13 +69,7 @@ export default withTheme(({ status }) => {
                         className={classes.bar}
                         style={{
                             background: status.color,
-                            width: `${
-                                Boolean(status?.options?.customMax)
-                                    ? (status.value /
-                                          status?.options?.customMax) *
-                                      100
-                                    : status.value
-                            }%`,
+                            width: `${status.value}%`,
                         }}
                     ></div>
                 </div>

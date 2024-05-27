@@ -10,14 +10,14 @@ import PermBuff from '../Types/Permanent';
 const useStyles = makeStyles((theme) => ({
     container: {
         display: 'flex',
-        gap: 6,
+        gap: 4,
         flexFlow: 'wrap-reverse',
-        width: 255,
+        width: 248,
         marginBottom: 4,
     },
     minimapContainer: {
         display: 'flex',
-        gap: 6,
+        gap: 4,
         flexFlow: 'row',
         position: 'absolute',
         bottom: 2,

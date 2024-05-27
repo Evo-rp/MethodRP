@@ -37,15 +37,11 @@ const useStyles = makeStyles((theme) => ({
         right: 0,
         margin: 'auto',
         lineHeight: '35px',
-        fontSize: (buff) =>
-            Boolean(buff.override) && `${buff?.override ?? ''}`.length > 2
-                ? '0.85rem'
-                : '1rem',
     },
 }));
 
 export default withTheme(({ buff }) => {
-    const classes = useStyles(buff);
+    const classes = useStyles();
     const buffDefs = useSelector((state) => state.status.buffDefs);
     const buffDef = buffDefs[buff?.buff];
 

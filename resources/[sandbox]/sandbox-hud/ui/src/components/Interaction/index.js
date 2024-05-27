@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh',
         alignItems: 'center',
         justifyContent: 'center',
+        '-webkit-font-smoothing': 'subpixel-antialiased',
     },
     slice: {
         cursor: 'pointer',
@@ -37,18 +38,21 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        left: '50%',
-        top: '50%',
-        width: 'calc(5vw)',
-        height: 'calc(5vw)',
+        left: 0,
+        top: 0,
+        bottom: 0,
+        right: 0,
+        margin: 'auto',
+        width: 124,
+        height: 124,
         borderRadius: '50%',
-        background: `${theme.palette.secondary.main}cc`,
-        transform: 'translate(-50%, -50%)',
+        background: `${theme.palette.secondary.dark}80`,
         cursor: 'pointer',
-        border: `2px solid ${theme.palette.secondary.main}`,
-        transition: 'background 0.2s ease-out',
+        border: `4px solid ${theme.palette.primary.main}`,
+        transition: 'background 0.2s ease-out, color 0.15s ease-in',
         '&:hover': {
-            background: `${theme.palette.secondary.main}`,
+            background: `${theme.palette.secondary.dark}c9`,
+            color: theme.palette.primary.main,
         },
     },
 }));
@@ -59,16 +63,13 @@ const Interaction = () => {
     const showing = useSelector((state) => state.interaction.show);
 
     const pieTheme = {
-        pieMenu: {
-            center: css`
-                //border: 2px solid ${theme.palette.secondary.dark};
-            `,
-        },
         slice: {
             container: css`
                 color: white;
-                ${background(`${theme.palette.secondary.main}cc`)};
+                ${background(`${theme.palette.secondary.dark}80`)};
                 z-index: 1;
+                -webkit-font-smoothing: subpixel-antialiased;
+                transition: color 0.15s ease-in;
 
                 &::before {
                     position: absolute;
@@ -85,7 +86,8 @@ const Interaction = () => {
 
                 &:hover,
                 &[_highlight='true'] {
-                    ${background(`${theme.palette.secondary.main}cc`)};
+                    ${background(`${theme.palette.secondary.dark}c9`)};
+                    color: ${theme.palette.primary.main};
                 }
 
                 &:hover::before {
@@ -148,7 +150,7 @@ const Interaction = () => {
         <Fade in={showing} duration={2500}>
             <div className={classes.div}>
                 <ThemeProvider theme={pieTheme}>
-                    <PieMenu radius="250px" centerRadius="3vw">
+                    <PieMenu radius="250px" centerRadius="62px">
                         {genItems()}
                     </PieMenu>
                     <div className={classes.back} onClick={back}>

@@ -14,33 +14,21 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 4,
         background: theme.palette.secondary.dark,
         '&.success': {
-            background: theme.palette.success.main,
+            borderLeft: `4px solid ${theme.palette.success.main}`,
         },
         '&.warning': {
-            background: theme.palette.warning.dark,
+            borderLeft: `4px solid ${theme.palette.warning.dark}`,
         },
         '&.error': {
-            background: theme.palette.error.main,
+            borderLeft: `4px solid ${theme.palette.error.main}`,
         },
         '&.info': {
-            background: theme.palette.info.main,
+            borderLeft: `4px solid ${theme.palette.info.main}`,
         },
     },
     header: {
         padding: '5px 10px',
         borderBottom: `1px solid ${theme.palette.border.divider}`,
-        '.success &': {
-            borderBottom: `1px solid ${theme.palette.success.light}`,
-        },
-        '.warning &': {
-            borderBottom: `1px solid ${theme.palette.warning.light}`,
-        },
-        '.error &': {
-            borderBottom: `1px solid ${theme.palette.error.light}`,
-        },
-        '.info &': {
-            borderBottom: `1px solid ${theme.palette.info.light}`,
-        },
     },
     body: {
         padding: 10,
@@ -48,24 +36,24 @@ const useStyles = makeStyles((theme) => ({
     barBg: {
         height: 4,
         background: theme.palette.secondary.light,
+        transition: 'width ease-in 0.15s',
         '.success &': {
-            background: theme.palette.success.dark,
+            background: theme.palette.success.main,
         },
         '.warning &': {
-            background: theme.palette.warning.main,
+            background: theme.palette.warning.dark,
         },
         '.error &': {
-            background: theme.palette.error.dark,
+            background: theme.palette.error.main,
         },
         '.info &': {
-            background: theme.palette.info.dark,
+            background: theme.palette.info.main,
         },
     },
     bar: {
         maxWidth: '100%',
         height: '100%',
-        transition: 'width ease-in 0.15s',
-        background: theme.palette.text.primary,
+        background: theme.palette.secondary.dark,
     },
     sticky: {
         marginRight: 10,
@@ -177,7 +165,7 @@ export default ({ notification }) => {
                 {notification.duration > 0 && (
                     <div className={classes.progress}>
                         <div
-                            className={classes.barBg}
+                            className={classes.bar}
                             style={
                                 Boolean(notification?.style?.progressBg)
                                     ? { ...notification?.style?.progressBg }
@@ -185,7 +173,7 @@ export default ({ notification }) => {
                             }
                         >
                             <div
-                                className={classes.bar}
+                                className={classes.barBg}
                                 style={
                                     Boolean(notification?.style?.progress)
                                         ? {

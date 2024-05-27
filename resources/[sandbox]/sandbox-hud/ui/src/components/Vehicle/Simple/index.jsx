@@ -169,7 +169,7 @@ export default () => {
         <Fade in={showing}>
             <div
                 className={classes.wrapper}
-                style={{ bottom: isShiftedUp() ? 65 : 0 }}
+                style={{ bottom: isShiftedUp() ? 50 : 0 }}
             >
                 <div className={classes.left}>
                     {ignition ? (

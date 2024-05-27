@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useTheme, LinearProgress } from '@mui/material';
 import { makeStyles, withTheme } from '@mui/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -31,15 +30,11 @@ const useStyles = makeStyles((theme) => ({
         left: 0,
         right: 0,
         margin: 'auto',
-        fontSize: (buff) =>
-            Boolean(buff.override) && `${buff?.override ?? ''}`.length > 2
-                ? '0.85rem'
-                : '1rem',
     },
 }));
 
 export default withTheme(({ buff }) => {
-    const classes = useStyles(buff);
+    const classes = useStyles();
     const buffDefs = useSelector((state) => state.status.buffDefs);
     const buffDef = buffDefs[buff.buff];
 
@@ -54,15 +49,16 @@ export default withTheme(({ buff }) => {
         },
     }));
 
-    const [pct, setPct] = useState(Math.floor(Date.now() / 1000) - buff?.startTime);
+    const [timer, setTimer] = useState(buffDef.duration);
+
     useInterval(
         () => {
-            setPct(Math.floor(Date.now() / 1000) - buff?.startTime);
+            setTimer(timer - 1);
         },
-        pct > buff.val ? null : (Boolean(buff?.options?.customInterval) ? buff?.options?.customInterval : 1000),
+        timer <= 0 ? null : 1000,
     );
 
-    if (pct > buff.val) return null;
+    if (timer <= 0) return null;
     return (
         <div className={classes.container}>
             <div className={classes.icon}>
@@ -77,7 +73,7 @@ export default withTheme(({ buff }) => {
             </div>
             <BuffProggressBar
                 variant="determinate"
-                value={Math.floor(((buff.val - (pct > 0 ? (pct - 1) : pct)) / buff.val) * 100)}
+                value={(timer / buffDef.duration) * 100}
             />
         </div>
     );

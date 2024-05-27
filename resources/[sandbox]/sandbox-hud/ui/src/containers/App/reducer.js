@@ -1,7 +1,5 @@
 export const initialState = {
     hidden: false,
-    sniper: false,
-    armed: false,
     blindfolded: false,
     persistent: {},
 
@@ -88,6 +86,11 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 flashbanged: false,
+            };
+        case 'RESET_UI':
+            return {
+                ...state,
+                settings: false,
             };
         default:
             return state;

@@ -10,12 +10,12 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
     },
     voip: {
-        width: 255,
+        width: 248,
         height: 8,
         display: 'flex',
     },
     voipStage: {
-        width: 81,
+        width: 80,
         height: 8,
         border: `1px solid ${theme.palette.border.divider}`,
         '&.active:not(.talking):not(.radio)': {
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
             background: theme.palette.secondary.dark,
         },
         '&:not(:last-of-type)': {
-            marginRight: 6,
+            marginRight: 4,
         },
     },
 }));

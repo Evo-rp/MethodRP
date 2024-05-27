@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import useKeypress from 'react-use-keypress';
-//import NumberFormat from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
 
 import Nui from '../../util/Nui';
 
@@ -57,7 +57,7 @@ export default () => {
         switch (type) {
             case 'number':
                 return (
-                    <NumberFormat
+                    <NumericFormat
                         fullWidth
                         isNumericString
                         id={name}

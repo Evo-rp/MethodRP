@@ -30,15 +30,11 @@ const useStyles = makeStyles((theme) => ({
         left: 0,
         right: 0,
         margin: 'auto',
-        fontSize: (buff) =>
-            Boolean(buff.override) && `${buff?.override ?? ''}`.length > 2
-                ? '0.85rem'
-                : '1rem',
     },
 }));
 
 export default withTheme(({ buff }) => {
-    const classes = useStyles(buff);
+    const classes = useStyles();
     const buffDefs = useSelector((state) => state.status.buffDefs);
     const buffDef = buffDefs[buff.buff];
 

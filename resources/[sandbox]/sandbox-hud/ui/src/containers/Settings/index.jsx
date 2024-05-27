@@ -21,9 +21,6 @@ import Center from './forms/layouts/Center';
 
 import VehicleDefault from './forms/vehicle-layouts/Default';
 import VehicleSimple from './forms/vehicle-layouts/Simple';
-import VehicleMinimal from './forms/vehicle-layouts/Minimal';
-import Condensed from './forms/layouts/Condensed';
-import Circles from './forms/status-types/Circles';
 
 const layouts = [
     {
@@ -38,10 +35,6 @@ const layouts = [
         value: 'center',
         label: 'Status Anchored Bottom Center',
     },
-    {
-        value: 'condensed',
-        label: 'Condensed',
-    },
 ];
 
 const vehLayouts = [
@@ -53,50 +46,18 @@ const vehLayouts = [
         value: 'simple',
         label: 'Simplified',
     },
-    {
-        value: 'minimal',
-        label: 'Simplified v2',
-    },
 ];
 
-const barTypes = {
-    default: [
-        {
-            value: 'numbers',
-            label: 'Numbers',
-        },
-        {
-            value: 'bars',
-            label: 'Bars',
-        },
-    ],
-    minimap: [
-        {
-            value: 'numbers',
-            label: 'Numbers',
-        },
-        {
-            value: 'bars',
-            label: 'Bars',
-        },
-    ],
-    center: [
-        {
-            value: 'numbers',
-            label: 'Numbers',
-        },
-        {
-            value: 'bars',
-            label: 'Bars',
-        },
-    ],
-    condensed: [
-        {
-            value: 'circles',
-            label: 'Circles',
-        },
-    ],
-};
+const barTypes = [
+    {
+        value: 'numbers',
+        label: 'Numbers',
+    },
+    {
+        value: 'bars',
+        label: 'Bars',
+    },
+];
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -126,26 +87,6 @@ export default () => {
     useEffect(() => {
         setState({ ...config });
     }, [isOpen]);
-
-    useEffect(() => {
-        if (Boolean(barTypes[state.layout])) {
-            if (
-                barTypes[state.layout].filter(
-                    (i) => i.value == state.statusType,
-                ).length == 0
-            ) {
-                setState({
-                    ...state,
-                    statusType: barTypes[state.layout][0].value,
-                });
-            }
-        } else {
-            setState({
-                ...state,
-                layout: 'default',
-            });
-        }
-    }, [state.layout]);
 
     const onClose = () => {
         dispatch({
@@ -206,15 +147,6 @@ export default () => {
                         onChecked={onChecked}
                     />
                 );
-            case 'condensed':
-                return (
-                    <Condensed
-                        state={state}
-                        setState={setState}
-                        onChange={onChange}
-                        onChecked={onChecked}
-                    />
-                );
             default:
                 return null;
         }
@@ -225,15 +157,6 @@ export default () => {
             case 'bars':
                 return (
                     <Bars
-                        state={state}
-                        setState={setState}
-                        onChange={onChange}
-                        onChecked={onChecked}
-                    />
-                );
-            case 'circles':
-                return (
-                    <Circles
                         state={state}
                         setState={setState}
                         onChange={onChange}
@@ -256,15 +179,6 @@ export default () => {
                         onChecked={onChecked}
                     />
                 );
-            case 'minimal':
-                return (
-                    <VehicleMinimal
-                        state={state}
-                        setState={setState}
-                        onChange={onChange}
-                        onChecked={onChecked}
-                    />
-                );
             default:
                 return (
                     <VehicleDefault
@@ -278,28 +192,16 @@ export default () => {
     };
 
     return (
-        <Dialog fullWidth maxWidth="lg" open={isOpen} onClose={onClose}>
+        <Dialog fullWidth maxWidth="sm" open={isOpen} onClose={onClose}>
             <form onSubmit={onSave}>
                 <DialogTitle>HUD Configuration</DialogTitle>
                 <DialogContent>
                     <Grid container spacing={2} className={classes.form}>
-                        <Grid item xs={6}>
+                        <Grid item xs={12}>
                             <div className={classes.header}>
                                 General Settings
                             </div>
                             <Grid container spacing={2}>
-                                <Grid item xs={12}>
-                                    <FormControlLabel
-                                        control={
-                                            <Switch
-                                                name="maskRadio"
-                                                checked={state.maskRadio}
-                                                onChange={onChecked}
-                                            />
-                                        }
-                                        label="Mask Radio Channel On Hud?"
-                                    />
-                                </Grid>
                                 <Grid item xs={12}>
                                     <TextField
                                         fullWidth
@@ -321,40 +223,10 @@ export default () => {
                                         ))}
                                     </TextField>
                                 </Grid>
-
-                                {getLayoutForm()}
-                            </Grid>
-                            <div className={classes.header}>
-                                Compass Settings
-                            </div>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12}>
-                                    <FormControlLabel
-                                        control={
-                                            <Switch
-                                                name="hideCompassBg"
-                                                checked={state.hideCompassBg}
-                                                onChange={onChecked}
-                                            />
-                                        }
-                                        label="Hide Compass Background"
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <FormControlLabel
-                                        control={
-                                            <Switch
-                                                name="hideCrossStreet"
-                                                checked={state.hideCrossStreet}
-                                                onChange={onChecked}
-                                            />
-                                        }
-                                        label="Hide Cross Street"
-                                    />
-                                </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item xs={6}>
+                        {getLayoutForm()}
+                        <Grid item xs={12}>
                             <div className={classes.header}>
                                 Status Settings
                             </div>
@@ -370,29 +242,51 @@ export default () => {
                                         label="Status Display Type"
                                         defaultValue="numbers"
                                     >
-                                        {Boolean(barTypes[state.layout])
-                                            ? barTypes[state.layout].map(
-                                                  (option) => (
-                                                      <MenuItem
-                                                          key={option.value}
-                                                          value={option.value}
-                                                      >
-                                                          {option.label}
-                                                      </MenuItem>
-                                                  ),
-                                              )
-                                            : barTypes.default.map((option) => (
-                                                  <MenuItem
-                                                      key={option.value}
-                                                      value={option.value}
-                                                  >
-                                                      {option.label}
-                                                  </MenuItem>
-                                              ))}
+                                        {barTypes.map((option) => (
+                                            <MenuItem
+                                                key={option.value}
+                                                value={option.value}
+                                            >
+                                                {option.label}
+                                            </MenuItem>
+                                        ))}
                                     </TextField>
                                 </Grid>
-                                {getStatusForm()}
                             </Grid>
+                        </Grid>
+                        {getStatusForm()}
+                        <Grid item xs={12}>
+                            <div className={classes.header}>
+                                Compass Settings
+                            </div>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
+                                    <FormControlLabel
+                                        control={
+                                            <Switch
+                                                name="hideCompassBg"
+                                                checked={state.hideCompassBg}
+                                                onChange={onChecked}
+                                            />
+                                        }
+                                        label="Hide Compass Background"
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <FormControlLabel
+                                        control={
+                                            <Switch
+                                                name="hideCrossStreet"
+                                                checked={state.hideCrossStreet}
+                                                onChange={onChecked}
+                                            />
+                                        }
+                                        label="Hide Cross Street"
+                                    />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12}>
                             <div className={classes.header}>
                                 Vehicle Layout Settings
                             </div>
@@ -418,9 +312,9 @@ export default () => {
                                         ))}
                                     </TextField>
                                 </Grid>
-                                {getVehicleLayoutForm()}
                             </Grid>
                         </Grid>
+                        {getVehicleLayoutForm()}
                     </Grid>
                 </DialogContent>
                 <DialogActions>

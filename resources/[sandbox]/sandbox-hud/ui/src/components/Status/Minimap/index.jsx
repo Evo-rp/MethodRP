@@ -50,9 +50,10 @@ const useStyles = makeStyles((theme) => ({
     },
     bars: {
         display: 'flex',
-        gap: 6,
+        gap: 4,
         flexFlow: 'row',
         position: 'absolute',
+        bottom: 2,
     },
     bar: {
         maxWidth: '100%',
@@ -90,7 +91,6 @@ export default withTheme(() => {
     const statuses = useSelector((state) => state.status.statuses);
     const isDead = useSelector((state) => state.status.isDead);
     const health = useSelector((state) => state.status.health);
-    const maxHealth = useSelector((state) => state.status.maxHealth);
     const armor = useSelector((state) => state.status.armor);
 
     const els = [
@@ -111,31 +111,17 @@ export default withTheme(() => {
                 hideZero: false,
                 visibleWhileDead: true,
                 order: 2,
-                customMax: isDead ? 100 : maxHealth,
-                forceIcon: isDead,
             },
         },
         ...statuses,
     ];
 
     const getStatusElem = (s) => {
-        if (
-            Boolean(s?.options?.force) &&
-            s.options.force != config.statusType
-        ) {
-            switch (s?.options?.force) {
-                case 'numbers':
-                    return <NumberStatus status={s} />;
-                default:
-                    return <BarStatus status={s} />;
-            }
-        } else {
-            switch (config.statusType) {
-                case 'numbers':
-                    return <NumberStatus status={s} />;
-                default:
-                    return <BarStatus status={s} />;
-            }
+        switch (config.statusType) {
+            case 'numbers':
+                return <NumberStatus status={s} />;
+            default:
+                return <BarStatus status={s} />;
         }
     };
 
@@ -146,11 +132,8 @@ export default withTheme(() => {
                     className={classes.bars}
                     style={{
                         left: config.minimapAnchor
-                            ? `${(position.leftX + 0.0045) * 100}vw`
+                            ? `calc(${position.leftX * 100}% * 1.4)`
                             : 15,
-                        top: config.minimapAnchor
-                            ? `${(position.bottomY + 0.001) * 100}vh`
-                            : 2,
                     }}
                 >
                     {els

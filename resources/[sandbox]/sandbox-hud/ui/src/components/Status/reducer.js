@@ -2,7 +2,76 @@ export const initialState = {
     health: 100,
     armor: 100,
     isDead: false,
-    statuses: [],
+    buffDefs:
+        process.env.NODE_ENV == 'production'
+            ? {}
+            : {
+                  VOIP: {
+                      icon: 'skull',
+                      duration: -1,
+                      type: 'permanent',
+                  },
+                  VAL: {
+                      icon: 'crown',
+                      duration: -1,
+                      type: 'value',
+                  },
+              },
+    buffs:
+        process.env.NODE_ENV == 'production'
+            ? []
+            : [
+                  {
+                      buff: 'VOIP',
+                      override: 'S+',
+                      val: 100,
+                  },
+                  {
+                      buff: 'VAL',
+                      val: 75,
+                  },
+              ],
+    statuses:
+        process.env.NODE_ENV == 'production'
+            ? []
+            : [
+                  {
+                      name: 'PLAYER_HUNGER',
+                      max: 100,
+                      value: 45,
+                      icon: 'drumstick-bite',
+                      color: '#ca5fe8',
+                      flash: false,
+                      options: {
+                          hideZero: false,
+                          order: 5,
+                      },
+                  },
+                  {
+                      name: 'PLAYER_THIRST',
+                      max: 100,
+                      value: 22,
+                      icon: 'whiskey-glass',
+                      color: '#07bdf0',
+                      flash: false,
+                      options: {
+                          hideZero: false,
+                          order: 6,
+                      },
+                  },
+                  {
+                      name: 'PLAYER_STRESS',
+                      max: 100,
+                      value: 66,
+                      icon: 'face-explode',
+                      color: '#de3333',
+                      flash: false,
+                      options: {
+                          hideZero: false,
+                          order: 4,
+                      },
+                  },
+              ],
 };
 
 export default (state = initialState, action) => {
@@ -51,6 +120,48 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 statuses: action.payload.statuses,
+            };
+        case 'REGISTER_BUFF':
+            return {
+                ...state,
+                buffDefs: {
+                    ...state.buffDefs,
+                    [action.payload.id]: action.payload.data,
+                },
+            };
+        case 'BUFF_APPLIED':
+            return {
+                ...state,
+                buffs: [...state.buffs, action.payload.instance],
+            };
+        case 'BUFF_APPLIED_UNIQUE':
+            if (
+                state.buffs.filter(
+                    (b) => b?.buff == action.payload.instance?.buff,
+                ).length > 0
+            )
+                return {
+                    ...state,
+                    buffs: state.buffs.map((b) => {
+                        if (b?.buff == action.payload.instance?.buff)
+                            return { ...action.payload.instance };
+                        else return b;
+                    }),
+                };
+            else {
+                return {
+                    ...state,
+                    buffs: [...state.buffs, action.payload.instance],
+                };
+            }
+        case 'UPDATE_BUFF_ICON':
+            return {
+                ...state,
+            };
+        case 'REMOVE_BUFF_BY_TYPE':
+            return {
+                ...state,
+                buffs: state.buffs.filter((b) => b?.buff != action.payload.type),
             };
         default:
             return state;

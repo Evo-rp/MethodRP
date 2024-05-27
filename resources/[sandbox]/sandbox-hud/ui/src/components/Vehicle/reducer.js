@@ -1,13 +1,15 @@
 export const initialState = {
-    showing: false,
-    ignition: true,
+    showing: process.env.NODE_ENV != 'production',
+    ignition: process.env.NODE_ENV != 'production',
+    nos: process.env.NODE_ENV == 'production' ? 0 : 75,
     speed: 0,
+    rpm: 0.4,
     speedMeasure: 'MPH',
-    seatbelt: false,
+    seatbelt: process.env.NODE_ENV == 'production',
     seatbeltHide: false,
-    cruise: false,
-    checkEngine: false,
-    fuel: 100,
+    cruise: process.env.NODE_ENV != 'production',
+    checkEngine: process.env.NODE_ENV != 'production',
+    fuel: 8,
     fuelHide: false,
 };
 
@@ -27,6 +29,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 ignition: action.payload.ignition,
+            };
+        case 'UPDATE_RPM':
+            return {
+                ...state,
+                rpm: action.payload.rpm,
             };
         case 'UPDATE_SPEED':
             return {
@@ -70,9 +77,10 @@ export default (state = initialState, action) => {
                 fuel: Boolean(action.payload.fuel)
                     ? action.payload.fuel
                     : state.fuel,
-                fuelHide: typeof(action.payload.fuelHide) == "boolean"
-                    ? action.payload.fuelHide
-                    : state.fuelHide
+                fuelHide:
+                    typeof action.payload.fuelHide == 'boolean'
+                        ? action.payload.fuelHide
+                        : state.fuelHide,
             };
         case 'SHOW_FUEL':
             return {
@@ -83,6 +91,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 fuelHide: true,
+            };
+        case 'UPDATE_NOS':
+            return {
+                ...state,
+                nos: action.payload.nos,
             };
         default:
             return state;

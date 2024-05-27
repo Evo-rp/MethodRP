@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         margin: 'auto',
         width: 'fit-content',
         display: 'flex',
-        gap: 6,
+        gap: 4,
     },
     status: {
         position: 'absolute',
