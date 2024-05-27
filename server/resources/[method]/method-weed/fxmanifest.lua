@@ -1,5 +1,3 @@
-server_script "PU6AXI.lua"
-client_script "PU6AXI.lua"
 fx_version("cerulean")
 client_script("@method-base/components/cl_error.lua")
 client_script("@method-pwnzor/client/check.lua")
