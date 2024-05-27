@@ -6,12 +6,12 @@ AddEventHandler("onResourceStart", function(resource)
 			local ver
 			repeat
 				Wait(0)
-			until COMPONENTS.Convar.SBFW_VERSION ~= nil
+			until COMPONENTS.Convar.MFW_VERSION ~= nil
 
-			if COMPONENTS.Convar.SBFW_VERSION.value == "UNKNOWN" then
+			if COMPONENTS.Convar.MFW_VERSION.value == "UNKNOWN" then
 				ver = "^1Version Unknown"
 			else
-				ver = "^2v" .. COMPONENTS.Convar.SBFW_VERSION.value
+				ver = "^2v" .. COMPONENTS.Convar.MFW_VERSION.value
 			end
 
 			print([[

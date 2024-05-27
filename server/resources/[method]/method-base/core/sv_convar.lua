@@ -22,7 +22,7 @@ Citizen.CreateThread(function()
 			stop = true,
 		},
 		LOGGING = { value = tonumber(GetConvar("log_level", 0)), key = "log_level", stop = false },
-		SBFW_VERSION = { value = GetConvar("sbfw_version", "UNKNOWN"), key = "SBFW_VERSION", stop = false },
+		MFW_VERSION = { value = GetConvar("mfw_version", "UNKNOWN"), key = "MFW_VERSION", stop = false },
 	}
 end)
 
