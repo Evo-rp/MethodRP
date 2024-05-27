@@ -192,6 +192,25 @@ RegisterNUICallback("SelectCharacter", function(data, cb)
 
 		SendNUIMessage({ type = "LOADING_HIDE" })
 	end)
+
+	DestroyCam(cam)
+
+	SetEntityCoordsNoOffset(PlayerPedId(), -3972.28, 2017.22, 500.92, false, false, false)
+
+	FreezeEntityPosition(PlayerPedId(), true)
+
+	while not HasCollisionLoadedAroundEntity(PlayerPedId()) do
+		Wait(0)
+	end
+
+	cam = CreateCam("DEFAULT_SCRIPTED_CAMERA", 1)
+
+	SetCamRot(cam, -90.0, 0.0, 250.0, 2)
+	SetCamCoord(cam, -3968.85, 2015.93, 502.22)
+	StopCamShaking(cam, true)
+	SetCamFov(cam, 50.0)
+	SetCamActive(cam, true)
+	RenderScriptCams(true, false, 0, true, true)
 end)
 
 RegisterNUICallback("PlayCharacter", function(data, cb)
