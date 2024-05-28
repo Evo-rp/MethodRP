@@ -144,8 +144,35 @@ table.insert(_defaultJobData, {
 					},
 				},
 				{
+					Id = "adirector",
+					Name = "Assistant Chief",
+					Level = 97,
+					Permissions = {
+						ems_alerts = true,
+						FLEET_VEHICLES_0 = true,
+						FLEET_VEHICLES_1 = true,
+						FLEET_VEHICLES_2 = true,
+						FLEET_VEHICLES_3 = true,
+						FLEET_VEHICLES_4 = true,
+						FLEET_MANAGEMENT = true,
+						SAFD_HIGH_COMMAND = true,
+						JOB_STORAGE = true,
+
+						MDT_HIRE = true,
+						MDT_FIRE = true,
+						MDT_PROMOTE = true,
+						MDT_EDIT_EMPLOYEE = true,
+
+						MDT_MEDICAL_REPORTS = true,
+
+						BANK_ACCOUNT_DEPOSIT = true,
+						BANK_ACCOUNT_TRANSACTIONS = true,
+						BANK_ACCOUNT_BALANCE = true,
+					},
+				},
+				{
 					Id = "ddirector",
-					Name = "Deputy Director",
+					Name = "Deputy Chief",
 					Level = 98,
 					Permissions = {
 						ems_alerts = true,
@@ -174,7 +201,7 @@ table.insert(_defaultJobData, {
 				},
 				{
 					Id = "director",
-					Name = "Director",
+					Name = "Chief",
 					Level = 99,
 					Permissions = {
 						ems_alerts = true,
