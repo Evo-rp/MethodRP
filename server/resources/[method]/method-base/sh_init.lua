@@ -29,8 +29,8 @@ __  __      _   _               _   _____  _____
 |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
 ^7]])
 			print("^1Method RP Framework " .. ver .. "")
-			print("^0Made By ^6Alzar^0,^6 Dr Nick^0 & ^6Panda" .. ver .. "")
-			print("^3Contributors: ^1Jamey^0,^3 PixelRez^0,^3 Raven^0,^3 akaLucifer" .. ver .. "")
+			print("^0Made By ^6Alzar^0,^6 Dr Nick^0 & ^6Panda" "")
+			print("^3Contributors: ^1Jamey^0,^3 PixelRez^0,^3 Raven^0,^3 akaLucifer" "")
 
 			print([[
 ^2=================================================================================================^7
