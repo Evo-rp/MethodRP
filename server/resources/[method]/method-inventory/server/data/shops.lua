@@ -72,11 +72,11 @@ _shops = {
 		},
 	},
 	{ -- Digital Den
-		shopId = 5,
+		shopId = 50,
 		name = "Digital Den",
-		entityId = 11,
-		icon = "shop",
-		npc = "a_m_m_ktown_01",
+		entityId = 74,
+		icon = "radio",
+		npc = "u_m_m_partytarget",
 		blip = {
 			sprite = 52,
 			color = 69,
