@@ -181,7 +181,7 @@ _itemsSource["misc"] = {
 	},
 	{
 		name = "gps",
-		label = "SB NavMaster",
+		label = "GPS",
 		price = 5000,
 		isUsable = false,
 		isRemoved = true,
