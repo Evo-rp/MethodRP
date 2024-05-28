@@ -93,7 +93,7 @@ AddEventHandler("Core:Shared:Ready", function()
 			return
 		end -- Do something to handle if not all dependencies loaded
 		RetrieveComponents()
-		Keybinds:Add("phone_toggle", "F3", "keyboard", "Phone - Open/Close", function()
+		Keybinds:Add("phone_toggle", "M", "keyboard", "Phone - Open/Close", function()
 			if Phone == nil then
 				return
 			end
