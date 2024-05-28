@@ -4,7 +4,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "police",
 		accountName = "Law Enforcement Shared Account",
-		startingBalance = 200000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "police",
@@ -16,7 +16,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "police-lspd",
 		accountName = "LSPD Account",
-		startingBalance = 200000,
+		startingBalance = 250000,
 		jobAccess = {
 			{
 				Job = "police",
@@ -28,7 +28,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "police-guardius",
 		accountName = "Guardius Account",
-		startingBalance = 200000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "police",
@@ -39,8 +39,8 @@ local defaultOrganizationAccounts = {
 	},
 	{
 		accountId = "police-bcso",
-		accountName = "BCSO Account",
-		startingBalance = 200000,
+		accountName = "LSSO Account",
+		startingBalance = 100000,
 		jobAccess = {
 			{
 				Job = "police",
@@ -51,8 +51,8 @@ local defaultOrganizationAccounts = {
 	},
 	{
 		accountId = "police-sast",
-		accountName = "SAST Account",
-		startingBalance = 200000,
+		accountName = "SASP Account",
+		startingBalance = 100000,
 		jobAccess = {
 			{
 				Job = "police",
@@ -64,7 +64,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "ems",
 		accountName = "EMS Account",
-		startingBalance = 325000,
+		startingBalance = 150000,
 		jobAccess = {
 			{
 				Job = "ems",
@@ -76,7 +76,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "doctors",
 		accountName = "St Fiacre Medical Account",
-		startingBalance = 50000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "ems",
@@ -88,7 +88,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "prison",
 		accountName = "Department of Corrections Account",
-		startingBalance = 500000,
+		startingBalance = 100000,
 		jobAccess = {
 			{
 				Job = "prison",
@@ -125,7 +125,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "cloud9",
 		accountName = "Cloud9 Account",
-		startingBalance = 100000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "cloud9",
@@ -137,7 +137,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "digitalden",
 		accountName = "Digital Den Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "digitalden",
@@ -149,7 +149,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "pepega_pawn",
 		accountName = "Pepega Pawn Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "pepega_pawn",
@@ -161,7 +161,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "sagma",
 		accountName = "Sagma Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "sagma",
@@ -173,7 +173,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "jewel",
 		accountName = "The Jeweled Dragon Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "jewel",
@@ -185,7 +185,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "vangelico",
 		accountName = "Vangelico Jewelry Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "vangelico",
@@ -197,7 +197,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "securoserv",
 		accountName = "SecuroServ Account",
-		startingBalance = 50000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "securoserv",
@@ -209,7 +209,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "avast_arcade",
 		accountName = "Avast Arcade Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "avast_arcade",
@@ -221,7 +221,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "bakery",
 		accountName = "Bakery Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "bakery",
@@ -233,7 +233,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "beanmachine",
 		accountName = "Bean Machine Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "beanmachine",
@@ -245,7 +245,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "bowling",
 		accountName = "Bobs Balls Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "bowling",
@@ -257,7 +257,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "taxicab",
 		accountName = "Downtown Cab Co. Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "taxicab",
@@ -269,7 +269,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "casino",
 		accountName = "Diamond Casino & Resort Account",
-		startingBalance = 100000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "casino",
@@ -281,7 +281,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "demonetti_storage",
 		accountName = "Demonetti Storage Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "demonetti_storage",
@@ -293,7 +293,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "golddiggers",
 		accountName = "Gold Diggers Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "golddiggers",
@@ -305,7 +305,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "greycat_shipping",
 		accountName = "Greycat Shipping Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "greycat_shipping",
@@ -317,7 +317,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "lostmc",
 		accountName = "The Lost MC Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "lostmc",
@@ -329,7 +329,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "odmc",
 		accountName = "Odins Disciples MC Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "odmc",
@@ -341,7 +341,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "saints",
 		accountName = "The Saints Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "saints",
@@ -353,7 +353,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "lsfc",
 		accountName = "Los Santos Fight Club Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "lsfc",
@@ -365,7 +365,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "dgang",
 		accountName = "Lua Holdings LLC Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "dgang",
@@ -377,7 +377,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "tuna",
 		accountName = "Tuner Shop Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "tuna",
@@ -389,7 +389,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "redline",
 		accountName = "Redline Account",
-		startingBalance = 50000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "redline",
@@ -401,7 +401,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "blackline",
 		accountName = "Blackline Mechanics Account",
-		startingBalance = 50000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "blackline",
@@ -413,7 +413,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "tirenutz",
 		accountName = "Tire Nutz Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "tirenutz",
@@ -425,7 +425,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "hayes",
 		accountName = "Hayes Autos Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "hayes",
@@ -437,7 +437,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "atomic",
 		accountName = "Atomic Mechanics Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "atomic",
@@ -449,7 +449,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "harmony",
 		accountName = "Harmony Repairs Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "harmony",
@@ -461,7 +461,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "superperformance",
 		accountName = "Super Performance Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "superperformance",
@@ -473,7 +473,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "autoexotics",
 		accountName = "Auto Exotics Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "autoexotics",
@@ -485,7 +485,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "ottos",
 		accountName = "Ottos Auto's Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "ottos",
@@ -497,7 +497,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "bennys",
 		accountName = "Benny's Account",
-		startingBalance = 50000,
+		startingbalance = 0,
 		jobAccess = {
 			{
 				Job = "bennys",
@@ -509,7 +509,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "noodle",
 		accountName = "Noodle Exchange Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "noodle",
@@ -521,7 +521,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "pdm",
 		accountName = "Premium Deluxe Motorsport Account",
-		startingBalance = 25000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "pdm",
@@ -533,7 +533,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "realestate",
 		accountName = "Dynasty 8 Account",
-		startingBalance = 25000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "realestate",
@@ -545,7 +545,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "burgershot",
 		accountName = "Burger Shot Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "burgershot",
@@ -557,7 +557,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "rustybrowns",
 		accountName = "Rusty Browns Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "rustybrowns",
@@ -569,7 +569,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "cluckinbell",
 		accountName = "Cluckin' Bell Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "cluckinbell",
@@ -581,7 +581,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "lasttrain",
 		accountName = "The Last Train Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "lasttrain",
@@ -593,7 +593,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "uwu",
 		accountName = "UwU Cafe Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "uwu",
@@ -605,7 +605,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "woods_saloon",
 		accountName = "Black Woods Saloon Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "woods_saloon",
@@ -617,7 +617,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "pizza_this",
 		accountName = "Pizza This Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "pizza_this",
@@ -629,7 +629,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "prego",
 		accountName = "Cafe Prego Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "prego",
@@ -641,7 +641,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "rockford_records",
 		accountName = "Rockford Records Account",
-		startingBalance = 5000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "rockford_records",
@@ -653,7 +653,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "tequila",
 		accountName = "Tequil-La-La Account",
-		startingBalance = 10000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "tequila",
@@ -677,7 +677,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "triad",
 		accountName = "Triad Records Account",
-		startingBalance = 5000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "triad",
@@ -689,7 +689,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "bahama",
 		accountName = "Bahama Mamas Account",
-		startingBalance = 25000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "bahama",
@@ -701,7 +701,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "unicorn",
 		accountName = "Vanilla Unicorn Account",
-		startingBalance = 25000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "unicorn",
@@ -713,7 +713,7 @@ local defaultOrganizationAccounts = {
 	{
 		accountId = "weed",
 		accountName = "Smoke on the Water Account",
-		startingBalance = 5000,
+		startingBalance = 0,
 		jobAccess = {
 			{
 				Job = "weed",
@@ -748,7 +748,7 @@ function RunBankingStartup()
 		stateAccount = CreateBankAccount(
 			"organization",
 			"government",
-			500000, -- Government Should Probably Have Some Starter Money
+			350000, -- Government Should Probably Have Some Starter Money
 			"San Andreas State Account",
 			100000,
 			{
