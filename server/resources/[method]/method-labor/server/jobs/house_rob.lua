@@ -417,7 +417,7 @@ AddEventHandler("Labor:Server:Startup", function()
 				Loot:CustomWeightedSetWithCount(lootTable, char:GetData("SID"), 1)
 
 				if math.random(100) <= 5 then
-					Inventory:AddItem(char:GetData("SID"), "safecrack_kit", 1, {}, 1)
+					Inventory:AddItem(char:GetData("SID"), "sequencer", 1, {}, 1)
 				end
 			end
 

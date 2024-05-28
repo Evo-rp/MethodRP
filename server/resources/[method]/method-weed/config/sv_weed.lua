@@ -1,8 +1,8 @@
 Config = {
 	Lifetime = (60 * 60 * 24 * 3),
 	FemSeedChance = 25,
-	PackagePrice = 7500,
-	BrickPrice = 4000,
+	PackagePrice = 3500,
+	BrickPrice = 7500,
 	Fertilizer = {
 		nitrogen = { time = 40, value = 2.0 },
 		phosphorus = { time = 40, value = 0.75 },
@@ -61,31 +61,31 @@ GroundTypes = {
 
 Locations = {
 	["0"] = {
-		coords = vector3(-1238.631, -809.376, 22.760),
-		heading = 125.365,
+		coords = vector3(-1097.713, -1491.176, 5.115), -- Sunday
+		heading = 134.192,
 	},
 	["1"] = {
-		coords = vector3(-1238.631, -809.376, 22.760),
-		heading = 125.365,
+		coords = vector3(201.332, 1253.262, 225.460), -- Monday
+		heading = 6.864,
 	},
 	["2"] = {
-		coords = vector3(497.536, -1959.389, 23.820),
-		heading = 305.063,
+		coords = vector3(1176.922, 194.548, 79.926), -- Tuesday
+		heading = 133.858,
 	},
 	["3"] = {
-		coords = vector3(497.536, -1959.389, 23.820),
-		heading = 305.063,
+		coords = vector3(201.332, 1253.262, 225.460), -- Wednesday
+		heading = 6.864,
 	},
 	["4"] = {
-		coords = vector3(-3107.755, 304.206, 4.071),
-		heading = 11.543,
+		coords = vector3(1176.922, 194.548, 79.926), -- Thursday
+		heading = 133.858,
 	},
 	["5"] = {
-		coords = vector3(-3107.755, 304.206, 4.071),
-		heading = 11.543,
+		coords = vector3(-1097.713, -1491.176, 5.115), -- Friday
+		heading = 134.192,
 	},
 	["6"] = {
-		coords = vector3(-1238.631, -809.376, 22.760),
-		heading = 125.365,
+		coords = vector3(-1097.713, -1491.176, 5.115), -- Saturday
+		heading = 134.192,
 	},
 }

@@ -60,7 +60,7 @@ local _sellerLocs = {
 
 local _toolsForSale = {
 	{ id = 1, item = "vpn", coin = "MALD", price = 60, qty = 10, vpn = false },
-	{ id = 1, item = "safecrack_kit", coin = "MALD", price = 8, qty = 10, vpn = false },
+	{ id = 1, item = "sequencer", coin = "MALD", price = 15, qty = 10, vpn = false },
 	{ id = 2, item = "adv_electronics_kit", coin = "MALD", price = 100, qty = 10, vpn = true },
 	{ id = 2, item = "adv_electronics_kit", coin = "HEIST", price = 15, qty = 10, vpn = true, requireCurrency = true },
 }

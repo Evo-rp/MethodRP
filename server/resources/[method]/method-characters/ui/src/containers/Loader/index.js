@@ -18,7 +18,10 @@ const useStyles = makeStyles((theme) => ({
 		right: 0,
 		margin: 'auto',
 		background: theme.palette.secondary.dark,
-		borderLeft: `4px solid ${theme.palette.primary.main}`,
+		borderLeft: `6px solid ${theme.palette.primary.main}`,
+		borderRight: `6px solid ${theme.palette.primary.main}`,
+		borderTop: `6px solid ${theme.palette.primary.main}`,
+		borderBottom: `6px solid ${theme.palette.primary.main}`,
 	},
 	details: {
 		width: '100%',

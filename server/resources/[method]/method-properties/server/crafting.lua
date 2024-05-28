@@ -94,15 +94,15 @@ _propertyCraftingRecipies = {
 		},
 		time = 5000,
 	},
-	["safecrack_kit"] = {
-		result = { name = "safecrack_kit", count = 1 },
-		items = {
-			{ name = "ironbar", count = 5 },
-			{ name = "heavy_glue", count = 1 },
-			{ name = "plastic", count = 4 },
-		},
-		time = 5000,
-	},
+	-- ["safecrack_kit"] = {
+	-- 	result = { name = "safecrack_kit", count = 1 },
+	-- 	items = {
+	-- 		{ name = "ironbar", count = 5 },
+	-- 		{ name = "heavy_glue", count = 1 },
+	-- 		{ name = "plastic", count = 4 },
+	-- 	},
+	-- 	time = 5000,
+	-- },
 	["electronics_kit"] = {
 		result = { name = "electronics_kit", count = 1 },
 		items = {
