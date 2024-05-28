@@ -37,4 +37,7 @@ AddEventHandler("onResourceStart", function(resource)
 				]])
 				
 				TriggerEvent("Core:Shared:Watermark")
+			end)
+		end
+	end)
 				
