@@ -3,14 +3,28 @@ on:
   push:
     branches:
       - main
+
 jobs:
   sync-restart:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+      
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+      
       - name: "Pull remote changes"
         uses: appleboy/ssh-action@v0.1.7
         env:
@@ -19,10 +33,10 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: root
           key: ${{ secrets.SSH_KEY }}
-          #password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           script: |
             cd ${{ env.REPO_PATH }} && git pull
+      
       - name: "Restart resources / server"
         uses: illeniumstudios/fivem-resource-watcher@main
         env:
