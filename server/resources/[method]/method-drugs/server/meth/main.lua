@@ -3,17 +3,17 @@ _inProgCooks = {}
 
 local bought = {}
 local _toolsForSale = {
-	{ id = 1, item = "meth_table", coin = "MALD", price = 400, qty = 5, vpn = true },
+	{ id = 1, item = "meth_table", coin = "MALD", price = 300, qty = 5, vpn = true },
 }
 
 local _methSellerLocs = {
-	["0"] = vector4(-302.883, 2521.718, 73.370, 96.139), -- Sunday
-	["1"] = vector4(-302.883, 2521.718, 73.370, 96.139), -- Monday
-	["2"] = vector4(-302.883, 2521.718, 73.370, 96.139), -- Tuesday
-	["3"] = vector4(-302.883, 2521.718, 73.370, 96.139), -- Wednesday
-	["4"] = vector4(-302.883, 2521.718, 73.370, 96.139), -- Thursday
-	["5"] = vector4(-302.883, 2521.718, 73.370, 96.139), -- Friday
-	["6"] = vector4(-302.883, 2521.718, 73.370, 96.139), -- Saturday
+	["0"] = vector4(-270.106, 2627.269, 60.975, 220.391), -- Sunday
+	["1"] = vector4(-270.106, 2627.269, 60.975, 220.391), -- Monday
+	["2"] = vector4(-270.106, 2627.269, 60.975, 220.391), -- Tuesday
+	["3"] = vector4(-270.106, 2627.269, 60.975, 220.391), -- Wednesday
+	["4"] = vector4(-270.106, 2627.269, 60.975, 220.391), -- Thursday
+	["5"] = vector4(-270.106, 2627.269, 60.975, 220.391), -- Friday
+	["6"] = vector4(-270.106, 2627.269, 60.975, 220.391), -- Saturday
 }
 
 _DRUGS = _DRUGS or {}

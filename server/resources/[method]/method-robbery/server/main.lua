@@ -58,29 +58,33 @@ local _sellerLocs = {
 	["6"] = vector4(440.960, -2206.147, 25.769, 61.780), -- Saturday
 }
 
-local _toolsForSale = {
-	{ id = 1, item = "vpn", coin = "MALD", price = 60, qty = 10, vpn = false },
+local _robTools = {
 	{ id = 1, item = "sequencer", coin = "MALD", price = 15, qty = 10, vpn = false },
-	{ id = 2, item = "adv_electronics_kit", coin = "MALD", price = 100, qty = 10, vpn = true },
-	{ id = 2, item = "adv_electronics_kit", coin = "HEIST", price = 15, qty = 10, vpn = true, requireCurrency = true },
+	{ id = 2, item = "thermite", coin = "MALD", price = 50, qty = 10, vpn = false },
+	{ id = 3, item = "adv_electronics_kit", coin = "MALD", price = 100, qty = 10, vpn = true },
+	{ id = 3, item = "adv_electronics_kit", coin = "HEIST", price = 15, qty = 10, vpn = true, requireCurrency = true },
+}
+
+local _toolsForSale = {
+	{ id = 1, item = "vpn", coin = "PLEB", price = 100, qty = 10, vpn = false },
 }
 
 local _heistTools = {
-	{ id = 2, item = "green_dongle", coin = "HEIST", price = 20, qty = 3, vpn = true, requireCurrency = true },
-	{ id = 1, item = "blue_dongle", coin = "HEIST", price = 30, qty = 1, vpn = true, requireCurrency = true },
-	{ id = 3, item = "red_dongle", coin = "HEIST", price = 40, qty = 1, vpn = true, requireCurrency = true },
-	{ id = 4, item = "purple_dongle", coin = "HEIST", price = 50, qty = 1, vpn = true, requireCurrency = true },
-	{ id = 5, item = "yellow_dongle", coin = "HEIST", price = 60, qty = 1, vpn = true, requireCurrency = true },
+	{ id = 1, item = "cyan_dongle", coin = "HEIST", price = 10, qty = 5, vpn = true, requireCurrency = true },
+	{ id = 2, item = "blue_dongle", coin = "HEIST", price = 25, qty = 5, vpn = true, requireCurrency = true },
+	{ id = 3, item = "red_dongle", coin = "HEIST", price = 40, qty = 5, vpn = true, requireCurrency = true },
+	{ id = 4, item = "purple_dongle", coin = "HEIST", price = 50, qty = 5, vpn = true, requireCurrency = true },
+	{ id = 5, item = "yellow_dongle", coin = "HEIST", price = 65, qty = 5, vpn = true, requireCurrency = true },
 }
 
 local _schemSellerLocs = {
-	["0"] = vector4(175.090, -598.574, 19.688, 86.415), -- Sunday
-	["1"] = vector4(175.090, -598.574, 19.688, 86.415), -- Monday
-	["2"] = vector4(175.090, -598.574, 19.688, 86.415), -- Tuesday
-	["3"] = vector4(595.157, -431.042, 3.054, 225.824), -- Wednesday
-	["4"] = vector4(595.157, -431.042, 3.054, 225.824), -- Thursday
-	["5"] = vector4(595.157, -431.042, 3.054, 225.824), -- Friday
-	["6"] = vector4(595.157, -431.042, 3.054, 225.824), -- Saturday
+	["0"] = vector4(-528.146, -800.314, 29.672, 318.919), -- Sunday
+	["1"] = vector4(-528.146, -800.314, 29.672, 318.919), -- Monday
+	["2"] = vector4(-528.146, -800.314, 29.672, 318.919), -- Tuesday
+	["3"] = vector4(-528.146, -800.314, 29.672, 318.919), -- Wednesday
+	["4"] = vector4(-528.146, -800.314, 29.672, 318.919), -- Thursday
+	["5"] = vector4(-528.146, -800.314, 29.672, 318.919), -- Friday
+	["6"] = vector4(-528.146, -800.314, 29.672, 318.919), -- Saturday
 }
 
 local _schemSeller = {
@@ -90,7 +94,7 @@ local _schemSeller = {
 		coin = "MALD",
 		price = 420,
 		qty = 1,
-		vpn = true,
+		vpn = false,
 		limited = {
 			id = 1,
 			qty = 1,
@@ -102,7 +106,7 @@ local _schemSeller = {
 		coin = "MALD",
 		price = 200,
 		qty = 1,
-		vpn = true,
+		vpn = false,
 		limited = {
 			id = 1,
 			qty = 1,
@@ -238,8 +242,8 @@ AddEventHandler("Core:Shared:Ready", function()
 
 		local pos = _sellerLocs[tostring(os.date("%w"))]
 		Vendor:Create("HeistBlocks", "ped", "Devices", GetHashKey("HC_Hacker"), {
-			coords = vector3(551.001, -2209.636, 67.981),
-			heading = 265.515,
+			coords = vector3(700.381, -2185.477, 28.796),
+			heading = 352.880,
 			scenario = "WORLD_HUMAN_TOURIST_MOBILE",
 		}, _heistTools, "badge-dollar", "View Offers", false, 1)
 
@@ -247,6 +251,15 @@ AddEventHandler("Core:Shared:Ready", function()
 			coords = vector3(pos.x, pos.y, pos.z),
 			heading = pos.w,
 		}, _toolsForSale, "badge-dollar", "View Offers", 1)
+
+		Vendor:Create("HeistTools", "ped", "Tools", GetHashKey("IG_MONEY"), {
+			coords = vector3(-1985.437, -285.549, 47.106),
+			heading = 239.583,
+			anim = {
+				animDict = "mp_fbi_heist",
+				anim = "loop",
+			},
+		}, _robTools, "badge-dollar", "View Offers", false, 1)
 
 		local pos2 = _schemSellerLocs[tostring(os.date("%w"))]
 		Vendor:Create("ScamSchemSeller", "ped", "Dom's Deals", GetHashKey("a_m_m_eastsa_02"), {
