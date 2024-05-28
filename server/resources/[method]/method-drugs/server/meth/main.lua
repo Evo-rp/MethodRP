@@ -3,7 +3,7 @@ _inProgCooks = {}
 
 local bought = {}
 local _toolsForSale = {
-	{ id = 1, item = "meth_table", coin = "MALD", price = 400, qty = 5, vpn = true },
+	{ id = 1, item = "meth_table", coin = "MALD", price = 300, qty = 5, vpn = true },
 }
 
 local _methSellerLocs = {
