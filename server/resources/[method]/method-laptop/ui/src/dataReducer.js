@@ -175,7 +175,7 @@ export const initialState = {
 							ringtone: 'ringtone1.ogg',
 							wallpaper: 'wallpaper',
 							colors: {
-								accent: '#1a7cc1',
+								accent: '#d5000',
 							},
 							notifications: true,
 							zoom: 105,
