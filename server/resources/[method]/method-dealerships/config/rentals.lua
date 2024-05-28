@@ -190,7 +190,7 @@ local cheapoVehicleList = {
 
 _vehicleRentals = {
 	{
-		name = "Cheap-O Rent-a-Car",
+		name = "Vehicle Rentals",
 		coords = vector3(34.726, -883.911, 29.239),
 		blip = {
 			sprite = 545,
@@ -241,7 +241,7 @@ _vehicleRentals = {
 		vehicleList = cheapoVehicleList,
 	},
 	{
-		name = "Cheap-O Rent-a-Car",
+		name = "Vehicle Rentals",
 		coords = vector3(-1354.745, 243.635, 59.104),
 		blip = {
 			sprite = 545,
@@ -275,7 +275,7 @@ _vehicleRentals = {
 		vehicleList = cheapoVehicleList,
 	},
 	{
-		name = "Cheap-O Rent-a-Car",
+		name = "Vehicle Rentals",
 		coords = vector3(1850.49, 2561.56, 44.67),
 		blip = {
 			sprite = 545,
@@ -340,6 +340,41 @@ _vehicleRentals = {
 				},
 			},
 		},
+	},
+	{
+		name = "Vehicle Rentals",
+        coords = vector3(-9.907, 184.416, 100.957),
+        blip = {
+            sprite = 545,
+            color = 52,
+            scale = 0.5,
+        },
+        interactionPed = {
+            model = `cs_paper`,
+            heading = 61.049,
+            scenario = 'WORLD_HUMAN_TOURIST_MAP',
+            range = 45.0,
+        },
+        zone = {
+            type = 'box',
+            center = vector3(-1123.6, -324.48, 37.82),
+            length = 39.0,
+            width = 35.2,
+            options = {
+                heading = 355,
+                minZ = 36.62,
+                maxZ = 40.82
+            }
+        },
+        spaces = {
+            vector4(-13.503, 187.702, 101.936, 339.966),
+            vector4(-16.497, 188.683, 101.974, 337.964),
+            vector4(-19.669, 189.552, 101.975, 339.256),
+            vector4(-23.036, 190.764, 101.976, 340.503),
+            vector4(-26.331, 192.027, 101.976, 340.431),
+            vector4(-29.612, 193.121, 101.976, 343.023)
+        },
+		vehicleList = cheapoVehicleList,
 	},
 	{
 		name = "Dave's Boat Rental's",
