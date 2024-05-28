@@ -3,10 +3,9 @@ COMPONENTS.Discord = {
 	RichPresence = function(self)
 		SetDiscordAppId(COMPONENTS.Convar.DISCORD_APP.value)
 		SetDiscordRichPresenceAsset("sandboxrp_large_icon")
-		SetDiscordRichPresenceAssetText("Join Today: SandboxRP.gg")
+		SetDiscordRichPresenceAssetText("Join Today: discord.gg/methodrp")
 		--SetDiscordRichPresenceAssetSmall("info")
-		SetDiscordRichPresenceAction(0, "Apply Now", "https://sandboxrp.gg")
-		SetDiscordRichPresenceAction(1, "Join Our Discord", "https://discord.gg/sandboxgg")
+		SetDiscordRichPresenceAction(0, "Join Our Discord", "https://discord.gg/methodrp")
 
 		Citizen.CreateThread(function()
 			while true do
