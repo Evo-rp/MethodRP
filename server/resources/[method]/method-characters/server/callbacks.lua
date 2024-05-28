@@ -207,6 +207,11 @@ function RegisterCallbacks()
 						console = true,
 						file = true,
 						database = true,
+						discord = {
+							embed = true,
+							type = "error",
+							webhook = GetConvar("discord_log_webhook", ''),
+						},
 					}
 				)
 			end)
@@ -261,6 +266,8 @@ function RegisterCallbacks()
 							database = true,
 							discord = {
 								embed = true,
+								type = "error",
+								webhook = GetConvar("discord_log_webhook", ''),
 							},
 						}
 					)
