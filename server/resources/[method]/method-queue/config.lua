@@ -15,9 +15,9 @@ Config = {
 	},
 	Strings = {
 		Add = "Added %s (Account: %s, Identifier: %s) To Queue %s/%s (Current Players: %s, Prio: %s, QueueLevel: %s)",
-		Banned = "You're Banned, Appeal in Discord\n\nReason: %s\nExpires: %s\nID: %s",
+		Banned = "You're Banned. Appeal At https://forms.gle/uYDZpPBf7n2NtdoSA\n\nReason: %s\nExpires: %s\nID: %s",
 		PermaBanned = "Permanently Banned, Appeal in Discord\n\nReason: %s\nID: %s",
-		SiteBanned = "You're Banned From the Website. View Reason in Discord",
+		SiteBanned = "You're Banned From the Website. View Reason At https://discord.gg/methodrp",
 		Checking = "Checking Whitelist Status",
 		Disconnected = "%s (Account: %s, Identifier: %s) Disconnected From Queue",
 		Crash = "%s (Account: %s, Identifier: %s) Crashed - Adding Crash Priority for 5 Minutes",
@@ -26,12 +26,12 @@ Config = {
 		Joining = "Joining Server...",
 		NoIdentifier = "Could Not Find A License Identifier, Relaunch FiveM and try again.",
 		NotReady = "The server has not yet finished loading, please try again in a few minutes.",
-		NotWhitelisted = "You Are Not Whitelisted For This Server - Apply Today At https://sandboxrp.gg/",
+		NotWhitelisted = "You Are Not Whitelisted For This Server - Apply At https://discord.gg/methodrp",
 		Queued = "Position %s of %s - Time In Queue: %s%s",
 		Retrieving = "Retrieving Queue Information",
 		Waiting = "Waiting For Queue To Open - %s %s %s %s",
 		WaitingSeconds = "Waiting For Queue To Open - %s %s",
-		PendingRestart = "🚫 Queue Closed 🚫 Due To A Pending Restart We've Closed The Queue. Please Reconnect In A Few Minutes",
+		PendingRestart = "Please Wait Before Reconnecting, A Restart Is Currently Being Processed...",
 
 		WebLinkComplete = "Successfully Linked FiveM Account to Site. Joining the Queue",
 		WebLinkError = "Failed to Link FiveM to Site. Make Sure That the Code Hasn't Expired."
@@ -54,14 +54,14 @@ Config.Cards.NotWhitelisted = {
 			size = "Medium",
 			type = "TextBlock",
 			wrap = true,
-			text = "You are not whitelisted for this server or a connected account could not be found. Please visit the website to apply for whitelist or to link your account at https://sandboxrp.gg/"
+			text = "You are not whitelisted for this server or a connected account could not be found. Please apply at https://discord.gg/methodrp"
 		},
 		{
 			actions = {
 				{
 					title = "Visit Site",
 					type = "Action.OpenUrl",
-					url = "https://sandboxrp.gg/",
+					url = "https://discord.gg/methodrp",
 				},
 				{
 					title = "Start Account Linking",
