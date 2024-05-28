@@ -24,7 +24,10 @@ const useStyles = makeStyles((theme) => ({
 		left: 0,
 		margin: 'auto',
 		background: theme.palette.secondary.dark,
-		borderLeft: `4px solid ${theme.palette.primary.main}`,
+		borderLeft: `6px solid ${theme.palette.primary.main}`,
+		borderRight: `6px solid ${theme.palette.primary.main}`,
+		borderTop: `6px solid ${theme.palette.primary.main}`,
+		borderBottom: `6px solid ${theme.palette.primary.main}`,
 	},
 	createForm: {
 		margin: 25,
@@ -181,7 +184,7 @@ export default () => {
 		<LocalizationProvider dateAdapter={AdapterMoment}>
 			<div className={classes.wrapper}>
 				<div className={classes.createForm}>
-					<div className={classes.title}>Create Character</div>
+					<div className={classes.title}>Welcome to Los Santos</div>
 					<form
 						autoComplete="off"
 						id="createForm"

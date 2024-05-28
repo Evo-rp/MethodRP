@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
 		padding: 36,
 		background: theme.palette.secondary.dark,
 		borderLeft: `6px solid ${theme.palette.primary.main}`,
+		borderRight: `6px solid ${theme.palette.primary.main}`,
+		borderTop: `6px solid ${theme.palette.primary.main}`,
+		borderBottom: `6px solid ${theme.palette.primary.main}`,
+
 	},
 	img: {
 		maxWidth: 450,
