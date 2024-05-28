@@ -35,7 +35,7 @@ local defaultSettings = {
 	ringtone = "ringtone1.ogg",
 	texttone = "text1.ogg",
 	colors = {
-		accent = "#d5000",
+		accent = "#d50000",
 	},
 	zoom = 75,
 	volume = 100,
