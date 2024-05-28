@@ -116,7 +116,7 @@ function SetupQueues()
 
 					Phone.Email:Send(
 						char:GetData("Source"),
-						"unknown@sandboxrp.gg",
+						"tike.myson@5minutemail.net",
 						os.time(),
 						string.format("You Were Chosen For A %s", v.name),
 						string.format(
