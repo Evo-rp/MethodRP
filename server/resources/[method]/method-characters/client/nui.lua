@@ -1,3 +1,19 @@
+Citizen.CreateThread(function()
+	while GetIsLoadingScreenActive() do
+		Citizen.Wait(0)
+	end
+	SendNUIMessage({
+		type = "APP_SHOW",
+	})
+end)
+
+function loadModel(model)
+	RequestModel(model)
+	while not HasModelLoaded(model) do
+		Citizen.Wait(100)
+	end
+end
+
 local previews = {
 	vector4(682.282, 584.414, 129.461, 205.768),
 	vector4(684.203, 585.349, 129.461, 194.392),
@@ -5,66 +21,16 @@ local previews = {
 	vector4(679.232, 585.493, 129.461, 236.240),
 	vector4(682.157, 587.705, 129.461, 199.840),
 }
-
 local peds = {}
-local _cam = nil
-
-local cam = {
-	create = function(self, x, y, z, rx, ry, rz, fov)
-		local cam = CreateCamWithParams(
-			"DEFAULT_SCRIPTED_CAMERA",
-			x,
-			y,
-			z,
-			rx,
-			ry,
-			rz,
-			fov,
-			false,
-			0
-		)
-		SetCamActive(cam, true)
-		RenderScriptCams(true, false, 1, true, true)
-		return cam
-	end,
-	delete = function(self, cam)
-		DestroyCam(cam, true)
-	end,
-	move = function(self, cam, x, y, z, rx, ry, rz, fov)
-		SetCamCoord(cam, x, y, z)
-		SetCamRot(cam, rx, ry, rz, 2)
-		SetCamFov(cam, fov)
-	end,
-
-}
-
-CreateThread(function()
-	while GetIsLoadingScreenActive() do
-		Wait(0)
-	end
-	SendNUIMessage({
-		type = "APP_SHOW",
-	})
-end)
-
-local function loadModel(model)
-	if type(model) == "string" then
-		model = joaat(model)
-	end
-	RequestModel(model)
-	while not HasModelLoaded(model) do
-		Wait(100)
-	end
-end
 
 RegisterNUICallback("GetData", function(data, cb)
 	cb("ok")
 
 	while LocalPlayer.state.ID == nil do
-		Wait(1)
+		Citizen.Wait(1)
 	end
 
-	for _, v in ipairs(peds) do
+	for k, v in ipairs(peds) do
 		DeleteEntity(v)
 	end
 
@@ -77,12 +43,11 @@ RegisterNUICallback("GetData", function(data, cb)
 		FadeOutWithTimeout(500)
 
 		Callbacks:ServerCallback("Characters:GetCharacters", {}, function(characters, characterLimit)
-			print(json.encode(characters ,{indent=true}))
 			local ped = PlayerPedId()
-
-			SetEntityCoords(ped, -1001.0034, -476.1071, 50.0276, false, false, false, false)
+			TriggerEvent("PAC:IgnoreNextNoclipFlag")
+			SetEntityCoords(ped, 685.865, 576.222, 132.841, 0.0, 0.0, 0.0, false)
 			FreezeEntityPosition(ped, true)
-			SetEntityVisible(ped, false, false)
+			SetEntityVisible(ped, false)
 			SetPlayerVisibleLocally(ped, false)
 
 			local interior = GetInteriorFromEntity(ped)
@@ -91,9 +56,20 @@ RegisterNUICallback("GetData", function(data, cb)
 				ForceRoomForEntity(ped, interior, roomHash)
 			end
 
-			Wait(250)
-			_cam = cam:create(-1003.2799, -479.0881, 50.0268, 0.0, 0.0, 0.0, 50.0)
+			Citizen.Wait(250)
 
+			local cam2 = CreateCamWithParams(
+				"DEFAULT_SCRIPTED_CAMERA",
+				685.865,
+				576.222,
+				132.841,
+				338.730,
+				0.00,
+				0.00,
+				75.00,
+				false,
+				0
+			)
 			SetCamActiveWithInterp(cam2, cam, 1000, true, true)
 			RenderScriptCams(true, false, 1, true, true)
 
@@ -273,8 +249,7 @@ end)
 RegisterNUICallback("FocusCharacter", function(data, cb)
 	cb("ok")
 
-	print(json.encode(data ,{indent=true}))
-	local characterID = data.id
+	print("FocusCharacter", data.id)
 end)
 
 RegisterNetEvent("Characters:Client:Spawned", function()
