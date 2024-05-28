@@ -66,7 +66,7 @@ _BANKING = {
 				return hasAccount
 			end
 
-			local acc = CreateBankAccount("personal", tostring(ownerSID), 5000)
+			local acc = CreateBankAccount("personal", tostring(ownerSID), 10000)
 			if acc then
 				return Banking.Accounts:Get(acc)
 			end
