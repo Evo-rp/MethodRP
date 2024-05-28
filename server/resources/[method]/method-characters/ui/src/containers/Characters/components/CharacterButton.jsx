@@ -77,7 +77,7 @@ export default ({ character }) => {
 
 	const onClick = () => {
 		dispatch({
-			type: 'LOADINGS_HOW',
+			type: 'LOADING_HOW',
 			payload: { message: 'Getting Spawn Points' },
 		});
 		dispatch({
@@ -90,7 +90,7 @@ export default ({ character }) => {
 	};
 
 	const onSingleClick = () => {
-		Nui.send('FocusCharacter', { id: character.ID });
+		Nui.send('FocusCharacter', { id: character });
 	};
 
 	const onRightClick = (e) => {
