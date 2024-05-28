@@ -1,9 +1,46 @@
 local previews = {
-	vector4(682.282, 584.414, 129.461, 205.768),
-	vector4(684.203, 585.349, 129.461, 194.392),
-	vector4(680.347, 582.919, 129.461, 239.809),
-	vector4(679.232, 585.493, 129.461, 236.240),
-	vector4(682.157, 587.705, 129.461, 199.840),
+	-- {
+	-- 	position = vector4(-1008.8504, -476.3, 49.0, 218.1057),
+	-- 	anim = {
+	-- 		dict = "timetable@reunited@ig_10",
+	-- 		name = "base_amanda",
+	-- 	}
+	-- },
+	-- {
+	-- 	position = vector4(-1005.05, -474.75, 48.7, 211.8572),
+	-- 	anim = {
+	-- 		dict = "mini@prostitutes@sexlow_veh",
+	-- 		name = "low_car_sex_loop_player",
+	-- 	},
+	-- 	prop = {
+	-- 		{
+	-- 			model = "prop_cs_beer_bot_01",
+	-- 			bone = 28422,
+	-- 			position = vector3(0.0, 0.0, 0.0),
+	-- 			rotation = vector3(0.0, 0.0, 0.0),
+	-- 		},
+	-- 		{
+	-- 			model = "prop_cs_beer_bot_01",
+	-- 			bone = 60309,
+	-- 			position = vector3(0.0, 0.0, 0.0),
+	-- 			rotation = vector3(0.0, 0.0, 0.0),
+	-- 		},
+	-- 	}
+	-- }
+	-- {
+	-- 	position = vector4(-1003.4730, -479.2334, 49.0269, 49.1729),
+	-- 	anim = {
+	-- 		dict = "anim@amb@clubhouse@bar@bartender@",
+	-- 		name = "greeting_b_bartender",
+	-- 	}
+	-- },
+	{
+		position = vector4(-1009.6921, -480.2115, 49.0274, 338.2319),
+		anim = {
+			dict = "amb@world_human_leaning@male@wall@back@foot_up@idle_a",
+			name = "idle_a",
+		}
+	},
 }
 
 local peds = {}
@@ -42,7 +79,7 @@ local cam = {
 
 local Callbacks = exports["method-base"]:FetchComponent("Callbacks")
 
-local fiTo = 0
+local foTo = 0
 function FadeOutWithTimeout(time, timeOut)
 	DoScreenFadeOut(time or 500)
 	foTo = 0
@@ -52,6 +89,59 @@ function FadeOutWithTimeout(time, timeOut)
 	end
 end
 
+local fiTo = 0
+function FadeInWithTimeout(time, timeOut)
+	DoScreenFadeIn(time or 500)
+	fiTo = 0
+	while IsScreenFadingIn() and fiTo < (timeOut or 3000) do
+		fiTo += 1
+		Citizen.Wait(1)
+	end
+end
+
+local function loadModel(model)
+	if type(model) == "string" then
+		model = joaat(model)
+	end
+	RequestModel(model)
+	while not HasModelLoaded(model) do
+		Wait(100)
+	end
+end
+
+RegisterCommand('ped', function(source, args, rawCommand)
+	loadModel(`mp_m_freemode_01`)
+
+	print('1')
+
+	local ped = CreatePed(
+		4,
+		`mp_m_freemode_01`,
+		previews[1].position.x,
+		previews[1].position.y,
+		previews[1].position.z,
+		previews[1].position.w,
+		false,
+		true
+	)
+
+	while not DoesEntityExist(ped) do
+		Citizen.Wait(1)
+	end
+
+	SetEntityCoords(ped, previews[1].position.x, previews[1].position.y, previews[1].position.z, false, false, false, false)
+	SetEntityHeading(ped, previews[1].position.w)
+	RequestAnimDict(previews[1].anim.dict)
+	while not HasAnimDictLoaded(previews[1].anim.dict) do
+		Wait(100)
+	end
+	TaskPlayAnim(ped, previews[1].anim.dict, previews[1].anim.name, 8.0, 8.0, -1, 1, 0, false, false, false)
+	FreezeEntityPosition(ped, true)
+
+	SetTimeout(10000, function()
+		DeleteEntity(ped)
+	end)
+end, false)
 ---------------
 
 RegisterCommand('cam', function()
@@ -79,60 +169,61 @@ RegisterCommand('cam', function()
 			end
 
 			Wait(250)
-			_cam = cam:create(-1003.2799, -479.0881, 50.0268, 0.0, 0.0, 0.0, 50.0)
+			_cam = cam:create(-1003.2799, -479.0881, 50.5268, 0.0, 0.0, 60.0, 50.0)
 
             SetTimeout(5000, function()
                 cam:delete(_cam)
             end)
 
-			-- for k, v in ipairs(characters) do
-			-- 	if previews[k] then
-			-- 		if v.Preview then
-			-- 			loadModel(GetHashKey(v.Preview.model))
-			-- 			local ped = CreatePed(
-			-- 				5,
-			-- 				GetHashKey(v.Preview.model),
-			-- 				previews[k][1],
-			-- 				previews[k][2],
-			-- 				previews[k][3],
-			-- 				previews[k][4],
-			-- 				false,
-			-- 				true
-			-- 			)
+			for k, v in ipairs(characters) do
 
-			-- 			while not DoesEntityExist(ped) do
-			-- 				Citizen.Wait(1)
-			-- 			end
+				if previews[k] then
+					if v.Preview then
+						loadModel(v.Preview.model)
+						-- local _ped = CreatePed(
+						-- 	5,
+						-- 	GetHashKey(v.Preview.model),
+						-- 	previews[k][1],
+						-- 	previews[k][2],
+						-- 	previews[k][3],
+						-- 	previews[k][4],
+						-- 	false,
+						-- 	true
+						-- )
+
+						-- while not DoesEntityExist(ped) do
+						-- 	Wait(1)
+						-- end
 
 			-- 			SetEntityCoords(ped, previews[k][1], previews[k][2], previews[k][3], 0.0, 0.0, 0.0, false)
 			-- 			FreezeEntityPosition(ped, true)
 			-- 			Ped:Preview(ped, tonumber(v.Gender), v.Preview, false, v.GangChain)
 
 			-- 			table.insert(peds, ped)
-			-- 		else
+					else
 			-- 			loadModel(tonumber(v.Gender) == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`)
-			-- 			local ped = CreatePed(
-			-- 				5,
-			-- 				tonumber(v.Gender) == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`,
-			-- 				previews[k][1],
-			-- 				previews[k][2],
-			-- 				previews[k][3],
-			-- 				previews[k][4],
-			-- 				false,
-			-- 				true
-			-- 			)
+						-- local ped = CreatePed(
+						-- 	5,
+						-- 	tonumber(v.Gender) == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`,
+						-- 	previews[k][1],
+						-- 	previews[k][2],
+						-- 	previews[k][3],
+						-- 	previews[k][4],
+						-- 	false,
+						-- 	true
+						-- )
 
-			-- 			while not DoesEntityExist(ped) do
-			-- 				Citizen.Wait(1)
-			-- 			end
+						-- while not DoesEntityExist(ped) do
+						-- 	Citizen.Wait(1)
+						-- end
 
-			-- 			SetEntityCoords(ped, previews[k][1], previews[k][2], previews[k][3], 0.0, 0.0, 0.0, false)
-			-- 			FreezeEntityPosition(ped, true)
+						-- SetEntityCoords(ped, previews[k][1], previews[k][2], previews[k][3], 0.0, 0.0, 0.0, false)
+						-- FreezeEntityPosition(ped, true)
 
 			-- 			table.insert(peds, ped)
-			-- 		end
-			-- 	end
-			-- end
+					end
+				end
+			end
 
 			-- SendNUIMessage({
 			-- 	type = "SET_DATA",
@@ -149,7 +240,7 @@ RegisterCommand('cam', function()
 			-- 	data = { state = "STATE_CHARACTERS" },
 			-- })
 
-			-- FadeInWithTimeout(500)
+			FadeInWithTimeout(500)
 		end)
 	end)
 end, false)
