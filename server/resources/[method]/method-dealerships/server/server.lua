@@ -51,7 +51,7 @@ AddEventHandler('Core:Shared:Ready', function()
         RegisterVehicleSaleCallbacks()
         LoadDealershipShit()
 
-        RegisterDonorVehicleSaleCallbacks()
+        -- RegisterDonorVehicleSaleCallbacks()
 
         Chat:RegisterAdminCommand("setstock", function(source, args, rawCommand)
             local dealership, vehicle, modelType, amount, price, class, make, model, category = table.unpack(args)
