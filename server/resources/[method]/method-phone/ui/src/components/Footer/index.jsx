@@ -80,7 +80,7 @@ export default (props) => {
 					/>
 				</div>
 				<div className={classes.fButton} onClick={GoHome}>
-					<FontAwesomeIcon icon={['far', 'rectangle-wide']} />
+					<FontAwesomeIcon icon={['far', 'house-blank']} />
 				</div>
 				<div className={classes.fButton} onClick={GoBack}>
 					<FontAwesomeIcon icon="chevron-left" />

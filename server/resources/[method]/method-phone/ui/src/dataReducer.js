@@ -155,7 +155,7 @@ export const initialState = {
 							ringtone: 'ringtone1.ogg',
 							wallpaper: 'wallpaper',
 							colors: {
-								accent: '#d5000',
+								accent: '#1a7cc1',
 							},
 							notifications: true,
 							zoom: 80,
@@ -816,7 +816,7 @@ export const initialState = {
 							name: 'Test Name Test Name Test Name Test Name Test Name Test Name Test Name ',
 							number: '555-555-5555',
 							favorite: true,
-							color: '#d5000',
+							color: '#1a7cc1',
 							avatar: 'https://i.pinimg.com/736x/4a/8b/b1/4a8bb1a316a7179eda8ccbea3ab027b2--oregon-ducks-football-football-s.jpg',
 						},
 						{
@@ -824,7 +824,7 @@ export const initialState = {
 							name: 'Test 2',
 							number: '555-555-5552',
 							favorite: false,
-							color: '#d5000',
+							color: '#1a7cc1',
 							avatar: 'https://i.pinimg.com/236x/df/19/14/df19146777544b82d08e06d3dd102df4.jpg',
 						},
 					],
