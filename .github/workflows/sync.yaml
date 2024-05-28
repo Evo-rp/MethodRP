@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   sync-restart:
     runs-on: "ubuntu-20.04"
@@ -11,6 +12,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+      
       - name: "Pull remote changes"
         uses: appleboy/ssh-action@v0.1.7
         env:
@@ -18,11 +27,11 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: root
-          #key: ${{ secrets.SSH_KEY }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
             cd ${{ env.REPO_PATH }} && git pull
+      
       - name: "Restart resources / server"
         uses: illeniumstudios/fivem-resource-watcher@main
         env:
