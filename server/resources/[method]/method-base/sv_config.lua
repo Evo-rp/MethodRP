@@ -3,15 +3,27 @@ COMPONENTS.Config = {
 		Server = "",
 	},
 	Groups = {
+		owner = {
+			Id = "owner",
+			Name = "Server Owner",
+			Abv = "Owner",
+			Queue = {
+				Priority = 1000,
+			},
+			Permission = {
+				Group = "admin", 
+				Level = 100,
+			},
+		},
 		management = {
 			Id = "management",
 			Name = "Management",
 			Abv = "Management",
 			Queue = {
-				Priority = 100,
+				Priority = 500,
 			},
 			Permission = {
-				Group = "admin", -- Can restart resources
+				Group = "admin", 
 				Level = 100,
 			},
 		},
@@ -20,7 +32,7 @@ COMPONENTS.Config = {
 			Name = "Developer",
 			Abv = "Dev",
 			Queue = {
-				Priority = 50,
+				Priority = 250,
 			},
 			Permission = {
 				Group = "admin",
@@ -29,10 +41,10 @@ COMPONENTS.Config = {
 		},
 		admin = {
 			Id = "admin",
-			Name = "Admin",
+			Name = "Administrator",
 			Abv = "Admin",
 			Queue = {
-				Priority = 50,
+				Priority = 100,
 			},
 			Permission = {
 				Group = "staff",
@@ -40,9 +52,9 @@ COMPONENTS.Config = {
 			},
 		},
 		operations = {
-			Id = "operations",
-			Name = "Operations",
-			Abv = "Operations",
+			Id = "moderator",
+			Name = "Staff Member",
+			Abv = "Staff",
 			Queue = {
 				Priority = 50,
 			},
