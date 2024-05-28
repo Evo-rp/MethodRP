@@ -109,78 +109,78 @@ function RegisterPersonalPlateCallbacks()
         PrivatePlateStuff(char, source, itemData)
 	end)
 
-    Inventory.Items:RegisterUse("personal_plates_donator", "Vehicles", function(source, itemData)
-        local char = Fetch:CharacterSource(source)
-        if not char then
-            Execute:Client(source, "Notification", "Error", "Error")
-            return
-        end
+    -- Inventory.Items:RegisterUse("personal_plates_donator", "Vehicles", function(source, itemData)
+    --     local char = Fetch:CharacterSource(source)
+    --     if not char then
+    --         Execute:Client(source, "Notification", "Error", "Error")
+    --         return
+    --     end
 
-        PrivatePlateStuff(char, source, itemData)
-	end)
+    --     PrivatePlateStuff(char, source, itemData)
+	-- end)
 
-    Chat:RegisterAdminCommand("adddonatorplates", function(source, args, rawCommand)
-        local license = table.unpack(args)
+    -- Chat:RegisterAdminCommand("adddonatorplates", function(source, args, rawCommand)
+    --     local license = table.unpack(args)
     
-        if license then
-            local success = Vehicles.DonatorPlates:Add(license)
-            if success then
-                Chat.Send.System:Single(source, "Successfully Added")
-            else
-                Chat.Send.System:Single(source, "Failed")
-            end
-        end
-      end, {
-        help = "[Admin] Add donator plates",
-        params = {
-            {
-                name = "Player Identifier",
-                help = "Player License",
-            },
-        },
-    }, 1)
+    --     if license then
+    --         local success = Vehicles.DonatorPlates:Add(license)
+    --         if success then
+    --             Chat.Send.System:Single(source, "Successfully Added")
+    --         else
+    --             Chat.Send.System:Single(source, "Failed")
+    --         end
+    --     end
+    --   end, {
+    --     help = "[Admin] Add donator plates",
+    --     params = {
+    --         {
+    --             name = "Player Identifier",
+    --             help = "Player License",
+    --         },
+    --     },
+    -- }, 1)
 
-    Chat:RegisterAdminCommand("getdonatorplates", function(source, args, rawCommand)
-        local license = table.unpack(args)
+    -- Chat:RegisterAdminCommand("getdonatorplates", function(source, args, rawCommand)
+    --     local license = table.unpack(args)
     
-        if license then
-            local success = Vehicles.DonatorPlates:Check(license)
-            if success and success.pending then
-                Chat.Send.System:Single(source, string.format("Player Identifier: %s<br>Pending Plates: %s<br>Redeemed Plates: %s", license, success.pending, success.redeemed or 0))
-            else
-                Chat.Send.System:Single(source, "Failed")
-            end
-        end
-      end, {
-        help = "[Admin] Check donator plates",
-        params = {
-            {
-                name = "Player Identifier",
-                help = "Player License",
-            },
-        },
-    }, 1)
+    --     if license then
+    --         local success = Vehicles.DonatorPlates:Check(license)
+    --         if success and success.pending then
+    --             Chat.Send.System:Single(source, string.format("Player Identifier: %s<br>Pending Plates: %s<br>Redeemed Plates: %s", license, success.pending, success.redeemed or 0))
+    --         else
+    --             Chat.Send.System:Single(source, "Failed")
+    --         end
+    --     end
+    --   end, {
+    --     help = "[Admin] Check donator plates",
+    --     params = {
+    --         {
+    --             name = "Player Identifier",
+    --             help = "Player License",
+    --         },
+    --     },
+    -- }, 1)
 
-    Chat:RegisterAdminCommand("removedonatorplates", function(source, args, rawCommand)
-        local license = table.unpack(args)
+    -- Chat:RegisterAdminCommand("removedonatorplates", function(source, args, rawCommand)
+    --     local license = table.unpack(args)
     
-        if license then
-            local success = Vehicles.DonatorPlates:Remove(license, 1)
-            if success then
-                Chat.Send.System:Single(source, "Successfully Removed")
-            else
-                Chat.Send.System:Single(source, "Failed")
-            end
-        end
-      end, {
-        help = "[Admin] Remove donator plates",
-        params = {
-            {
-                name = "Player Identifier",
-                help = "Player License",
-            },
-        },
-    }, 1)
+    --     if license then
+    --         local success = Vehicles.DonatorPlates:Remove(license, 1)
+    --         if success then
+    --             Chat.Send.System:Single(source, "Successfully Removed")
+    --         else
+    --             Chat.Send.System:Single(source, "Failed")
+    --         end
+    --     end
+    --   end, {
+    --     help = "[Admin] Remove donator plates",
+    --     params = {
+    --         {
+    --             name = "Player Identifier",
+    --             help = "Player License",
+    --         },
+    --     },
+    -- }, 1)
 
     Callbacks:RegisterServerCallback("Vehicles:CheckDonatorPersonalPlates", function(source, data, cb)
         local plyr = Fetch:Source(source)

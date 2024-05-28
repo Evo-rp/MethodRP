@@ -18,14 +18,14 @@ AddEventHandler("Vehicles:Client:StartUp", function()
         end
     end)
 
-    PedInteraction:Add("donor_plates", `u_f_m_debbie_01`, vector3(-504.405, -182.683, 36.691), 290.319, 25.0, {
-        {
-          icon = "rectangle-wide",
-          text = "Donator License Plate Claim",
-          event = "Vehicles:Client:DonatorLicensePlateClaim",
-        },
-    }, "comment-dollar")
-end)
+--     PedInteraction:Add("donor_plates", `u_f_m_debbie_01`, vector3(-504.405, -182.683, 36.691), 290.319, 25.0, {
+--         {
+--           icon = "rectangle-wide",
+--           text = "Donator License Plate Claim",
+--           event = "Vehicles:Client:DonatorLicensePlateClaim",
+--         },
+--     }, "comment-dollar")
+-- end)
 
 local platePromise
 function GetNewPersonalPlate()
