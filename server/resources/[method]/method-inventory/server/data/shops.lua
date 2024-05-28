@@ -71,22 +71,22 @@ _shops = {
 			h = 95.835,
 		},
 	},
-	{ -- Mall
+	{ -- Digital Den
 		shopId = 5,
-		name = "General Store",
+		name = "Digital Den",
 		entityId = 11,
 		icon = "shop",
 		npc = "a_m_m_ktown_01",
-		-- blip = {
-		-- 	sprite = 52,
-		-- 	color = 69,
-		-- 	scale = 0.4,
-		-- },
+		blip = {
+			sprite = 52,
+			color = 69,
+			scale = 0.4,
+		},
 		coords = {
-			x = -548.526,
-			y = -582.987,
-			z = 33.682,
-			h = 179.468,
+			x = 383.461,
+			y = -828.803,
+			z = 28.300,
+			h = 274.517, 
 		},
 	},
 	{ -- Paleto 2
@@ -781,19 +781,19 @@ _shops = {
 	-- 		h = 125.953
 	-- 	},
 	-- },
-	{
-		shopId = 50,
-		name = "Digital Den",
-		entityId = 74,
-		icon = "radio",
-		npc = "u_m_m_partytarget",
-		coords = {
-			x = 1134.168,
-			y = -468.023,
-			z = 65.486,
-			h = 165.675,
-		},
-	},
+	-- {
+	-- 	shopId = 50,
+	-- 	name = "Digital Den",
+	-- 	entityId = 74,
+	-- 	icon = "radio",
+	-- 	npc = "u_m_m_partytarget",
+	-- 	coords = {
+	-- 		x = 1134.168,
+	-- 		y = -468.023,
+	-- 		z = 65.486,
+	-- 		h = 165.675,
+	-- 	},
+	-- },
 	{
 		shopId = 51,
 		name = "Winery",
