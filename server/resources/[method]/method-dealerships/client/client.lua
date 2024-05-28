@@ -60,7 +60,7 @@ AddEventHandler("Core:Shared:Ready", function()
 		CreateBikeStands()
 		CreateGovermentFleetShops()
 
-		CreateDonorDealerships()
+		-- CreateDonorDealerships()
 	end)
 end)
 
