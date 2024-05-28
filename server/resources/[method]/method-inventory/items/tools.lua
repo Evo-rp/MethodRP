@@ -274,7 +274,7 @@ _itemsSource["tools"] = {
 		rarity = 2,
 		closeUi = true,
 		metalic = true,
-		weight = 25.,
+		weight = 25,
 		durability = (60 * 60 * 24 * 14),
 	},
 	{
