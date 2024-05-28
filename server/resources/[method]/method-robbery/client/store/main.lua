@@ -13,19 +13,19 @@ AddEventHandler("Robbery:Client:Setup", function()
 
 	for k, v in ipairs(GlobalState["StoreSafes"]) do
 		Targeting.Zones:AddBox(v.id, "vault", v.coords, v.length, v.width, v.options, {
-			{
-				icon = "unlock",
-				text = "Crack Safe",
-				event = "Robbery:Client:Store:ActualCrackSafe",
-				item = "safecrack_kit",
-				data = v.data,
-				isEnabled = function(data, entity)
-					return (
-						not GlobalState["StoreAntiShitlord"]
-						or GetCloudTimeAsInt() > GlobalState["StoreAntiShitlord"]
-					) and GlobalState[string.format("Safe:%s", data.id)] == nil
-				end,
-			},
+			-- {
+			-- 	icon = "unlock",
+			-- 	text = "Crack Safe",
+			-- 	event = "Robbery:Client:Store:ActualCrackSafe",
+			-- 	item = "safecrack_kit",
+			-- 	data = v.data,
+			-- 	isEnabled = function(data, entity)
+			-- 		return (
+			-- 			not GlobalState["StoreAntiShitlord"]
+			-- 			or GetCloudTimeAsInt() > GlobalState["StoreAntiShitlord"]
+			-- 		) and GlobalState[string.format("Safe:%s", data.id)] == nil
+			-- 	end,
+			-- },
 			{
 				icon = "terminal",
 				text = "Use Sequencer",

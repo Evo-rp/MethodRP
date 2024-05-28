@@ -51,6 +51,7 @@ _itemsSource["misc"] = {
 		closeUi = true,
 		metalic = false,
 		weight = 0,
+		durability = (60 * 60 * 24 * 180),
 	},
 	{
 		name = "government_badge",
@@ -65,6 +66,7 @@ _itemsSource["misc"] = {
 		closeUi = true,
 		metalic = false,
 		weight = 0,
+		durability = (60 * 60 * 24 * 180),
 	},
 	{
 		name = "hunting_map_dark",

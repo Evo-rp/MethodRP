@@ -61,13 +61,13 @@ AddEventHandler("Core:Shared:Ready", function()
 		HospitalMiddleware()
 
 		GlobalState["HiddenHospital"] = {
-			coords = vector3(2810.023, 5977.588, 349.919),
-			heading = 146.641,
+			coords = vector3(1838.164, 3691.618, 33.267),
+			heading = 302.600,
 		}
 
 		Vendor:Create("BlackmarketMeds", "ped", "Medical Supplies", `S_M_M_Paramedic_01`, {
-			coords = vector3(2815.044, 5980.179, 349.928),
-			heading = 277.889,
+			coords = vector3(1856.114, 3758.314, 32.182),
+			heading = 338.526,
 			scenario = "WORLD_HUMAN_CLIPBOARD",
 		}, _medsForSale, "pump-medical", "View Supplies", false)
 
