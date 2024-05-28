@@ -1,12 +1,12 @@
 function RegisterKeyBinds()
-    Keybinds:Add('open_hotbar', 'TAB', 'keyboard', 'Inventory - Show Hotbar', function()
+	Keybinds:Add("open_hotbar", "", "keyboard", "Inventory - Show Hotbar", function()
 		if not _startup or _reloading or _loading then
 			return
 		end
 		OpenHotBar()
 	end)
 
-    Keybinds:Add('open_inventory', 'F2', 'keyboard', 'Inventory - Open Inventory', function()
+	Keybinds:Add("open_inventory", "TAB", "keyboard", "Inventory - Open Inventory", function()
 		if not _startup or _reloading or _loading then
 			return
 		end
