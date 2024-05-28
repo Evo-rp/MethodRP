@@ -140,7 +140,7 @@ function RegisterCallbacks()
 				LastPlayed = -1,
 				Jobs = {},
 				SID = Sequence:Get("Character"),
-				Cash = 1000,
+				Cash = 2500,
 				New = true,
 				Licenses = {
 					Drivers = {
