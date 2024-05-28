@@ -246,6 +246,12 @@ RegisterNUICallback("PlayCharacter", function(data, cb)
 	end)
 end)
 
+RegisterNUICallback("FocusCharacter", function(data, cb)
+	cb("ok")
+
+	print("FocusCharacter", data.id)
+end)
+
 RegisterNetEvent("Characters:Client:Spawned", function()
 	TriggerEvent("Characters:Client:Spawn")
 	TriggerServerEvent("Characters:Server:Spawn")

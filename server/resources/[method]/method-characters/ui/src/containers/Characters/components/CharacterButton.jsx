@@ -14,7 +14,7 @@ import {
 import { makeStyles } from '@mui/styles';
 
 import Nui from '../../../util/Nui';
-import { SelectCharacter, DeleteCharacter } from '../../../util/NuiEvents';
+import { SelectCharacter, DeleteCharacter, FocusCharacter } from '../../../util/NuiEvents';
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -77,7 +77,7 @@ export default ({ character }) => {
 
 	const onClick = () => {
 		dispatch({
-			type: 'LOADING_SHOW',
+			type: 'LOADINGS_HOW',
 			payload: { message: 'Getting Spawn Points' },
 		});
 		dispatch({
@@ -87,6 +87,10 @@ export default ({ character }) => {
 			},
 		});
 		Nui.send(SelectCharacter, { id: character.ID });
+	};
+
+	const onSingleClick = () => {
+		Nui.send(FocusCharacter, { id: character.ID });
 	};
 
 	const onRightClick = (e) => {
@@ -108,6 +112,7 @@ export default ({ character }) => {
 				className={`${classes.container} ${
 					selected?.ID == character?.ID ? 'active' : ''
 				}`}
+				onClick={onSingleClick}
 				onDoubleClick={onClick}
 				onContextMenu={onRightClick}
 			>
