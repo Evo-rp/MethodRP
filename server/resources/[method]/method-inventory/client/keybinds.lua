@@ -1,5 +1,5 @@
 function RegisterKeyBinds()
-	Keybinds:Add("open_hotbar", "", "keyboard", "Inventory - Show Hotbar", function()
+	Keybinds:Add("open_hotbar", "Z", "keyboard", "Inventory - Show Hotbar", function()
 		if not _startup or _reloading or _loading then
 			return
 		end
