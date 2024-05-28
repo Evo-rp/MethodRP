@@ -508,6 +508,7 @@ POLICE = {
 								discord = {
 									embed = true,
 									type = 'info',
+									webhook = GetConvar("government_job_log_webhook", ''),
 								}
 							}
 						)

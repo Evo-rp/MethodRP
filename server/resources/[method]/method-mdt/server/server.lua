@@ -507,6 +507,8 @@ AddEventHandler("MDT:Server:RegisterCallbacks", function()
 						database = true,
 						discord = {
 							embed = true,
+							type = 'info',
+							webhook = GetConvar("government_log_webhook", ''),
 						},
 					}
 				)
@@ -567,6 +569,8 @@ AddEventHandler("MDT:Server:RegisterCallbacks", function()
 						database = true,
 						discord = {
 							embed = true,
+							type = 'info',
+							webhook = GetConvar("government_log_webhook", ''),
 						},
 					}
 				)
@@ -633,6 +637,8 @@ AddEventHandler("MDT:Server:RegisterCallbacks", function()
 							database = true,
 							discord = {
 								embed = true,
+								type = 'info',
+								webhook = GetConvar("government_log_webhook", ''),
 							},
 						}
 					)

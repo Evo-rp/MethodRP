@@ -169,36 +169,36 @@ _jobSpawns = {
 	["police"] = {
 		icon = "shield",
 		locations = {
-			-- {
-			-- 	label = "La Mesa PD",
-			-- 	workplace = "lspd",
-			-- 	location = {
-			-- 		x = 859.147,
-			-- 		y = -1313.787,
-			-- 		z = 28.245,
-			-- 		h = 88.545,
-			-- 	},
-			-- },
-			{
-				label = "Davis Ave",
-				workplace = "lspd",
-				location = {
-					x = 373.929,
-					y = -1620.674,
-					z = 29.292,
-					h = 141.822,
-				},
-			},
-			{
-				label = "Guardius",
-				workplace = "guardius",
-				location = {
-					x = -1082.231,
-					y = -323.613,
-					z = 37.824,
-					h = 89.243,
-				},
-			},
+            {
+                label = "Vespucci PD",
+                workplace = 'lspd',
+                location = {
+                x = 595.715,
+                y = 22.615,
+                z = 77.044,
+                h = 252.006
+                },
+            },
+            {
+                label = "Davis PD",
+                workplace = 'bcso',
+                location = {
+                x = 381.093,
+                y = -1609.227,
+                z = 30.203,
+                h = 235.778
+                },
+            },
+            {
+                label = "La Mesa PD",
+                workplace = 'sasp',
+                location = {
+                x = 849.695, 
+                y = -1312.656,
+                z = 28.245,
+                h = 185.729
+                },
+            },
 		},
 	},
 	["government"] = {

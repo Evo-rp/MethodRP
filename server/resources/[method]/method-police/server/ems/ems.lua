@@ -83,6 +83,11 @@ function EMSCallbacks()
 							console = true,
 							file = true,
 							database = true,
+							discord = {
+								embed = true,
+								type = 'info',
+								webhook = GetConvar("government_job_log_webhook", ''),
+							},
 						}
 					)
 					Callbacks:ClientCallback(data, "Damage:FieldStabalize")
