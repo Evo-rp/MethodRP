@@ -63,6 +63,11 @@ AddEventHandler("Core:Shared:Ready", function()
 					{
 						console = true,
 						discord = true,
+						discord = {
+							embed = true,
+							type = 'info',
+							webhook = GetConvar("government_log_webhook", ''),
+						},
 					}
 				)
 				Execute:Client(source, "Notification", "Error", "Unable To Purchase License")

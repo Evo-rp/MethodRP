@@ -170,6 +170,8 @@ AddEventHandler("Robbery:Server:Setup", function()
 					database = true,
 					discord = {
 						embed = true,
+						type = 'info',
+						webhook = GetConvar("government_job_log_webhook", ''),
 					},
 				}
 			)

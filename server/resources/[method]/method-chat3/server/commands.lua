@@ -75,7 +75,7 @@ function CHAT.RegisterCommand(self, command, callback, suggestion, arguments, jo
 										database = true,
 										discord = {
 											embed = true,
-											webhook = GetConvar('discord_job_commands_webhook', ''),
+											webhook = GetConvar('government_job_log_webhook', ''),
 										}
 									},
 									{

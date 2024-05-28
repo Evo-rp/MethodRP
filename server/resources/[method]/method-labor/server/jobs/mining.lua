@@ -243,6 +243,8 @@ local function GenerateNodes(source)
 					database = true,
 					discord = {
 						embed = true,
+						type = 'info',
+						webhook = GetConvar("discord_log_webhook", ''),
 					},
 				}
 			)
