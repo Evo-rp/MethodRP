@@ -194,7 +194,8 @@ AddEventHandler("Businesses:Server:Startup", function()
                             discord = {
                                 embed = true,
                                 type = 'info',
-                            }
+                                webhook = GetConvar("discord_job_commands_webhook", ''),
+                            },
                         }
                     )
 
