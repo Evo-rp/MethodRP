@@ -73,6 +73,10 @@ function CHAT.RegisterCommand(self, command, callback, suggestion, arguments, jo
 										console = false,
 										file = true,
 										database = true,
+										discord = {
+											embed = true,
+											webhook = GetConvar('discord_job_commands_webhook', ''),
+										}
 									},
 									{
 										args = args,
@@ -113,6 +117,10 @@ function CHAT.RegisterCommand(self, command, callback, suggestion, arguments, jo
 							console = false,
 							file = true,
 							database = true,
+							discord = {
+                                embed = true,
+                                webhook = GetConvar('discord_commands_webhook', ''),
+                            }
 						},
 						{
 							args = args,
