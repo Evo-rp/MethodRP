@@ -78,9 +78,9 @@ _shops = {
 		icon = "radio",
 		npc = "u_m_m_partytarget",
 		blip = {
-			sprite = 52,
-			color = 69,
-			scale = 0.4,
+			sprite = 521,
+			color = 27,
+			scale = 0.6,
 		},
 		coords = {
 			x = 383.461,
