@@ -430,7 +430,7 @@ Config = {
 			maxZ = 108.4,
 			restricted = "aircraft",
 		},
-		{ -- Vespucci PD Helipad
+		{ -- Vinewood PD Helipad
 			center = vector3(-1095.43, -835.56, 37.67),
 			length = 15.0,
 			width = 15.0,

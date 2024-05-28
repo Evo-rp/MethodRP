@@ -170,7 +170,7 @@ _jobSpawns = {
 		icon = "shield",
 		locations = {
             {
-                label = "Vespucci PD",
+                label = "Vinewood PD",
                 workplace = 'lspd',
                 location = {
                 x = 595.715,
