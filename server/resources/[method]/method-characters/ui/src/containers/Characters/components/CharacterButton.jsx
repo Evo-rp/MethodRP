@@ -14,7 +14,7 @@ import {
 import { makeStyles } from '@mui/styles';
 
 import Nui from '../../../util/Nui';
-import { SelectCharacter, DeleteCharacter, FocusCharacter } from '../../../util/NuiEvents';
+import { SelectCharacter, DeleteCharacter } from '../../../util/NuiEvents';
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -90,7 +90,7 @@ export default ({ character }) => {
 	};
 
 	const onSingleClick = () => {
-		Nui.send(FocusCharacter, { id: character.ID });
+		Nui.send('FocusCharacter', { id: character.ID });
 	};
 
 	const onRightClick = (e) => {

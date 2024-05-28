@@ -6,6 +6,5 @@ export const GetCharacters = 'GetCharacters';
 export const CreateCharacter = 'CreateCharacter';
 export const DeleteCharacter = 'DeleteCharacter';
 export const SelectCharacter = 'SelectCharacter';
-export const FocusCharacter = 'FocusCharacter';
 export const PlayCharacter = 'PlayCharacter';
 export const SelectSpawn = 'SelectSpawn';
