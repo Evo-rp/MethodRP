@@ -161,7 +161,9 @@ export default (state = initialState, action) => {
         case 'REMOVE_BUFF_BY_TYPE':
             return {
                 ...state,
-                buffs: state.buffs.filter((b) => b?.buff != action.payload.type),
+                buffs: state.buffs.filter(
+                    (b) => b?.buff != action.payload.type,
+                ),
             };
         default:
             return state;
