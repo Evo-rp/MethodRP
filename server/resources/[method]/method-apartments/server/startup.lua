@@ -1,16 +1,16 @@
 _aptData = {
 	{
-		name = "Richard's Tower",
+		name = "Elgin House",
 		invEntity = 13,
-		coords = vector3(-1274.351, 315.095, 64.512),
-		heading = 153.319,
-		length = 8.4,
-		width = 4.0,
+		coords = vector3(-70.910, 142.767, 81.566),
+		heading = 45.854,
+		length = 6.4,
+		width = 3.5,
 		options = {
 			heading = 0,
 			--debugPoly=true,
-			minZ = 63.21,
-			maxZ = 67.21,
+			minZ = 75.21,
+			maxZ = 86.21
 		},
 		interior = {
 			wakeup = {

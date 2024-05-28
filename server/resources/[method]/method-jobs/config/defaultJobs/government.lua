@@ -75,7 +75,7 @@ table.insert(_defaultJobData, {
 					},
 				},
 				{
-					Id = "judge",
+					Id = "justice",
 					Name = "Justice",
 					Level = 90,
 					Permissions = {

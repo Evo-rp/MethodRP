@@ -509,7 +509,7 @@ function RegisterChatCommands()
 		},
 	}, 2)
 
-	Chat:RegisterStaffCommand("checkradio", function(source, args, rawCommand)
+	Chat:RegisterAdminCommand("checkradio", function(source, args, rawCommand)
 		local targ = tonumber(args[1])
 		local char = Fetch:SID(targ)
 		if char ~= nil then
