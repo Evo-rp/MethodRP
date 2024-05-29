@@ -14,6 +14,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@mui/styles';
 import Bars from './forms/status-types/Bars';
+import Circles from './forms/status-types/Circles';
 import Nui from '../../util/Nui';
 import { useEffect } from 'react';
 import Minimap from './forms/layouts/Minimap';
@@ -57,6 +58,10 @@ const barTypes = [
         value: 'bars',
         label: 'Bars',
     },
+    {
+        value: 'circles',
+        label: 'Circles'
+    }
 ];
 
 const useStyles = makeStyles((theme) => ({
