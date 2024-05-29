@@ -31,4 +31,4 @@ jobs:
           serverIP: ${{ secrets.SSH_HOST }}
           serverPort: 30120
           rconPassword: ${{ secrets.RCON_PASSWORD }}
-          restartIndividualResources: false
+          restartIndividualResources: false 
