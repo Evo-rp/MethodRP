@@ -33,6 +33,8 @@ import DeathTexts from './DeathTexts';
 import Arcade from '../Arcade';
 import Flashbang from './Flashbang';
 import Settings from '../Settings';
+import NpcDialog from '../../components/NpcDialog';
+
 
 library.add(fab, fas, far);
 
@@ -218,6 +220,7 @@ const App = ({ hidden }) => {
                 <Interaction />
                 <GemTable />
                 <Settings />
+                <NpcDialog />
             </ThemeProvider>
         </StyledEngineProvider>
     );
