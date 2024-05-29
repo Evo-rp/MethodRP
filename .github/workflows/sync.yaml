@@ -5,27 +5,30 @@ on:
       - main
 jobs:
   sync-restart:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Pull Remote Changes
+      - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}  
-          ssh-auth-sock: ${{ env.SSH_AUTH_SOCK }}
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
-      - name: Restart Resources / Server
+      - name: Pull remote changes
+        run: |
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          cd /home/server/txData/MethodRP
+          git pull
+          
+      - name: Restart resources / server
         uses: illeniumstudios/fivem-resource-watcher@main
         env:
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
         with:
-          serverIP: ${{ secrets.SSH_HOST }}  
+          serverIP: ${{ secrets.SSH_HOST }}
           serverPort: 30120
           rconPassword: ${{ secrets.RCON_PASSWORD }}
           restartIndividualResources: false
-
-          # test
