@@ -143,7 +143,6 @@ export default () => {
 		<StyledEngineProvider injectFirst>
 			<ThemeProvider theme={muiTheme}>
 				<CssBaseline />
-        <button onClick={() => Nui.send(GetData)}>TEST SPAWN BUTTON</button>
 				{!hidden && (
 					<div className="App">{loading ? <Loader /> : display}</div>
 				)}
