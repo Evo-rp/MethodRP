@@ -26,6 +26,7 @@ jobs:
           REPO_PATH: "/home/server/txData/MethodRP"
         run: |
           ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }} "cd $REPO_PATH && git pull"
+          git pull https://github.com/MethodRP/MethodRP
 
       - name: Restart resources / server
         uses: illeniumstudios/fivem-resource-watcher@main
