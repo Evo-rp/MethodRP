@@ -1,8 +1,8 @@
 export default {
 	async send(event, data = {}) {
-		/// #if DEBUG
-		return new Promise((resolve) => setTimeout(resolve, 100));
-		/// #endif
+		// /// #if DEBUG
+		// return new Promise((resolve) => setTimeout(resolve, 100));
+		// /// #endif
 
 		/* eslint-disable no-unreachable */
 		return fetch(`https://method-characters/${event}`, {

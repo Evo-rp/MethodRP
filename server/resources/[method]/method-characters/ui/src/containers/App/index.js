@@ -18,6 +18,8 @@ import Create from '../Create';
 import Spawn from '../Spawn';
 
 import { STATE_CHARACTERS, STATE_CREATE, STATE_SPAWN } from '../../util/States';
+import Nui from "../../util/Nui";
+import {GetData} from "../../util/NuiEvents";
 
 library.add(fab, fas);
 
@@ -85,7 +87,7 @@ export default () => {
 					html: {
 						background:
 							process.env.NODE_ENV != 'production'
-								? '#1e1e1e'
+								? 'transparent'
 								: 'transparent',
 						'input::-webkit-outer-spin-button, input::-webkit-inner-spin-button':
 							{

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, ButtonGroup } from '@mui/material';
 import { makeStyles } from '@mui/styles';
@@ -10,6 +10,7 @@ import logo from '../../assets/imgs/logo_banner.png';
 import SpawnButton from './components/SpawnButton';
 import { STATE_CHARACTERS } from '../../util/States';
 import { PlayCharacter } from '../../util/NuiEvents';
+import MarkerSpawn from './components/MarkerSpawn';
 
 const useStyles = makeStyles((theme) => ({
 	canvas: {
@@ -63,6 +64,16 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.primary.dark,
 		fontWeight: 'bold',
 	},
+  zeroPoint: {
+    backgroundColor: "none",
+    color: "white",
+    width: "0.1%",
+    height: "0.1vh",
+    marginLeft: "50.8%",
+    marginTop: "30.2%",
+    display: "flex",
+    position: "absolute",
+  },
 }));
 
 export default (props) => {
@@ -73,6 +84,61 @@ export default (props) => {
 	const spawns = useSelector((state) => state.spawn.spawns);
 	const selected = useSelector((state) => state.spawn.selected);
 	const selectedChar = useSelector((state) => state.characters.selected);
+
+  const zeroPointRef = useRef();
+  const [convertedSpawn,setConvertedSpawns] = useState([])
+
+  const getCorrectXY = (origX, origY) => {
+    const maxRangeY = 4740 // do not change these
+    const maxRangeX = 3780 // do not change these
+
+    const childPos = zeroPointRef.current.getBoundingClientRect();
+    const parentPos = zeroPointRef.current.parentElement.getBoundingClientRect();
+
+
+    const childOffset = {
+      top: childPos.top - parentPos.top,
+      left: childPos.left - parentPos.left
+    }
+
+    const leftInToZero = childOffset.left
+    const topInToZero = childOffset.top
+
+    const maxNewRangeY = document.getElementById("spawnBox").clientWidth - leftInToZero
+    const maxNewRangeX = document.getElementById("spawnBox").clientHeight - topInToZero
+
+    const scaledOx = topInToZero - scaleBetween(origX, 0, maxNewRangeX, 0.0, maxRangeX)
+    const scaledOy = leftInToZero - scaleBetween(origY, 0, maxNewRangeY, 0.0, maxRangeY)
+
+    return [scaledOx, scaledOy]
+  };
+
+  const scaleBetween = (unscaledNum, minAllowed, maxAllowed, min, max) => {
+    return (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed;
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const convertSpawns = spawns?.map(spawn => {
+        const {x, y} = spawn.location;
+        const correctCoordinate = getCorrectXY(x, y);
+        return {
+          ...spawn,
+          posX: correctCoordinate[0],
+          posY: correctCoordinate[1]
+        };
+      });
+
+      setConvertedSpawns(convertSpawns);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [spawns]);
+
 
 	const onSpawn = () => {
 		Nui.send(PlayCharacter, {
@@ -103,13 +169,10 @@ export default (props) => {
 		<div className={classes.canvas}>
 			{Boolean(motd) && <Motd message={motd} />}
 			<img className={classes.logo} src={logo} />
-			<div className={classes.spawnContainer}>
-				{spawns.map((spawn, i) => {
-					return (
-						<SpawnButton key={i} spawn={spawn} onPlay={onSpawn} />
-					);
-				})}
-			</div>
+
+      <div className={classes.zeroPoint} id={'zeropoint'} ref={zeroPointRef}/>
+      <MarkerSpawn convertedSpawn={convertedSpawn} />
+
 			<div className={classes.spawnInfo}>
 				<div className={classes.charInfo}>
 					<div className={classes.label}>Spawning As</div>
