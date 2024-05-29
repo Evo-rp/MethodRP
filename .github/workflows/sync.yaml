@@ -17,12 +17,16 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
-      - name: Pull remote changes
+      - name: Add GitHub to known_hosts
         run: |
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          cd /home/server/txData/MethodRP
-          git pull
-          
+
+      - name: Pull remote changes on VPS
+        env:
+          REPO_PATH: "/home/server/txData/MethodRP"
+        run: |
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }} "cd $REPO_PATH && git pull"
+
       - name: Restart resources / server
         uses: illeniumstudios/fivem-resource-watcher@main
         env:
