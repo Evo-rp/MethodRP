@@ -5,25 +5,30 @@ on:
       - main
 jobs:
   sync-restart:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: "Pull remote changes"
-        uses: appleboy/ssh-action@v0.1.7
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Add GitHub to known_hosts
+        run: |
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Pull remote changes on VPS
         env:
           REPO_PATH: "/home/server/txData/MethodRP"
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: root
-          key: ${{ secrets.SSH_KEY }}
-          #password: ${{ secrets.SSH_PASSWORD }}
-          port: 22
-          script: |
-            cd ${{ env.REPO_PATH }} && git pull
-      - name: "Restart resources / server"
+        run: |
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }} "cd $REPO_PATH && git pull"
+          git pull https://github.com/MethodRP/MethodRP
+
+      - name: Restart resources / server
         uses: illeniumstudios/fivem-resource-watcher@main
         env:
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}

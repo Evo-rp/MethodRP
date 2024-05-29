@@ -30,7 +30,7 @@ __  __      _   _               _   _____  _____
 ^7]])
 print("^1Method RP Framework " .. ver)
 print("^0Made By ^6Alzar^0,^6 Dr Nick^0 & ^6Panda")
-print("^3Contributors: ^1Jamey^0,^3 PixelRez^0,^3 Raven^0 & ^3 akaLucifer")
+print("^3Contributors: ^1Jamey^0,^3 PixelRez^0,^3 Raven^0, ^3 akaLucifer^0 & ^3 Gellipapa")
 				
 print([[
 ^2=================================================================================================^7

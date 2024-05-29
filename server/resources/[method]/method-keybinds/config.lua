@@ -1,13 +1,13 @@
 Config = {
 	GlobalKeybinds = {
 		["primary_action"] = {
-			defaultKey = "mouse_right",
-			defaultPad = "mouse_button",
+			defaultKey = "e",
+			defaultPad = "keyboard",
 			description = "Actions - Primary Key",
 		},
 		["secondary_action"] = {
-			defaultKey = "g",
-			defaultPad = "keyboard",
+			defaultKey = "mouse_right",
+			defaultPad = "mouse_button",
 			description = "Actions - Secondary Key",
 		},
 		["cancel_action"] = {
