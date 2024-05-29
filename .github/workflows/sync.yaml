@@ -20,7 +20,7 @@ jobs:
       - name: Pull remote changes
         run: |
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          cd /home/server/txData/MethodRP/
+          cd /home/server/txData/MethodRP
           git pull
           
       - name: Restart resources / server
