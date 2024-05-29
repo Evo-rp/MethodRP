@@ -41,12 +41,12 @@ const useStyles = makeStyles((theme) => ({
 		background: `${theme.palette.primary.main}40`,
 	},
 	appIcon: {
-		fontSize: 24,
+		fontSize: 30,
 		width: 60,
 		height: 60,
 		margin: 'auto',
 		color: '#fff',
-		borderRadius: 20,
+		borderRadius: 3,
 	},
 	appLabel: {
 		fontSize: 12,
