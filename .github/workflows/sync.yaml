@@ -7,23 +7,21 @@ jobs:
   sync-restart:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: "Pull remote changes"
-        uses: appleboy/ssh-action@v0.1.7
-        env:
-          REPO_PATH: "/home/server/txData/MethodRP"
+
+      - name: Pull Remote Changes
+        uses: webfactory/ssh-agent@v0.5.3
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: root
-          key: ${{ secrets.SSH_KEY }}
-          #password: ${{ secrets.SSH_PASSWORD }}
-          port: 22
+          ssh-private-key: ${{ secrets.SSH_KEY }} 
+          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }} 
           script: |
-            cd ${{ env.REPO_PATH }} && git pull
-      - name: "Restart resources / server"
+            cd /home/server/txData/MethodR
+            git pull
+
+      - name: Restart Resources / Server
         uses: illeniumstudios/fivem-resource-watcher@main
         env:
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
