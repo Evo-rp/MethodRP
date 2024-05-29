@@ -15,18 +15,15 @@ jobs:
       - name: Pull Remote Changes
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY }} 
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }} 
-          script: |
-            cd /home/server/txData/MethodR
-            git pull
+          ssh-private-key: ${{ secrets.SSH_KEY }}  
+          ssh-auth-sock: ${{ env.SSH_AUTH_SOCK }}
 
       - name: Restart Resources / Server
         uses: illeniumstudios/fivem-resource-watcher@main
         env:
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
         with:
-          serverIP: ${{ secrets.SSH_HOST }}
+          serverIP: ${{ secrets.SSH_HOST }}  
           serverPort: 30120
           rconPassword: ${{ secrets.RCON_PASSWORD }}
           restartIndividualResources: false
