@@ -88,7 +88,7 @@ AddEventHandler("Characters:Client:Spawn", function()
 
 	-- Blips:Add(
 	-- 	"redline-performance",
-	-- 	"Mechanic: Redline Performance",
+	-- 	"Redline Performance",
 	-- 	vector3(-600.028, -929.695, 23.866),
 	-- 	483,
 	-- 	59,
@@ -105,8 +105,8 @@ AddEventHandler("Characters:Client:Spawn", function()
 	-- Blips:Add("mba", "Maze Bank Arena", vector3(-284.307, -1920.541, 29.946), 675, 50, 0.6, 2, 11)
 	-- Blips:Add("bballs", "Bobs Balls", vector3(756.944, -768.288, 26.337), 536, 23, 0.4, 2, 11)
 	--Blips:Add("cabco", "Downtown Cab Co.", vector3(908.036, -160.553, 74.142), 198, 5, 0.4, 2, 11)
-	--Blips:Add("tirenutz", "Mechanic: Tire Nutz", vector3(-73.708, -1338.770, 29.257), 488, 62, 0.7, 2, 11)
-	--Blips:Add("atomic", "Mechanic: Atomic Mechanics", vector3(482.176, -1889.637, 26.095), 544, 33, 1.0, 2, 11)
+	--Blips:Add("tirenutz", "Tire Nutz", vector3(-73.708, -1338.770, 29.257), 488, 62, 0.7, 2, 11)
+	--Blips:Add("atomic", "Atomic Mechanics", vector3(482.176, -1889.637, 26.095), 544, 33, 1.0, 2, 11)
 	-- Blips:Add("hayes", "Hayes Autos", vector3(-1418.532, -445.162, 35.910), 544, 63, 1.0, 2, 11)
 	--Blips:Add("autoexotics", "Auto Exotics", vector3(539.754, -182.979, 54.487), 488, 68, 0.7, 2, 11)
 	-- Blips:Add("harmony", "Harmony Repairs", vector3(1176.567, 2657.295, 37.972), 542, 7, 0.5, 2, 11)
