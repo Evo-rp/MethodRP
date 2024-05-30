@@ -400,6 +400,12 @@ _qualifications = {
 		}
 	},
 	['PD_BEANBAG'] = {
+		name = "PD Shotgun",
+		restrict = {
+			weapon = true,
+		}
+	},
+	['PD_BEANBAG'] = {
 		name = "PD Beanbag",
 		restrict = {
 			weapon = true,
