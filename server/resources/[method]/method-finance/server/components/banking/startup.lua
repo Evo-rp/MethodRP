@@ -75,7 +75,7 @@ local defaultOrganizationAccounts = {
 	},
 	{
 		accountId = "doctors",
-		accountName = "St Fiacre Medical Account",
+		accountName = "Mt Zonah Medical Account",
 		startingBalance = 0,
 		jobAccess = {
 			{
