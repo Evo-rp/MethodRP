@@ -1,37 +1,37 @@
 local _logoutLocations = {
-    -- { -- Mt Zonah
-    --     center = vector3(-435.59, -305.86, 35.0),
-    --     length = 1.8,
-    --     width = 2.2,
+    { -- Mt Zonah
+        center = vector3(-435.59, -305.86, 35.0),
+        length = 1.8,
+        width = 2.2,
+        options = {
+            heading = 22,
+            --debugPoly=true,
+            minZ = 34.0,
+            maxZ = 36.8
+        },
+    },
+	-- { -- St Fiacre Medical Bathroom
+    --     center = vector3(1123.17, -1546.83, 35.03),
+    --     length = 1.4,
+    --     width = 1.4,
     --     options = {
-    --         heading = 22,
+    --         heading =  0,
     --         --debugPoly=true,
-    --         minZ = 34.0,
-    --         maxZ = 36.8
+    --         minZ = 32.63,
+  	-- 		maxZ = 36.63
     --     },
     -- },
-	{ -- St Fiacre Medical Bathroom
-        center = vector3(1123.17, -1546.83, 35.03),
-        length = 1.4,
-        width = 1.4,
-        options = {
-            heading =  0,
-            --debugPoly=true,
-            minZ = 32.63,
-  			maxZ = 36.63
-        },
-    },
-	{ -- St Fiacre Medical Bathroom
-        center = vector3(1123.2, -1538.36, 35.03),
-        length = 1.4,
-        width = 1.4,
-        options = {
-            heading =  0,
-            --debugPoly=true,
-			minZ = 32.63,
-			maxZ = 36.63
-        },
-    },
+	-- { -- St Fiacre Medical Bathroom
+    --     center = vector3(1123.2, -1538.36, 35.03),
+    --     length = 1.4,
+    --     width = 1.4,
+    --     options = {
+    --         heading =  0,
+    --         --debugPoly=true,
+	-- 		minZ = 32.63,
+	-- 		maxZ = 36.63
+    --     },
+    -- },
     { -- MRPD Bathroom
         center = vector3(477.96, -981.89, 30.69),
         length = 5.0,
