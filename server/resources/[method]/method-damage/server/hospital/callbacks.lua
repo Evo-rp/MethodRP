@@ -66,12 +66,12 @@ function HospitalCallbacks()
 		local char = Fetch:CharacterSource(source)
 		local bed = Hospital:RequestBed(source)
 
-		local cost = 5000
+		local cost = 1000
 		if not GlobalState["Duty:ems"] or GlobalState["Duty:ems"] == 0 then
-			cost = 150
+			cost = 250
 		end
 
-		Billing:Charge(source, cost, "Medical Services", "Use of facilities at St. Fiacre Medical Center")
+		Billing:Charge(source, cost, "Medical Services", "Use of facilities at Mt. Zonah Medical Center")
 
 		local f = Banking.Accounts:GetOrganization("ems")
 		Banking.Balance:Deposit(f.Account, cost / 2, {
@@ -98,12 +98,12 @@ function HospitalCallbacks()
 			Pwnzor.Players:TempPosIgnore(source)
 			local bed = Hospital:RequestBed(source)
 
-			local cost = 5000
+			local cost = 1000
 			if not GlobalState["Duty:ems"] or GlobalState["Duty:ems"] == 0 then
-				cost = 150
+				cost = 1000
 			end
 
-			Billing:Charge(source, cost, "Medical Services", "Use of facilities at St. Fiacre Medical Center")
+			Billing:Charge(source, cost, "Medical Services", "Use of facilities at Mt. Zonah Medical Center")
 
 			local f = Banking.Accounts:GetOrganization("ems")
 			Banking.Balance:Deposit(f.Account, cost / 2, {
