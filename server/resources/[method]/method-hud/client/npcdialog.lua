@@ -60,5 +60,5 @@ RegisterNUICallback('NPCResponse', function(data, cb)
 end)
 
 AddEventHandler("Proxy:Shared:RegisterReady", function()
-	exports["evo-base"]:RegisterComponent("NPCDialog", NPCDialog)
+	exports["method-base"]:RegisterComponent("NPCDialog", NPCDialog)
 end)
