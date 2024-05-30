@@ -61,7 +61,7 @@ Config.ShopItemSets = {
 		"drill",
 	}, -- Hardware
 	[3] = { "cup", "bun", "patty", "pickle" }, -- Burger Shot Supplies
-	[4] = { "armor", "heavyarmor", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_FNX", "AMMO_PISTOL", "WEAPON_BAT" }, -- Ammunation
+	[4] = { "armor", "heavyarmor", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_FNX", "AMMO_PISTOL", "WEAPON_BAT", "adrenaline" }, -- Ammunation
 	[5] = { -- Electronics Store
 		"phone",
 		"radio_shitty",
