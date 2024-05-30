@@ -18,6 +18,7 @@ import overlayReducer from './components/Overlay/reducer';
 import gemReducer from './components/GemTable/reducer';
 import methReducer from './components/Meth/reducer';
 import arcadeReducer from './containers/Arcade/reducer';
+import npcReducer from './components/NpcDialog/reducer';
 
 export default () =>
     combineReducers({
@@ -39,4 +40,5 @@ export default () =>
         gemTable: gemReducer,
         meth: methReducer,
         arcade: arcadeReducer,
+        NpcDialog: npcReducer,
     });
