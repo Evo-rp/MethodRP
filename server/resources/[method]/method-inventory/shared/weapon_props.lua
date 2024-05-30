@@ -65,14 +65,14 @@ WEAPON_PROPS = {
     { type = 'weapon', item = "WEAPON_SNIPERRIFLE2", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0 },
     { type = 'weapon', item = "WEAPON_KATANAS", model = `katana` , x = 0.4, y = -0.15, z = 0.0, rx = -80.0, ry = 0.0, rz = 0.0 },
     { type = 'weapon', item = "WEAPON_MACHETE", model = `w_me_machette_lr` , x = 0.4, y = -0.15, z = 0.0, rx = -80.0, ry = 0.0, rz = 0.0 },
-    { type = 'weapon', item = "WEAPON_PONY", model = `pony` , x = 0.4, y = -0.15, z = 0.0, rx = -80.0, ry = 0.0, rz = 0.0 }
+    { type = 'weapon', item = "WEAPON_PONY", model = `pony` , x = 0.4, y = -0.15, z = 0.0, rx = -80.0, ry = 0.0, rz = 0.0 },
     { type = 'melee', item = "WEAPON_BAT", model = `w_me_bat`, x = 0.2, y = -0.125, z = -0.15, rx = 5.0, ry = -60.0, rz = 0.0 },
     { type = 'melee', item = "WEAPON_GOLFCLUB", model = `w_me_gclub`, x = 0.35, y = -0.125, z = -0.15, rx = 5.0, ry = -60.0, rz = 0.0 },
     { type = 'melee', item = "WEAPON_POOLCUE", model = `w_me_poolcue`, x = 0.2, y = -0.125, z = -0.15, rx = 5.0, ry = -60.0, rz = 0.0 },
     { type = 'melee', item = "WEAPON_CRUTCH", model = `w_me_CRUTCH`, x = 0.4, y = -0.125, z = -0.25, rx = 5.0, ry = -60.0, rz = 0.0 },
     { type = 'melee', item = "WEAPON_SLEDGE", model = `w_me_sledge`, x = 0.3, y = -0.125, z = -0.25, rx = 85.0, ry = -75.0, rz = 0.0 },
     { type = 'melee', item = "WEAPON_SHOVEL", model = `w_me_SHOVEL`, x = 0.3, y = -0.125, z = -0.25, rx = 85.0, ry = -75.0, rz = 0.0 },
-    { type = 'object', item = "moneybag", model = `prop_money_bag_01`, x = -0.55, y = -0.11, z = -0.14, rx = 0.0, ry = 90.0, rz = 0.0 },
+    { type = 'object', item = "moneybag", model = `prop_money_bag_01`, x = -0.55, y = -0.11, z = -0.14, rx = 0.0, ry = 90.0, rz = 0.0 }
 }
 
 Citizen.CreateThread(function()
