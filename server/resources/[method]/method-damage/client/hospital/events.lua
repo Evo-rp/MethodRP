@@ -33,10 +33,10 @@ local hospitalCheckin = {
 	},
 	{
 		icon = "clipboard-list-check",
-		text = "Check In - $150",
+		text = "Check In - $250",
 		event = "Hospital:Client:CheckIn",
 		isEnabled = function()
-			if not GlobalState["Duty:ems"] or GlobalState["Duty:ems"] == 0 then
+			if not GlobalState["Duty:ems"] or GlobalState["Duty:ems"] < 3 then
 				return not LocalPlayer.state.isEscorted
 					and (GlobalState["ems:pmc:doctor"] == nil or GlobalState["ems:pmc:doctor"] == 0)
 			end
@@ -45,10 +45,10 @@ local hospitalCheckin = {
 	},
 	{
 		icon = "clipboard-list-check",
-		text = "Check In - $5000",
+		text = "Check In - $1000",
 		event = "Hospital:Client:CheckIn",
 		isEnabled = function()
-			if GlobalState["Duty:ems"] and GlobalState["Duty:ems"] > 0 then
+			if GlobalState["Duty:ems"] and GlobalState["Duty:ems"] > 2 then
 				return not LocalPlayer.state.isEscorted
 					and (GlobalState["ems:pmc:doctor"] == nil or GlobalState["ems:pmc:doctor"] == 0)
 			end
