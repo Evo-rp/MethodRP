@@ -249,26 +249,26 @@ _jobSpawns = {
 	["ems"] = {
 		icon = "star-of-life",
 		locations = {
-			-- {
-			-- 	label = "Mt Zonah Medical",
-			-- 	workplace = "safd",
-			-- 	location = {
-			-- 		x = -509.629,
-			-- 		y = -327.103,
-			-- 		z = 42.223,
-			-- 		h = 83.807,
-			-- 	},
-			-- },
 			{
-				label = "St Fiacre Medical",
+				label = "Mt Zonah Medical",
 				workplace = "safd",
 				location = {
-					x = 1095.852,
-					y = -1516.041,
-					z = 34.693,
-					h = 3.008,
+					x = -509.629,
+					y = -327.103,
+					z = 42.223,
+					h = 83.807,
 				},
 			},
+			-- {
+			-- 	label = "St Fiacre Medical",
+			-- 	workplace = "safd",
+			-- 	location = {
+			-- 		x = 1095.852,
+			-- 		y = -1516.041,
+			-- 		z = 34.693,
+			-- 		h = 3.008,
+			-- 	},
+			-- },
 			{
 				label = "Eastside SAFD",
 				workplace = "safd",
