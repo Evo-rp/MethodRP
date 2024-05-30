@@ -70,33 +70,33 @@ function Init()
 	PedInteraction:Add(
 		"hospital-check-in-1",
 		`u_f_m_miranda_02`,
-		vector3(1125.869, -1531.991, 34.033),
-		344.011,
+		vector3(-436.352, -323.604, 33.911),
+		158.781,
 		25.0,
 		hospitalCheckin,
 		"notes-medical",
 		"WORLD_HUMAN_CLIPBOARD"
 	)
-	PedInteraction:Add(
-		"hospital-check-in-2",
-		`s_f_y_scrubs_01`,
-		vector3(1144.530, -1543.017, 34.033),
-		274.930,
-		25.0,
-		hospitalCheckin,
-		"notes-medical",
-		"WORLD_HUMAN_CLIPBOARD"
-	)
-	PedInteraction:Add(
-		"hospital-check-in-3",
-		`s_f_y_scrubs_01`,
-		vector3(1135.842, -1539.658, 38.504),
-		2.759,
-		25.0,
-		hospitalCheckin,
-		"notes-medical",
-		"WORLD_HUMAN_CLIPBOARD"
-	)
+	-- PedInteraction:Add(
+	-- 	"hospital-check-in-2",
+	-- 	`s_f_y_scrubs_01`,
+	-- 	vector3(1144.530, -1543.017, 34.033),
+	-- 	274.930,
+	-- 	25.0,
+	-- 	hospitalCheckin,
+	-- 	"notes-medical",
+	-- 	"WORLD_HUMAN_CLIPBOARD"
+	-- )
+	-- PedInteraction:Add(
+	-- 	"hospital-check-in-3",
+	-- 	`s_f_y_scrubs_01`,
+	-- 	vector3(1135.842, -1539.658, 38.504),
+	-- 	2.759,
+	-- 	25.0,
+	-- 	hospitalCheckin,
+	-- 	"notes-medical",
+	-- 	"WORLD_HUMAN_CLIPBOARD"
+	-- )
 
 	for k, v in ipairs(Config.BedModels) do
 		Targeting:AddObject(v, "stretcher", {
