@@ -65,6 +65,7 @@ Config.ShopItemSets = {
 	[5] = { -- Electronics Store
 		"phone",
 		"radio_shitty",
+		"radio_extendo",
 		"camera",
 		"electronics_kit",
 		"laptop",
