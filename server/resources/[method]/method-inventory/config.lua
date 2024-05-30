@@ -77,7 +77,7 @@ Config.ShopItemSets = {
 		-- "case_gold",
 	},
 	[6] = {
-		"WEAPON_G17",
+		"WEAPON_GLOCK19",
 		"AMMO_PISTOL_PD",
 		"WEAPON_TASER",
 		"AMMO_STUNGUN",
@@ -112,10 +112,9 @@ Config.ShopItemSets = {
 		"WEAPON_FLASHBANG",
 		"WEAPON_SMOKEGRENADE",
 		"ATTCH_WEAPON_FLASHLIGHT",
-		"ATTCH_PISTOL_SILENCER",
-		"ATTCH_AR_SILENCER",
-		"ATTCH_ADV_AR_SILENCER",
-		"coffee",
+		-- "ATTCH_PISTOL_SILENCER",
+		-- "ATTCH_AR_SILENCER",
+		-- "ATTCH_ADV_AR_SILENCER",
 	}, -- Police Armory
 	[7] = { "traumakit", "medicalkit", "firstaid", "bandage", "morphine", "radio", "phone", "scuba_gear" },
 	[8] = {
@@ -133,7 +132,7 @@ Config.ShopItemSets = {
 		-- "exotic_bait",
 	},
 	[9] = {
-		"WEAPON_G17",
+		"WEAPON_GLOCK19",
 		"WEAPON_2011",
 		"AMMO_PISTOL_PD",
 		"WEAPON_TASER",
@@ -169,10 +168,9 @@ Config.ShopItemSets = {
 		"WEAPON_FLASHBANG",
 		"WEAPON_SMOKEGRENADE",
 		"ATTCH_WEAPON_FLASHLIGHT",
-		"ATTCH_PISTOL_SILENCER",
-		"ATTCH_AR_SILENCER",
-		"ATTCH_ADV_AR_SILENCER",
-		"coffee",
+		-- "ATTCH_PISTOL_SILENCER",
+		-- "ATTCH_AR_SILENCER",
+		-- "ATTCH_ADV_AR_SILENCER",
 	}, -- DOC Armory
 	[10] = { "water" }, -- Water Machine
 	[11] = { "coffee" }, -- Coffee Machine
