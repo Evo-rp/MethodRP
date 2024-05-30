@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio UI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="radio-panel">
+        <div class="radio-button" onclick="selectRadioStation('RADIO_01_CLASS_ROCK')"><img src="images/RADIO_01_CLASS_ROCK.png" alt="Los Santos Rock Radio"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_02_POP')"><img src="images/RADIO_02_POP.png" alt="Non-Stop-Pop FM"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_03_HIPHOP_NEW')"><img src="images/RADIO_03_HIPHOP_NEW.png" alt="Radio Los Santos"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_04_PUNK')"><img src="images/RADIO_04_PUNK.png" alt="Channel X"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_05_TALK_01')"><img src="images/RADIO_05_TALK_01.png" alt="West Coast Talk Radio"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_06_COUNTRY')"><img src="images/RADIO_06_COUNTRY.png" alt="Rebel Radio"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_07_DANCE_01')"><img src="images/RADIO_07_DANCE_01.png" alt="Soulwax FM"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_08_MEXICAN')"><img src="images/RADIO_08_MEXICAN.png" alt="East Los FM"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_09_HIPHOP_OLD')"><img src="images/RADIO_09_HIPHOP_OLD.png" alt="West Coast Classics"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_12_REGGAE')"><img src="images/RADIO_12_REGGAE.png" alt="Blue Ark"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_13_JAZZ')"><img src="images/RADIO_13_JAZZ.png" alt="WorldWide FM"></div>
+        <div class="special-button" onclick="playYouTube()"><button id="play-restart-button" title="Play/Restart"><i class="fas fa-play"></i></button></div>
+        <div class="special-button"><input type="text" placeholder="YouTube URL" id="youtube-url"><button onclick="playYouTube()" title="Play YouTube"><i class="fas fa-play"></i></button></div>
+        <div class="special-button" onclick="pauseYouTube()"><button id="pause-resume-button" title="Pause/Resume"><i class="fas fa-pause"></i></button></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_14_DANCE_02')"><img src="images/RADIO_14_DANCE_02.png" alt="FlyLo FM"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_15_MOTOWN')"><img src="images/RADIO_15_MOTOWN.png" alt="The Lowdown 91.1"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_20_THELAB')"><img src="images/RADIO_20_THELAB.png" alt="The Lab"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_16_SILVERLAKE')"><img src="images/RADIO_16_SILVERLAKE.png" alt="Radio Mirror Park"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_17_FUNK')"><img src="images/RADIO_17_FUNK.png" alt="Space 103.2"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_18_90S_ROCK')"><img src="images/RADIO_18_90S_ROCK.png" alt="Vinewood Boulevard Radio"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_21_DLC_XM17')"><img src="images/RADIO_21_DLC_XM17.png" alt="Blonded Los Santos 97.8 FM"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_11_TALK_02')"><img src="images/RADIO_11_TALK_02.png" alt="Blaine County Radio"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_22_DLC_BATTLE_MIX1_RADIO')"><img src="images/RADIO_22_DLC_BATTLE_MIX1_RADIO.png" alt="Los Santos Underground Radio"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_23_DLC_XM19_RADIO')"><img src="images/RADIO_23_DLC_XM19_RADIO.png" alt="iFruit Radio"></div>
+        <div class="radio-button" onclick="selectRadioStation('RADIO_CUSTOM')"><img src="images/RADIO_CUSTOM.png" alt="Radio Custom"></div>
+    </div>
+    
+    <script>
+        function selectRadioStation(station) {
+            fetch(`https://${GetParentResourceName()}/selectRadioStation`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({ station }),
+            });
+        }
+
+        function playYouTube() {
+            const url = document.getElementById('youtube-url').value;
+            fetch(`https://${GetParentResourceName()}/playYouTube`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({ url }),
+            });
+        }
+
+        function pauseYouTube() {
+            fetch(`https://${GetParentResourceName()}/pauseYouTube`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        }
+
+        function setVolume(volume) {
+            fetch(`https://${GetParentResourceName()}/setVolume`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ volume })
+            });
+        }
+
+        window.addEventListener('message', (event) => {
+            const data = event.data;
+            if (data.action === 'openRadioUI') {
+                document.body.style.display = 'flex';
+                updateButtonStates(data.isYouTubePlaying, data.isYouTubePaused);
+            } else if (data.action === 'closeRadioUI') {
+                document.body.style.display = 'none';
+            } else if (data.action === 'updatePlaybackState') {
+                updateButtonStates(data.isYouTubePlaying, data.isYouTubePaused);
+            }
+        });
+
+        function updateButtonStates(isPlaying, isPaused) {
+            const playRestartButton = document.getElementById('play-restart-button');
+            const pauseResumeButton = document.getElementById('pause-resume-button');
+
+            if (isPlaying) {
+                playRestartButton.innerHTML = '<i class="fas fa-redo"></i>';
+                pauseResumeButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else if (isPaused) {
+                playRestartButton.innerHTML = '<i class="fas fa-redo"></i>';
+                pauseResumeButton.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                playRestartButton.innerHTML = '<i class="fas fa-play"></i>';
+                pauseResumeButton.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+        }
+    </script>
+</body>
+</html>
