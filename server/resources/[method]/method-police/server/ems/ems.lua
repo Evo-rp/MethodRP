@@ -117,35 +117,35 @@ function EMSCallbacks()
 		end
 	end)
 
-	-- Callbacks:RegisterServerCallback("EMS:ApplyGauze", function(source, data, cb)
-	-- 	local myChar = Fetch:CharacterSource(source)
-	-- 	if Jobs.Permissions:HasJob(source, "ems") then
-	-- 		if Inventory.Items:Remove(myChar:GetData("SID"), 1, "gauze", 1) then
-	-- 			local target = Fetch:Source(data)
-	-- 			if target ~= nil then
-	-- 				local tChar = target:GetData("Character")
-	-- 				if tChar ~= nil then
-	-- 					local dmg = tChar:GetData("Damage")
-	-- 					if dmg.Bleed > 1 then
-	-- 						dmg.Bleed = dmg.Bleed - 1
-	-- 						tChar:SetData("Damage", dmg)
-	-- 					else
-	-- 						Execute:Client(data, "Notification", "Error", "You continue bleeding through the gauze")
-	-- 					end
-	-- 					cb({ error = false })
-	-- 				else
-	-- 					cb({ error = true, code = 4 })
-	-- 				end
-	-- 			else
-	-- 				cb({ error = true, code = 3 })
-	-- 			end
-	-- 		else
-	-- 			cb({ error = true, code = 2 })
-	-- 		end
-	-- 	else
-	-- 		cb({ error = true, code = 1 })
-	-- 	end
-	-- end)
+	Callbacks:RegisterServerCallback("EMS:ApplyGauze", function(source, data, cb)
+		local myChar = Fetch:CharacterSource(source)
+		if Jobs.Permissions:HasJob(source, "ems") then
+			if Inventory.Items:Remove(myChar:GetData("SID"), 1, "gauze", 1) then
+				local target = Fetch:Source(data)
+				if target ~= nil then
+					local tChar = target:GetData("Character")
+					if tChar ~= nil then
+						local dmg = tChar:GetData("Damage")
+						if dmg.Bleed > 1 then
+							dmg.Bleed = dmg.Bleed - 1
+							tChar:SetData("Damage", dmg)
+						else
+							Execute:Client(data, "Notification", "Error", "You continue bleeding through the gauze")
+						end
+						cb({ error = false })
+					else
+						cb({ error = true, code = 4 })
+					end
+				else
+					cb({ error = true, code = 3 })
+				end
+			else
+				cb({ error = true, code = 2 })
+			end
+		else
+			cb({ error = true, code = 1 })
+		end
+	end)
 
 	Callbacks:RegisterServerCallback("EMS:ApplyBandage", function(source, data, cb)
 		local myChar = Fetch:CharacterSource(source)
