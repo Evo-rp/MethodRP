@@ -227,24 +227,24 @@ Config = {
 			heading = 180,
 			prop = `prop_radio_01`,
 		},
-		-- { -- Mt. Zona DJ Booth
-		-- 	job = "public", -- Set this to required job role
-		-- 	enableBooth = true, -- option to disable rather than deleting code
-		-- 	DefaultVolume = 0.1, -- 0.01 is lowest, 1.0 is max
-		-- 	radius = 30, -- The radius of the sound from the booth
-		-- 	coords = vector3(-447.29, -337.504, 33.501282), -- Where the booth is located
-		-- 	heading = 85,
-		-- 	prop = `prop_radio_01`,
-		-- },
-		{ -- St Fiacre DJ Booth
+		{ -- Mt. Zona DJ Booth
 			job = "public", -- Set this to required job role
 			enableBooth = true, -- option to disable rather than deleting code
 			DefaultVolume = 0.1, -- 0.01 is lowest, 1.0 is max
-			radius = 20, -- The radius of the sound from the booth
-			coords = vector3(1154.934, -1533.215, 34.148), -- Where the booth is located
-			heading = 318.0,
+			radius = 30, -- The radius of the sound from the booth
+			coords = vector3(-447.29, -337.504, 33.501282), -- Where the booth is located
+			heading = 85,
 			prop = `prop_radio_01`,
 		},
+		-- { -- St Fiacre DJ Booth
+		-- -- 	job = "public", -- Set this to required job role
+		-- -- 	enableBooth = true, -- option to disable rather than deleting code
+		-- -- 	DefaultVolume = 0.1, -- 0.01 is lowest, 1.0 is max
+		-- -- 	radius = 20, -- The radius of the sound from the booth
+		-- -- 	coords = vector3(1154.934, -1533.215, 34.148), -- Where the booth is located
+		-- -- 	heading = 318.0,
+		-- -- 	prop = `prop_radio_01`,
+		-- -- },
 		{ -- Del Perro Beach
 			job = "public", -- Set this to required job role
 			enableBooth = true, -- option to disable rather than deleting code
