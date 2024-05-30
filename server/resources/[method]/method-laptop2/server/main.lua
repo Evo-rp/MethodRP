@@ -52,7 +52,7 @@ function defaultSettings()
 		wallpaper = "wallpaper",
 		texttone = "notification.ogg",
 		colors = {
-			accent = "#1a7cc1",
+			accent = "#d50000",
 		},
 		zoom = 75,
 		volume = 100,
