@@ -70,8 +70,8 @@ function Init()
 	PedInteraction:Add(
 		"hospital-check-in-1",
 		`u_f_m_miranda_02`,
-		vector3(-436.352, -323.604, 33.911),
-		158.781,
+		vector3(-435.300, -324.040, 33.911),
+		161.382,
 		25.0,
 		hospitalCheckin,
 		"notes-medical",
