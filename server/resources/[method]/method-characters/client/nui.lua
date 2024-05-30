@@ -9,7 +9,7 @@ local previews = {
 local peds = {}
 local _cam = nil
 
-local cam = {
+local camMod = {
 	create = function(self, x, y, z, rx, ry, rz, fov)
 		local cam = CreateCamWithParams(
 			"DEFAULT_SCRIPTED_CAMERA",
@@ -92,13 +92,13 @@ RegisterNUICallback("GetData", function(data, cb)
 			end
 
 			Wait(250)
-			_cam = cam:create(-1003.2799, -479.0881, 50.0268, 0.0, 0.0, 0.0, 50.0)
+			_cam = camMod:create(-1003.2799, -479.0881, 50.0268, 0.0, 0.0, 0.0, 50.0)
 
-			SetCamActiveWithInterp(cam2, cam, 1000, true, true)
+			SetCamActiveWithInterp(_cam, cam, 1000, true, true)
 			RenderScriptCams(true, false, 1, true, true)
 
 			TriggerScreenblurFadeOut(500)
-			cam = cam2
+			cam = _cam
 
 			for k, v in ipairs(characters) do
 				if previews[k] then
