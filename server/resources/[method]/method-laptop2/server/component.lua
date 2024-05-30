@@ -68,5 +68,5 @@ LAPTOP = {
 }
 
 AddEventHandler("Proxy:Shared:RegisterReady", function()
-	exports["sandbox-base"]:RegisterComponent("Laptop", LAPTOP)
+	exports["method-base"]:RegisterComponent("Laptop", LAPTOP)
 end)
