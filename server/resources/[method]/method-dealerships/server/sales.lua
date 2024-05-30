@@ -524,7 +524,8 @@ end
 function SendDealerProfits(dealerData, dealerProfits, playerBankAccount, playerProfits, vehicleInfoData, buyerData)
     local dealerAccount = Banking.Accounts:GetOrganization(dealerData.id)
     if dealerAccount then
-        Banking.Balance:Deposit(dealerAccount.Account, math.floor(dealerProfits), {
+        local profitAmount = math.floor(dealerProfits)
+        Banking.Balance:Deposit(dealerAccount.Account, profitAmount, {
             type = 'transfer',
             title = 'Vehicle Purchase',
             description = string.format('Vehicle Sale of a %s %s to %s %s (State ID %s)', vehicleInfoData.make, vehicleInfoData.model, buyerData.First, buyerData.Last, buyerData.SID),
