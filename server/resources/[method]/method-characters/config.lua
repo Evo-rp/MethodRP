@@ -24,5 +24,15 @@ Config = {
 			label = "LSIA",
 			location = { x = -1044.84, y = -2749.85, z = 21.36, h = 330.034 },
 		},
+		{
+			id = 2,
+			label = "Alta Street",
+			location = { x = -208.302, y = -1019.381, z = 30.138, h = 338.112 },
+		},
+		{
+			id = 3,
+			label = "Procopio Beach",
+			location = { x = 1548.230, y = 6610.893, z = 2.873, h = 57.967 },
+		},
 	},
 }
