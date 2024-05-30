@@ -301,7 +301,7 @@ function RegisterVehicleSaleCallbacks()
                                                                                     Source = targetSrc,
                                                                                 }, dealerData, saleVehicleData.data, downPaymentPercent, downPayment, loanWeeks, perWeek, salePriceAfterDown, vehicleData.VIN, vehicleData.RegisteredPlate)
                 
-                                                                                SendDealerProfits(dealerData, dealerRecieves, char:GetData('BankAccount'), playerCommission, saleVehicleData.data, {
+                                                                                SendDealerProfits(dealerData, dealerProfits, dealerRecieves, char:GetData('BankAccount'), playerCommission, saleVehicleData.data, {
                                                                                     SID = targetCharacter:GetData('SID'),
                                                                                     First = targetCharacter:GetData('First'),
                                                                                     Last = targetCharacter:GetData('Last'),
