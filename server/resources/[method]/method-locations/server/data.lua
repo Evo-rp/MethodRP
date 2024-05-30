@@ -14,7 +14,7 @@ function Startup()
 	{
 		"Type": "spawn",
 		"Name": "Alta St",
-		"Heading": 72.41,
+		"Heading": 337.995,
 		"Coords": {
 			"x": -206.57, 
 			"y": -1015.18,
