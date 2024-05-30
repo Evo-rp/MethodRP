@@ -81,6 +81,7 @@ Config.ShopItemSets = {
 		"ifak",
 		"handcuffs",
 		"spikes",
+		"lockpick_pd",
 		"WEAPON_FLASHLIGHT",
 		"WEAPON_TASER",
 		"WEAPON_G17",
