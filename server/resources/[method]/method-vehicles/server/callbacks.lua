@@ -25,11 +25,6 @@ function RegisterCallbacks()
         cb(false)
     end)
 
-	Callbacks:RegisterServerCallback('Vehicles:Server:VehicleMegaphone', function(source, data, cb)
-        TriggerClientEvent("VOIP:Client:Megaphone:Use", source, true)
-        cb(true)
-    end)
-	
     Callbacks:RegisterServerCallback('Vehicles:BreakOpenLock', function(source, data, cb)
         local veh = NetworkGetEntityFromNetworkId(data.netId)
         local vehState = Entity(veh).state
@@ -459,16 +454,6 @@ function RegisterCallbacks()
 
         local characterId = character:GetData('SID')
         Vehicles.Owned:GetAll(0, 0, characterId, function(vehicles)
-            for k, v in ipairs(vehicles) do
-                if v.Seized then
-                    -- TODO: ADD ASSET FEE SEIZURE CHECK HERE
-                    if not Loans:HasBeenDefaulted("vehicle", v.VIN) then
-                        Vehicles.Owned:Seize(v.VIN, false)
-                        v.Seized = false
-                    end
-                    Citizen.Wait(100)
-                end
-            end
             cb(vehicles, os.time())
         end, 0, 0, false)
     end)
@@ -588,24 +573,12 @@ function RegisterCallbacks()
         if DoesEntityExist(veh) and vehEnt?.state?.VIN then
             local vehicleData = Vehicles.Owned:GetActive(vehEnt.state.VIN)
             if vehicleData then
-                local currentFitmentData = vehicleData:GetData("WheelFitment") or {}
-                for k, v in pairs(data.fitment) do
-                    currentFitmentData[k] = v
-                end
-
-                vehicleData:SetData('WheelFitment', currentFitmentData)
+                vehicleData:SetData('WheelFitment', data.fitment)
                 Vehicles.Owned:ForceSave(vehicleData:GetData('VIN'))
-                vehEnt.state.WheelFitment = currentFitmentData
-                TriggerClientEvent('Fitment:Client:Update', -1, data.vNet, currentFitmentData)
-            else
-                local currentFitmentData = vehEnt.state.WheelFitment or {}
-                for k, v in pairs(data.fitment) do
-                    currentFitmentData[k] = v
-                end
-
-                vehEnt.state.WheelFitment = currentFitmentData
-                TriggerClientEvent('Fitment:Client:Update', -1, data.vNet, currentFitmentData)
             end
+
+            vehEnt.state.WheelFitment = data.fitment
+            TriggerClientEvent('Fitment:Client:Update', -1, data.vNet, data.fitment)
 
             cb(true)
         else
@@ -771,47 +744,6 @@ function RegisterCallbacks()
 
                 cb(true)
                 return
-            end
-        end
-        cb(false)
-    end)
-
-    Callbacks:RegisterServerCallback('Vehicles:GiveKeys', function(source, data, cb)
-        local veh = NetworkGetEntityFromNetworkId(data.netId)
-        local vehState = Entity(veh).state
-        if DoesEntityExist(veh) and vehState.VIN and not vehState.wasThermited then
-            local groupKeys = vehState.GroupKeys
-            if Vehicles.Keys:Has(source, vehState.VIN, vehState.GroupKeys) then
-                if veh and DoesEntityExist(veh) then
-                    local vehEnt = Entity(veh)
-                    if
-                        vehEnt
-                        and vehEnt.state
-                        and vehEnt.state.VIN
-                        and Vehicles.Keys:Has(source, vehEnt.state.VIN, false)
-                    then
-                        for k, v in ipairs(data.sids) do
-                            Vehicles.Keys:Add(v, vehEnt.state.VIN)
-                            Execute:Client(
-                                v,
-                                "Notification",
-                                "Info",
-                                "You Received Keys to a Vehicle",
-                                3000,
-                                "key"
-                            )
-                        end
-
-                        Execute:Client(
-                            source,
-                            "Notification",
-                            "Success",
-                            "You Gave Everyone Nearby Keys",
-                            3000,
-                            "key"
-                        )
-                    end
-                end
             end
         end
         cb(false)

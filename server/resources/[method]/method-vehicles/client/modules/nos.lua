@@ -78,7 +78,7 @@ AddEventHandler("Vehicles:Client:StartUp", function()
 			VEHICLE_INSIDE
 			and DoesEntityExist(VEHICLE_INSIDE)
 			and IsEntityAVehicle(VEHICLE_INSIDE)
-			and (GetPedInVehicleSeat(VEHICLE_INSIDE, -1) == LocalPlayer.state.ped or LocalPlayer.state.isDev)
+			and GetPedInVehicleSeat(VEHICLE_INSIDE, -1) == LocalPlayer.state.ped
 		then
 			if not IsToggleModOn(VEHICLE_INSIDE, 18) then
 				Notification:Error("Need a Turbo For This Mate")
@@ -360,8 +360,7 @@ end)
 
 function CreateVehiclePurgeSpray(vehicle, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale)
 	UseParticleFxAssetNextCall("core")
-	local vehEnt = Entity(vehicle)
-	local PurgeSpray = StartParticleFxLoopedOnEntity(
+	return StartParticleFxLoopedOnEntity(
 		"ent_sht_steam",
 		vehicle,
 		xOffset,
@@ -375,34 +374,23 @@ function CreateVehiclePurgeSpray(vehicle, xOffset, yOffset, zOffset, xRot, yRot,
 		false,
 		false
 	)
-	local r = (vehEnt and vehEnt?.state?.PurgeColor?.r or 255) / 255
-	local g = (vehEnt and vehEnt?.state?.PurgeColor?.g or 255) / 255
-	local b = (vehEnt and vehEnt?.state?.PurgeColor?.b or 255) / 255
-	SetParticleFxLoopedColour(PurgeSpray, r, g, b, false)
-	return PurgeSpray
 end
 
 function CreateVehiclePurgeEffects(vehNet, vehicle)
-	local vehEnt = Entity(vehicle)
 	if purgeFx[vehNet] then
 		ClearVehiclePurgeEffects(vehNet)
 	end
 
 	purgeFx[vehNet] = {}
 
-	local bone = GetEntityBoneIndexByName(vehicle, (vehEnt and vehEnt?.state?.PurgeLocation) or "wheel_rf")
+	local bone = GetEntityBoneIndexByName(vehicle, "wheel_rf")
 	local pos = GetWorldPositionOfEntityBone(vehicle, bone)
 	local off = GetOffsetFromEntityGivenWorldCoords(vehicle, pos.x, pos.y, pos.z)
 
 	for i = 0, 3 do
-		local leftPurge, rightPurge
-		if vehEnt and vehEnt?.state?.PurgeLocation and vehEnt?.state?.PurgeLocation == "wheel_rf" or not vehEnt?.state?.PurgeLocation then
-			leftPurge = CreateVehiclePurgeSpray(vehicle, -2 * off.x + 0.8, off.y + 0.33, off.z + 0.15, 35.0, -40.0, 0.0, 0.6)
-			rightPurge = CreateVehiclePurgeSpray(vehicle, off.x, off.y + 0.33, off.z + 0.15, 50.0, 35.0, 0.0, 0.6)
-		elseif vehEnt and vehEnt?.state?.PurgeLocation and vehEnt?.state?.PurgeLocation == "bonnet" then
-			leftPurge = CreateVehiclePurgeSpray(vehicle, off.x - 0.5, off.y + 0.05, off.z, 40.0, -20.0, 0.0, 0.5)
-			rightPurge = CreateVehiclePurgeSpray(vehicle, off.x + 0.5, off.y + 0.05, off.z, 40.0, 20.0, 0.0, 0.5)
-		end
+		local leftPurge =
+			CreateVehiclePurgeSpray(vehicle, -2 * off.x + 0.8, off.y + 0.33, off.z + 0.15, 35.0, -40.0, 0.0, 0.6)
+		local rightPurge = CreateVehiclePurgeSpray(vehicle, off.x, off.y + 0.33, off.z + 0.15, 50.0, 35.0, 0.0, 0.6)
 		table.insert(purgeFx[vehNet], leftPurge)
 		table.insert(purgeFx[vehNet], rightPurge)
 	end

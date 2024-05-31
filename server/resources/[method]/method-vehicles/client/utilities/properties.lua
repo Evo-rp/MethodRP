@@ -139,7 +139,7 @@ function SetVehicleProperties(vehicle, props, data)
 			props.tyreSmoke = false
 			props.paintType = { 0, 0 }
 			props.mods.xenon = false
-			props.dashboardColor = 0
+			props.dashboardColor = 111
 		end
 
 		if Police:IsPdCar(vehicle) or Police:IsEMSCar(vehicle) and data?.callsign and (type(data.callsign) == "string" or type(data.callsign) == "number") then
@@ -149,9 +149,9 @@ function SetVehicleProperties(vehicle, props, data)
 				if callsign ~= nil then
 					local one, two, three = getCallsignDigit(callsign, 3), getCallsignDigit(callsign, 2), getCallsignDigit(callsign, 1)
 	
-					props.mods.fender = one
-					props.mods.rightFender = two
-					props.mods.roof = three
+					props.mods.archCover = one
+					props.mods.trimB = two
+					props.mods.tank = three
 				end
 			end
 		end

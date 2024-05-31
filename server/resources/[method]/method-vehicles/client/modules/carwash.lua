@@ -35,14 +35,14 @@ end)
 AddEventHandler('Polyzone:Enter', function(id, point, insideZone, data)
     if data.carwash and VEHICLE_INSIDE and VEHICLE_SEAT == -1 and not inCarWash then
         inCarWash = true
-        Action:Show('carwash', '{keybind}primary_action{/keybind} Use Car Wash for $100')
+        Action:Show('{keybind}primary_action{/keybind} Use Car Wash for $100')
     end
 end)
 
 AddEventHandler('Polyzone:Exit', function(id, point, insideZone, data)
     if inCarWash and data and data.carwash then
         inCarWash = false
-        Action:Hide('carwash')
+        Action:Hide()
     end
 end)
 

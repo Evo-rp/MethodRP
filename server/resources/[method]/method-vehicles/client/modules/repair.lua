@@ -225,7 +225,7 @@ _vehicleRepair = {
 
 AddEventHandler("Proxy:Shared:ExtendReady", function(component)
 	if component == "Vehicles" then
-		exports["sandbox-base"]:ExtendComponent(component, _vehicleRepair)
+		exports["method-base"]:ExtendComponent(component, _vehicleRepair)
 	end
 end)
 
