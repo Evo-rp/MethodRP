@@ -69,7 +69,7 @@ RegisterCommand('carradio', function()
 	if IsPedInAnyVehicle(playerPed, false) then
 		TriggerEvent('method-dj:client:playMusic', { zone = GetCurrentZone() })
 	else
-		Notification:Error("You must be in a vehicle to use this command.", 2500)
+		Notification:Error("Maybe Get In A Vehicle?", 2500)
 	end
 end, false)
 
