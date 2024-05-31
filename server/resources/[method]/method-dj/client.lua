@@ -1,4 +1,3 @@
--- local Targets = {}
 local xSound = exports.xsound
 local Props = {}
 
@@ -65,23 +64,32 @@ function RegisterDjZones()
 	end
 end
 
-RegisterNetEvent("method-dj:client:playMusic", function(data)
-	local booth = ""
-	local boothId = 0
+RegisterCommand('carradio', function()
+	local playerPed = PlayerPedId()
+	if IsPedInAnyVehicle(playerPed, false) then
+		TriggerEvent('method-dj:client:playMusic', { zone = GetCurrentZone() })
+	else
+		Notification:Error("You must be in a vehicle to use this command.", 2500)
+	end
+end, false)
 
+function GetCurrentZone()
 	for k, v in pairs(Config.Locations) do
-		if #(GetEntityCoords(PlayerPedId()) - v["coords"]) <= v["radius"] then
-			-- if v["job"] then booth = v["job"]..k elseif v["gang"] then booth = v["gang"]..k end
-			booth = "public" .. k
-			boothId = k
+		if #(GetEntityCoords(PlayerPedId()) - v.coords) <= v.radius then
+			return k
 		end
 	end
+	return nil
+end
+
+RegisterNetEvent("method-dj:client:playMusic", function(data)
+	local boothId = data.zone
+	local booth = "public" .. boothId
 
 	local song = {
 		playing = "",
 		duration = "",
 		timeStamp = "",
-		duration = "",
 		url = "",
 		icon = "",
 		header = "",
@@ -94,7 +102,6 @@ RegisterNetEvent("method-dj:client:playMusic", function(data)
 	end)
 	previousSongs = Citizen.Await(p)
 
-	-- Grab song info and build table
 	if xSound:soundExists(booth) then
 		song = {
 			playing = xSound:isPlaying(booth),
@@ -211,7 +218,6 @@ RegisterNetEvent("method-dj:client:playMusic", function(data)
 				end)
 			end)
 		end
-		-- i-_1Os7hVDw
 		djMenuSub["changevolume"] = Menu:Create("dj_change_volume", "Change Volume")
 
 		djMenuSub["changevolume"].Add:Slider("Change Volume", {
@@ -220,14 +226,11 @@ RegisterNetEvent("method-dj:client:playMusic", function(data)
 			max = 100,
 			step = 1,
 		}, function(data)
-			-- data comes back as type number
 			local volume = data.data.value
 			if not volume then
 				return
 			end
-			-- Automatically correct from numbers to be numbers xsound understands
 			volume = (volume / 100)
-			-- Don't let numbers go too high or too low
 			if volume <= 0.01 then
 				volume = 0.01
 			end
