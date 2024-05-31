@@ -145,6 +145,6 @@ end
 
 AddEventHandler("Proxy:Shared:ExtendReady", function(component)
 	if component == "Vehicles" then
-		exports["sandbox-base"]:ExtendComponent(component, _vehIdentification)
+		exports["method-base"]:ExtendComponent(component, _vehIdentification)
 	end
 end)
