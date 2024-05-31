@@ -25,7 +25,7 @@ AddEventHandler("Vehicles:Client:StartUp", function()
 --           event = "Vehicles:Client:DonatorLicensePlateClaim",
 --         },
 --     }, "comment-dollar")
--- end)
+end)
 
 local platePromise
 function GetNewPersonalPlate()

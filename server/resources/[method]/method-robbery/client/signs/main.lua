@@ -81,7 +81,7 @@ AddEventHandler("Robbery:Client:Setup", function()
 			{
 				text = string.format("Steal %s", v.label),
 				icon = "eye-evil",
-				item = "hammer",
+				item = "WEAPON_HAMMER",
 				event = "Robbery:Client:Signs:StealSign",
 				data = {
 					label = v.label,
