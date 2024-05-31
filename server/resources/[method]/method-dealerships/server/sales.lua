@@ -130,7 +130,7 @@ function RegisterVehicleSaleCallbacks()
                         local saleVehicleData = Dealerships.Stock:FetchDealerVehicle(dealerData.id, vehicle)
                         if profitPercent and commissionPercent and saleVehicleData and saleVehicleData.quantity > 0 and saleVehicleData.data.price and saleVehicleData.data.price > 0 then
                             local vehiclePrice = saleVehicleData.data.price
-                            local priceMultiplier = 0 + (profitPercent / 100)
+                            local priceMultiplier = 1 + (profitPercent / 100)
                             local commissionMultiplier = (commissionPercent / 100)
                             local salePrice = Utils:Round(vehiclePrice * priceMultiplier, 0)
 

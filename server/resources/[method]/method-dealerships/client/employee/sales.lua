@@ -153,7 +153,7 @@ end
 
 
 function VehicleSalesGetCashText(dealerMData, dealerData, vehData)
-    local priceMultiplier = 0 + (dealerMData.profitPercentage / 100)
+    local priceMultiplier = 1 + (dealerMData.profitPercentage / 100)
     local salePrice = Utils:Round(vehData.price * priceMultiplier, 0)
     local dealerProfit = salePrice - vehData.price
     local earnedCommission = Utils:Round(dealerProfit * (dealerMData.commission / 100), 0)
@@ -172,7 +172,7 @@ function VehicleSalesGetCashText(dealerMData, dealerData, vehData)
 end
 
 function VehicleSalesGetLoanText(dealerMData, dealerData, vehData, loanData, defaultInterest)
-    local priceMultiplier = 0 + (dealerMData.profitPercentage / 100)
+    local priceMultiplier = 1 + (dealerMData.profitPercentage / 100)
     local salePrice = Utils:Round(vehData.price * priceMultiplier, 0)
     local dealerProfit = salePrice - vehData.price
     local earnedCommission = Utils:Round(dealerProfit * (dealerMData.commission / 100), 0)
