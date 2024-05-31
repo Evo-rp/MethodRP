@@ -448,7 +448,7 @@ QUEUE.Connect = function(self, source, playerName, setKickReason, deferrals)
 		if plyr.State == States.QUEUED then
 			plyr.State = States.DISCONNECTED
 			plyr.Grace = (os.time() + (60 * 5))
-			Log(string.format(Config.Strings.Grace, plyr.Name, os.date("%I:%M:%S %p", plyr.Grace)))
+			--Log(string.format(Config.Strings.Grace, plyr.Name, os.date("%I:%M:%S %p", plyr.Grace)))
 			Data.Queue[pos] = plyr
 			--self.Queue:Remove(pos)
 		end
