@@ -18,7 +18,7 @@ _vehKeys = {
 				if VEHICLE_KEYS[id] == nil then
 					return false
 				end
-				return (VEHICLE_KEYS[id][VIN] or (groupKeys and Player(source).state.onDuty == groupKeys))
+				return (VEHICLE_KEYS[id][VIN] or (groupKeys and (Player(source).state.onDuty == groupKeys or (Player(source).state.sentOffDuty and Player(source).state.sentOffDuty == groupKeys))))
 			end
 			return false
 		end,
@@ -65,6 +65,6 @@ _vehKeys = {
 
 AddEventHandler("Proxy:Shared:ExtendReady", function(component)
 	if component == "Vehicles" then
-		exports["method-base"]:ExtendComponent(component, _vehKeys)
+		exports["sandbox-base"]:ExtendComponent(component, _vehKeys)
 	end
 end)

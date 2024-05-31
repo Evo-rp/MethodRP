@@ -103,9 +103,36 @@ AddEventHandler("Core:Shared:Ready", function()
 
 		Interaction:RegisterMenu("veh_quick_actions", false, "car", function()
 			if VEHICLE_INSIDE then
+				local vehEnt = Entity(VEHICLE_INSIDE)
 				local subMenu = {}
 				local seatAmount = GetVehicleModelNumberOfSeats(GetEntityModel(VEHICLE_INSIDE))
 				Interaction:ShowMenu({
+					{
+						icon = "key",
+						label = "Give Keys",
+						shouldShow = function()
+							return VEHICLE_INSIDE and Vehicles.Keys:Has(vehEnt.state.VIN, vehEnt.state.GroupKeys)
+						end,
+						action = function()
+							if Vehicles.Keys:Has(vehEnt.state.VIN, vehEnt.state.GroupKeys) then
+								if IsPedInAnyVehicle(LocalPlayer.state.ped, true) then
+									local sids = {}
+									for i = -1, GetVehicleModelNumberOfSeats(VEHICLE_INSIDE), 1 do
+										local ped = GetPedInVehicleSeat(VEHICLE_INSIDE, i)
+										if ped ~= 0 and ped ~= LocalPlayer.state.ped then
+											table.insert(sids, GetPlayerServerId(NetworkGetPlayerIndexFromPed(ped)))
+										end
+									end
+									Callbacks:ServerCallback("Vehicles:GiveKeys", {
+										netId = VehToNet(VEHICLE_INSIDE),
+										sids = sids,
+									})
+								end
+							end
+
+							Interaction:Hide()
+						end,
+					},
 					{
 						icon = "person-seat",
 						label = "Seats",
@@ -358,6 +385,29 @@ AddEventHandler("Core:Shared:Ready", function()
 			return false
 		end)
 	end)
+end)
+
+AddEventHandler("Vehicles:Client:GiveKeys", function(entityData, data)
+	local vehEnt = Entity(entityData.entity)
+	
+	if Vehicles.Keys:Has(vehEnt.state.VIN, vehEnt.state.GroupKeys) then
+		local myCoords = GetEntityCoords(LocalPlayer.state.ped)
+		local peds = GetGamePool("CPed")
+		local sids = {}
+		for _, ped in ipairs(peds) do
+			if ped ~= LocalPlayer.state.ped and IsPedAPlayer(ped) then
+				local entCoords = GetEntityCoords(ped)
+				if #(entCoords - myCoords) <= 4.0 then
+					table.insert(sids, GetPlayerServerId(NetworkGetPlayerIndexFromPed(ped)))
+				end
+			end
+		end
+		Callbacks:ServerCallback("Vehicles:GiveKeys", {
+			netId = VehToNet(entityData.entity),
+			sids = sids,
+		})
+	end
+	
 end)
 
 RegisterNetEvent("Characters:Client:Spawn")

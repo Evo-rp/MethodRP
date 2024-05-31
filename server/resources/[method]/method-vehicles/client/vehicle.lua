@@ -130,7 +130,7 @@ VEHICLE = {
                 SetVehicleUndriveable(veh, false)
 
                 if _actionShowing then
-                    Action:Hide()
+                    Action:Hide('engine')
                     _actionShowing = false
                 end
             else
@@ -149,7 +149,7 @@ VEHICLE = {
             Notification:Info(customMessage and customMessage or 'Engine Turned Off', 1500, 'engine')
 
             if Vehicles.Keys:Has(vehEnt.state.VIN, vehEnt.state.GroupKeys) then
-                Action:Show('{keybind}toggle_engine{/keybind} Turn Engine On')
+                Action:Show('engine', '{keybind}toggle_engine{/keybind} Turn Engine On')
                 _actionShowing = true
             end
         end,
@@ -507,7 +507,7 @@ VEHICLE = {
 	
 						Callbacks:ServerCallback("Vehicles:GetKeys", vehEnt.state.VIN, function(success)
 							Notification:Success("Lockpicked Vehicle Ignition", 3000, 'key')
-							Action:Show('{keybind}toggle_engine{/keybind} Turn Engine On')
+							Action:Show('engine', '{keybind}toggle_engine{/keybind} Turn Engine On')
 							_actionShowing = true
 
 							TriggerEvent("Laptop:Client:LSUnderground:Boosting:SuccessIgnition", VEHICLE_INSIDE)
@@ -622,7 +622,7 @@ VEHICLE = {
 		
 							Callbacks:ServerCallback("Vehicles:GetKeys", vehEnt.state.VIN, function(success)
 								Notification:Success("Vehicle Ignition Bypassed", 3000, 'key')
-								Action:Show('{keybind}toggle_engine{/keybind} Turn Engine On')
+								Action:Show('engine', '{keybind}toggle_engine{/keybind} Turn Engine On')
 								_actionShowing = true
 
 								TriggerEvent("Laptop:Client:LSUnderground:Boosting:SuccessIgnition", VEHICLE_INSIDE)
@@ -761,7 +761,7 @@ AddEventHandler('Vehicles:Client:BecameDriver', function(veh, seat)
         end
     else
         if Vehicles.Keys:Has(vehEnt.state.VIN, vehEnt.state.GroupKeys) then
-            Action:Show('{keybind}toggle_engine{/keybind} Turn Engine On')
+            Action:Show('engine', '{keybind}toggle_engine{/keybind} Turn Engine On')
             _actionShowing = true
         end
     end
@@ -769,11 +769,13 @@ AddEventHandler('Vehicles:Client:BecameDriver', function(veh, seat)
 	if not vehEnt.state.PlayerDriven then
 		vehEnt.state:set('PlayerDriven', true, true)
 	end
+
+	vehEnt.state:set('LastDriven', GetCloudTimeAsInt(), true)
 end)
 
 AddEventHandler('Vehicles:Client:ExitVehicle', function(veh)
 	if _actionShowing then
-		Action:Hide()
+		Action:Hide('engine')
 		_actionShowing = false
 	end
 

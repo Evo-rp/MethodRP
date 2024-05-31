@@ -93,7 +93,10 @@ end)
 _vehicleKeysExtension = {
 	Keys = {
 		Has = function(self, VIN, gKeys)
-			if VIN and (VEHICLE_KEYS[VIN] or (gKeys and LocalPlayer.state.onDuty == gKeys)) then
+			if VIN and (
+				VEHICLE_KEYS[VIN] 
+				or (gKeys and (LocalPlayer.state.onDuty == gKeys or (LocalPlayer.state.sentOffDuty and LocalPlayer.state.sentOffDuty == gKeys)))
+			) then
 				return true
 			else
 				return false
@@ -146,7 +149,7 @@ _vehicleKeysExtension = {
 
 AddEventHandler("Proxy:Shared:ExtendReady", function(component)
 	if component == "Vehicles" then
-		exports["method-base"]:ExtendComponent(component, _vehicleKeysExtension)
+		exports["sandbox-base"]:ExtendComponent(component, _vehicleKeysExtension)
 	end
 end)
 

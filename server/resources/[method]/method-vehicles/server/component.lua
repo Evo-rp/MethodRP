@@ -23,21 +23,21 @@ function RetrieveComponents()
     Middleware = exports['method-base']:FetchComponent('Middleware')
     Jobs = exports['method-base']:FetchComponent('Jobs')
     Inventory = exports['method-base']:FetchComponent('Inventory')
-    Sequence = exports['method-base']:FetchComponent('Sequence')
-    Generator = exports['method-base']:FetchComponent('Generator')
-    Vehicles = exports['method-base']:FetchComponent('Vehicles')
-    Phone = exports['method-base']:FetchComponent('Phone')
-    Tow = exports['method-base']:FetchComponent('Tow')
-    Properties = exports['method-base']:FetchComponent('Properties')
-    Banking = exports['method-base']:FetchComponent('Banking')
-    Police = exports['method-base']:FetchComponent('Police')
-    Loans = exports['method-base']:FetchComponent('Loans')
-	EmergencyAlerts = exports["method-base"]:FetchComponent("EmergencyAlerts")
+    Sequence = exports['sandbox-base']:FetchComponent('Sequence')
+    Generator = exports['sandbox-base']:FetchComponent('Generator')
+    Vehicles = exports['sandbox-base']:FetchComponent('Vehicles')
+    Phone = exports['sandbox-base']:FetchComponent('Phone')
+    Tow = exports['sandbox-base']:FetchComponent('Tow')
+    Properties = exports['sandbox-base']:FetchComponent('Properties')
+    Banking = exports['sandbox-base']:FetchComponent('Banking')
+    Police = exports['sandbox-base']:FetchComponent('Police')
+    Loans = exports['sandbox-base']:FetchComponent('Loans')
+	EmergencyAlerts = exports["sandbox-base"]:FetchComponent("EmergencyAlerts")
     RegisterChatCommands()
 end
 
 AddEventHandler('Core:Shared:Ready', function()
-    exports['method-base']:RequestDependencies('Vehicles', {
+    exports['sandbox-base']:RequestDependencies('Vehicles', {
         'Callbacks',
         'Database',
         'Fetch',
@@ -132,6 +132,8 @@ function SaveVehicle(VIN)
         veh:SetData('DamagedParts', vehState.DamagedParts)
         veh:SetData('Mileage', vehState.Mileage)
         veh:SetData('Polish', vehState.Polish)
+        veh:SetData('PurgeColor', vehState.PurgeColor)
+        veh:SetData('PurgeLocation', vehState.PurgeLocation)
 
         if vehState.Harness ~= nil then
             veh:SetData('Harness', vehState.Harness)
@@ -519,6 +521,14 @@ VEHICLE = {
                             vehState.Polish = vehicle.Polish
                         end
 
+						if vehicle.PurgeColor then
+                            vehState.PurgeColor = vehicle.PurgeColor or {r = 255, g = 255, b = 255}
+                        end
+
+						if vehicle.PurgeLocation then
+                            vehState.PurgeLocation = vehicle.PurgeLocation or "wheel_rf"
+                        end
+
                         if vehicle.Harness and vehicle.Harness > 0 then
                             vehState.Harness = vehicle.Harness
                         end
@@ -823,6 +833,7 @@ VEHICLE = {
         vehState.Trailer = GetVehicleType(spawnedVehicle) == 'trailer'
 
         vehState.VEH_IGNITION = false
+        vehState.SpawnTemp = true 
 
         if properties or preDamage then
             vehState.awaitingProperties = {
@@ -888,7 +899,7 @@ VEHICLE = {
 }
 
 AddEventHandler('Proxy:Shared:RegisterReady', function()
-    exports['method-base']:RegisterComponent('Vehicles', VEHICLE)
+    exports['sandbox-base']:RegisterComponent('Vehicles', VEHICLE)
 end)
 
 --[[
@@ -936,7 +947,7 @@ RegisterNetEvent("Vehicles:Server:RequestGenerateVehicleInfo", function(vNet)
     GenerateLocalVehicleInfo(veh)
 end)
 
-function ApplyOldVehicleState(veh, fuel, damage, damagedParts, mileage, engineHealth, bodyHealth, isBlownUp, localProperties)
+function ApplyOldVehicleState(veh, fuel, damage, damagedParts, mileage, engineHealth, bodyHealth, isBlownUp, localProperties, lastDriven, serverSpawnedTemp)
     local ent = Entity(veh)
     if ent?.state?.VIN then
         ent.state.Fuel = fuel
@@ -945,6 +956,9 @@ function ApplyOldVehicleState(veh, fuel, damage, damagedParts, mileage, engineHe
         ent.state.Mileage = mileage
         ent.state.BlownUp = isBlownUp
         ent.state.awaitingEngineHealth = engineHealth
+
+        ent.state.LastDriven = lastDriven
+        ent.state.SpawnTemp = serverSpawnedTemp
 
         ent.state.awaitingBlownUp = isBlownUp
 
@@ -989,6 +1003,9 @@ AddEventHandler('entityRemoved', function(entity)
             local engineHealth = GetVehicleEngineHealth(entity)
             local bodyHealth = GetVehicleBodyHealth(entity)
 
+            local lastDriven = ent.state.LastDriven
+            local spawnedTemp = ent.state.SpawnTemp
+
             -- Logger:Warn("Vehicles", string.format("Vehicle %s Deleted Unexpectedly - Local: %s, %s %s Engine: %s, Body: %s, Blown Up: %s", ent.state.VIN, isLocal, coords, heading, engineHealth, bodyHealth, isBlownUp))
 
             if not isLocal then
@@ -1002,7 +1019,7 @@ AddEventHandler('entityRemoved', function(entity)
                 Vehicles:SpawnTemp(-1, vehModel, nil, coords, heading, function(vehicleId)
                     SetVehicleBodyHealth(vehicleId, bodyHealth + 0.0)
 
-                    ApplyOldVehicleState(vehicleId, fuel, damage, damagedParts, mileage, engineHealth, bodyHealth, isBlownUp, _savedVehiclePropertiesClusterfuck[VIN])
+                    ApplyOldVehicleState(vehicleId, fuel, damage, damagedParts, mileage, engineHealth, bodyHealth, isBlownUp, _savedVehiclePropertiesClusterfuck[VIN], lastDriven, spawnedTemp)
                 end, false, false, false, vehPlate, VIN, true)
             else
                 Vehicles.Owned:Spawn(-1, VIN, coords, heading, function(success, vehicleData, vehicleId)

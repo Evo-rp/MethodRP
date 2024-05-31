@@ -25,6 +25,7 @@ _sirenConfig = {
 	overrides = {
 		[`ambulance`] = "FIRETRUCK",
 		[`emsa`] = "FIRETRUCK",
+		[`emsnspeedo`] = "FIRETRUCK",
 	},
 }
 

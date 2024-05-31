@@ -122,7 +122,7 @@ AddEventHandler("Vehicles:Client:Speeding", function(isSpeeding)
 
 				local coord = GetEntityCoords(k)
 				local inside = _vehZone:isPointInside(coord)
-				if inside and not _ghostedVehs[k] and _trackedCount[k] <= 1 then
+				if inside and not _ghostedVehs[k] and (_trackedCount[k] or 0) <= 1 then
 					local ped = GetPedInVehicleSeat(k, -1)
 					if ped ~= 0 and not IsPedAPlayer(ped) then
 						NetworkConcealEntity(k, true)

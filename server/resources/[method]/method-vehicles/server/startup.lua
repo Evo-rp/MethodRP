@@ -61,4 +61,24 @@ function Startup()
     --         end
     --     end
     -- end)
+
+    local deleteTime = 120 -- Minutes
+
+    Citizen.CreateThread(function()
+        -- Let the server startup, no vehicles need to be saved in the first 2 mins
+        while true do
+            Citizen.Wait(1000 * 60 * 30)
+            local vehs = GetAllVehicles()
+            local timeBefore = os.time() - 60 * deleteTime
+
+            for k, v in ipairs(vehs) do
+                if DoesEntityExist(v) then
+                    local state = Entity(v).state
+                    if state and not state.Owned and not state.SpawnTemp and state.LastDriven and state.LastDriven <= timeBefore then
+                        Vehicles:Delete(v, function() end)
+                    end
+                end
+            end
+        end
+    end)
 end

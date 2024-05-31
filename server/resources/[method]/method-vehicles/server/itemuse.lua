@@ -186,6 +186,10 @@ function RegisterItemUses()
 		TriggerClientEvent("Vehicles:Client:CleaningKit", source)
 	end)
 
+	Inventory.Items:RegisterUse("purgecontroller", "Vehicles", function(source, itemData)
+		UsePurgeColorController(source, itemData)
+	end)
+
 	Inventory.Items:RegisterUse("car_bomb", "Vehicles", function(source, itemData)
 		Callbacks:ClientCallback(source, "Vehicles:UseCarBomb", {}, function(veh, reason, config)
 			if not veh then
@@ -272,11 +276,11 @@ end
 local polishTypes = {
 	{ -- Normal Polish
 		length = (60 * 60 * 24 * 7), -- Lasts for a week
-		multiplier = 7.5,
+		multiplier = 10.0,
 	},
 	{ -- High Polish
 		length = (60 * 60 * 24 * 14), -- Lasts for 2 weeks
-		multiplier = 10.0,
+		multiplier = 15.0,
 	}
 }
 
@@ -309,6 +313,40 @@ function UseCarPolish(source, itemData, type)
 			else
 				Execute:Client(source, "Notification", "Error", "Vehicle Already Has That Polish and It Was Recently Installed")
 			end
+		end
+	end)
+end
+
+function UsePurgeColorController(source, itemData)
+	Callbacks:ClientCallback(source, "Vehicles:UsePurgeColorController", {}, function(veh)
+		if not veh then
+			return
+		end
+		veh = NetworkGetEntityFromNetworkId(veh)
+		if veh and DoesEntityExist(veh) then
+			local vehState = Entity(veh).state
+			if not vehState.VIN then
+				return
+			end
+
+			Callbacks:ClientCallback(source, "Vehicles:UsePurgeColorControllerMenu", { purgeColor = vehState?.PurgeColor, purgeLocation = vehState?.PurgeLocation }, function(retval)
+				if retval then
+					if retval.purgeColor then
+						vehState.PurgeColor = {
+							r = retval.purgeColor.r,
+							g = retval.purgeColor.g,
+							b = retval.purgeColor.b,
+						}
+					end
+					if retval.purgeLocation then
+						vehState.PurgeLocation = retval.purgeLocation
+					end
+					Execute:Client(source, "Notification", "Success", "Purge Changes Applied")
+				else
+					Execute:Client(source, "Notification", "Error", "Changes were discarded")
+				end
+			end)
+			
 		end
 	end)
 end

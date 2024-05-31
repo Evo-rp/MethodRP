@@ -1,6 +1,7 @@
 _inPursuitVehicle = false
 _inPursuitVehicleSettings = nil
 _inPursuitVehicleMode = 1
+_inPursuitVehicleMegaphone = false
 
 AddEventHandler("Characters:Client:Spawn", function()
     Citizen.Wait(500)
@@ -10,6 +11,17 @@ end)
 local _timeout = false
 
 AddEventHandler('Vehicles:Client:StartUp', function()
+
+	Interaction:RegisterMenu("vehicle-megaphone", false, "megaphone", function(data)
+		Interaction:Hide()
+		_inPursuitVehicleMegaphone = not _inPursuitVehicleMegaphone
+		Entity(_inPursuitVehicle).state:set('VehicleMegaphone', _inPursuitVehicleMegaphone, true)
+		Callbacks:ServerCallback("Vehicles:Server:VehicleMegaphone", {}, function(data, cb)
+		end)
+	end, function()
+        return _inPursuitVehicle
+    end)
+
     Interaction:RegisterMenu("pursuit-modes", false, "car-on", function(data)
         if _inPursuitVehicleSettings then
             local menu = {}
@@ -27,7 +39,8 @@ AddEventHandler('Vehicles:Client:StartUp', function()
 
                         Entity(_inPursuitVehicle).state:set('PursuitMode', _inPursuitVehicleMode, true)
 
-                        TriggerServerEvent("EmergencyAlerts:Server:PursuitModeChange", v.name or _inPursuitVehicleMode)
+                        --TriggerServerEvent("EmergencyAlerts:Server:PursuitModeChange", v.name or _inPursuitVehicleMode)
+                        TriggerEvent("EmergencyAlerts:Client:PursuitModeChange", v.name or _inPursuitVehicleMode)
                     end,
                 })
             end
@@ -56,7 +69,8 @@ AddEventHandler('Vehicles:Client:StartUp', function()
 
             Entity(_inPursuitVehicle).state:set('PursuitMode', _inPursuitVehicleMode, true)
 
-            TriggerServerEvent("EmergencyAlerts:Server:PursuitModeChange", _inPursuitVehicleSettings[_inPursuitVehicleMode].name or _inPursuitVehicleMode)
+            --TriggerServerEvent("EmergencyAlerts:Server:PursuitModeChange", _inPursuitVehicleSettings[_inPursuitVehicleMode].name or _inPursuitVehicleMode)
+            TriggerEvent("EmergencyAlerts:Client:PursuitModeChange", _inPursuitVehicleSettings[_inPursuitVehicleMode].name or _inPursuitVehicleMode)
 
             _timeout = true
             Citizen.SetTimeout(2000, function()
@@ -81,7 +95,8 @@ AddEventHandler('Vehicles:Client:StartUp', function()
 
                 ApplyPursuitStuffToVehicle(lastPursuitMode)
 
-                TriggerServerEvent("EmergencyAlerts:Server:PursuitModeChange", _inPursuitVehicleSettings[_inPursuitVehicleMode].name or _inPursuitVehicleMode)
+                --TriggerServerEvent("EmergencyAlerts:Server:PursuitModeChange", _inPursuitVehicleSettings[_inPursuitVehicleMode].name or _inPursuitVehicleMode)
+                TriggerEvent("EmergencyAlerts:Client:PursuitModeChange", _inPursuitVehicleSettings[_inPursuitVehicleMode].name or _inPursuitVehicleMode)
             else
                 -- Apply Lowest Pursuit Mode
                 print("Applying Lowest Pursuit Mode")
@@ -93,6 +108,13 @@ AddEventHandler('Vehicles:Client:StartUp', function()
     AddTaskToVehicleThread('pursuit-modes', 100, true, function(veh, class, running, inside, onExit)
         if _inPursuitVehicle then
             if onExit then
+				_inPursuitVehicleMegaphone = false
+				local lastVehicleMegaphone = Entity(veh)?.state?.VehicleMegaphone
+				if lastVehicleMegaphone == true then
+					Callbacks:ServerCallback("Vehicles:Server:VehicleMegaphone", function(data, cb)
+					end)
+				end
+
                 _inPursuitVehicle = false
                 _inPursuitVehicleMode = 1
                 _inPursuitVehicleSettings = nil
@@ -142,6 +164,22 @@ function ApplyPursuitStuffToVehicle(mode)
             SetVehicleLights(_inPursuitVehicle, 2)
             ToggleVehicleMod(_inPursuitVehicle, 22, true)
 
+			-- mode 1 = D
+			-- mode 2 = C
+			-- mode 3 = B
+			-- mode 4 = A
+			-- mode 5 = S
+
+            if mode == 2 then
+				SetVehicleDashboardColour(_inPursuitVehicle, 4)
+			elseif mode == 3 then
+				SetVehicleDashboardColour(_inPursuitVehicle, 99)
+			elseif mode == 4 then
+				SetVehicleDashboardColour(_inPursuitVehicle, 83)
+			elseif mode == 5 then
+				SetVehicleDashboardColour(_inPursuitVehicle, 27)
+			end
+
             if mode >= 4 then
                 SetVehicleXenonLightsColor(_inPursuitVehicle, 0)
             else
@@ -150,6 +188,7 @@ function ApplyPursuitStuffToVehicle(mode)
         else
             SetVehicleLights(_inPursuitVehicle, 0)
             ToggleVehicleMod(_inPursuitVehicle, 22, false)
+			SetVehicleDashboardColour(_inPursuitVehicle, 0)
         end
 
         -- if _inPursuitVehicleSettings[_inPursuitVehicleMode] and _inPursuitVehicleSettings[_inPursuitVehicleMode].name then
