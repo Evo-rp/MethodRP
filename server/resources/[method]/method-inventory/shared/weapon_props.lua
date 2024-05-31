@@ -40,7 +40,7 @@ WEAPON_PROPS = {
     { type = 'weapon', item = "WEAPON_CARBINERIFLE_MK2", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0, model = `w_ar_carbineriflemk2` },
     { type = 'weapon', item = "WEAPON_BULLPUPRIFLE", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0, model = `w_ar_bullpuprifle` },
     { type = 'weapon', item = "WEAPON_BULLPUPRIFLE_MK2", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0, model = `w_ar_bullpupriflemk2` },
-    { type = 'weapon', item = "WEAPON_MUSKET", x = 0.35, y = -0.15, z = 0.2, rx = -80.0, ry = 0.0, rz = 0.0, model = `w_ar_musket` },
+    { type = 'weapon', item = "WEAPON_MUSKET", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0, model = `w_ar_musket` },
     { type = 'weapon', item = "WEAPON_HK416B", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0, model = `w_ar_HK416B` },
     { type = 'weapon', item = "WEAPON_50BEOWULF", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0, model = `ar15body1` },
     { type = 'weapon', item = "WEAPON_AR15", x = 0.0, y = 0.0, z = 0.0, rx = 0.0, ry = 0.0, rz = 0.0, model = `ar15body6` },
