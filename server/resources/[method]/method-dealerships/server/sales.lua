@@ -521,7 +521,7 @@ function SendCompletedLoanSaleEmail(charData, dealerData, vehicleInfoData, downP
     )
 end
 
-function SendDealerProfits(dealerProfits, playerBankAccount, playerProfits, vehicleInfoData, buyerData)
+function SendDealerProfits(dealerData, dealerProfits, playerBankAccount, playerProfits, vehicleInfoData, buyerData)
     local dealerAccount = Banking.Accounts:GetOrganization(dealerData.id)
     if dealerAccount then
         local profitAmount = math.floor(dealerProfits)
