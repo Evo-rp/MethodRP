@@ -317,7 +317,7 @@ _vehDonatorPlates = {
 
 AddEventHandler("Proxy:Shared:ExtendReady", function(component)
 	if component == "Vehicles" then
-		exports["method-base"]:ExtendComponent(component, _vehDonatorPlates)
+		exports["sandbox-base"]:ExtendComponent(component, _vehDonatorPlates)
 	end
 end)
 

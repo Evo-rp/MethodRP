@@ -149,7 +149,7 @@ _vehicleKeysExtension = {
 
 AddEventHandler("Proxy:Shared:ExtendReady", function(component)
 	if component == "Vehicles" then
-		exports["method-base"]:ExtendComponent(component, _vehicleKeysExtension)
+		exports["sandbox-base"]:ExtendComponent(component, _vehicleKeysExtension)
 	end
 end)
 

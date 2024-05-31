@@ -23,21 +23,21 @@ function RetrieveComponents()
     Middleware = exports['method-base']:FetchComponent('Middleware')
     Jobs = exports['method-base']:FetchComponent('Jobs')
     Inventory = exports['method-base']:FetchComponent('Inventory')
-    Sequence = exports['method-base']:FetchComponent('Sequence')
-    Generator = exports['method-base']:FetchComponent('Generator')
-    Vehicles = exports['method-base']:FetchComponent('Vehicles')
-    Phone = exports['method-base']:FetchComponent('Phone')
-    Tow = exports['method-base']:FetchComponent('Tow')
-    Properties = exports['method-base']:FetchComponent('Properties')
-    Banking = exports['method-base']:FetchComponent('Banking')
-    Police = exports['method-base']:FetchComponent('Police')
-    Loans = exports['method-base']:FetchComponent('Loans')
-	EmergencyAlerts = exports["method-base"]:FetchComponent("EmergencyAlerts")
+    Sequence = exports['sandbox-base']:FetchComponent('Sequence')
+    Generator = exports['sandbox-base']:FetchComponent('Generator')
+    Vehicles = exports['sandbox-base']:FetchComponent('Vehicles')
+    Phone = exports['sandbox-base']:FetchComponent('Phone')
+    Tow = exports['sandbox-base']:FetchComponent('Tow')
+    Properties = exports['sandbox-base']:FetchComponent('Properties')
+    Banking = exports['sandbox-base']:FetchComponent('Banking')
+    Police = exports['sandbox-base']:FetchComponent('Police')
+    Loans = exports['sandbox-base']:FetchComponent('Loans')
+	EmergencyAlerts = exports["sandbox-base"]:FetchComponent("EmergencyAlerts")
     RegisterChatCommands()
 end
 
 AddEventHandler('Core:Shared:Ready', function()
-    exports['method-base']:RequestDependencies('Vehicles', {
+    exports['sandbox-base']:RequestDependencies('Vehicles', {
         'Callbacks',
         'Database',
         'Fetch',
@@ -899,7 +899,7 @@ VEHICLE = {
 }
 
 AddEventHandler('Proxy:Shared:RegisterReady', function()
-    exports['method-base']:RegisterComponent('Vehicles', VEHICLE)
+    exports['sandbox-base']:RegisterComponent('Vehicles', VEHICLE)
 end)
 
 --[[
